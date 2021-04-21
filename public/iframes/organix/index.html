@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<!-- Welcome to ZIM at http://zimjs.com - Code Interactive Media Pizzazz! 	        -->
+<!-- ZIM runs on the HTML Canvas powered by JavaScript and CreateJS http://createjs.com -->
+<!-- Founded by Inventor Dan Zen - http://danzen.com - Canadian New Media Award Winner 	-->
+<!-- ZIM is free to use. You can donate to help improve ZIM at http://zimjs.com/donate 	-->
+
+<script src="https://d309knd7es5f10.cloudfront.net/createjs.min.js"></script>
+<script>
+	var zon = true; // set to false to turn off console messages from zim
+	var zns = false; // set to true to require zim namespace - eg. new Frame()
+</script>
+<script src="https://d309knd7es5f10.cloudfront.net/zim_6.4.0.js"></script>
+<!-- use zimjs.com/distill for minified individual functions! -->
+
+<script>
+
+// SCALING OPTIONS
+// scaling can have values as follows with full being the default
+// "fit"	sets canvas and stage to dimensions and scales to fit inside window size
+// "outside"	sets canvas and stage to dimensions and scales to fit outside window size
+// "full"	sets stage to window size with no scaling
+// "tagID"	add canvas to HTML tag of ID - set to dimensions if provided - no scaling
+
+var scaling = "custom"; // this will resize to fit inside the screen dimensions
+var width = 1000;
+var height = 800;
+var frame = new Frame(scaling, width, height);
+var score = 0;
+var ended = false;
+var label, finalscore;
+	
+frame.on("ready", function() {
+	//zog("ready from ZIM Frame");
+
+	var stage = frame.stage;
+	var stageW = frame.width;
+	var stageH = frame.height;
+	frame.outerColor = "#fff";
+	frame.color = "#d74f70";
+
+	frame.loadAssets(["intro.png", "endframe.png", "sugar.png", "pea.png", "corn.png", "explosion.png", "heart.png", "bag.png"], "assets/");
+	frame.loadAssets({font:"avenir", src: "assets/Avenir-Book.ttf"});
+	frame.on("complete", function() {
+
+		// ZIM BITS - Falling, Dodging and Catching Game  (2016)
+
+		// To make things fall we add an animate function to the Ticker
+		// that adds a number of pixels (speed) to the object each Tick
+		// the Ticker will add a stage.update automatically
+		// on option is to use move() to individually tween the item
+		// but this can be more work than necessary for the processor
+		// so just animating with code is fine
+
+		// often we want to make multiple copies fall
+		// we can create a setTimeout function and have it make a clone of an asset
+		// then at the end of the setTimeout function we call the function again
+		// this has the advantage of being able to set up random times between drop
+
+		// to animate multiple objects it is best to add the objects to a createjs.Container
+		// then we can loop through the objects in the container and move each one
+
+		// we often have something that is catching or avoiding the falling objects
+		// for instance, a person - then we might want the person to follow the mouse
+		// or perhaps keyboard or drag in some cases
+		// it is nice when damping is used on the movement of the person as well
+
+		// we will probably want to check if the person catches or hits the objects
+		// in the animation loop where we move the objects
+		// we need can do a hitTest to see if the object has hit the person
+		// depending on how many objects and their shapes
+		// we choose from the variety of zim hitTests
+		// the fastest hitTest is hitTestBounds as it calculates rectangle intersection
+		// others may bog if there are too many as they use graphical hitTests
+
+		// EXTRA
+		// we might want to keep score if we are collecting things
+		// and perhaps make the person lose points or die if they get hit
+		// we may want to have multiple types of things falling worth different points
+		// in that case, as we make the object we assign the points as a property of the object
+		// and then when we check the hit test, we can access the points
+		// we would want to add sounds, perhaps levels with different speeds, etc.
+
+
+		// STEPS
+		// 1. create a backing that can be used as a mask (or just go full screen)
+		// 2. create a container for the game (or just use the stage)
+		// 3. create a person to dodge and catch items and position at the bottom
+		// 4. optionally start the game when the user moves their mouse or swipes
+		// 5. add a Ticker to run an animation function
+				// note: Ticker consolidates and manages stage.updates
+		// 6. call drop functions
+		// 7. make a createjs.Container for the dropped items
+		// 8. make the drop function to add a clone of the item to the container
+		// 9. use a interval to randomly set the interval (and use requestAnimationFrame)
+		// 10. set a Damp object to handle damping the movement of the person
+		// 11. in the animate function move the person to the damped stage.mouseX
+		// 12. loop backwards through all the children of the falling item container
+		// 13. move the item
+		// 14. check to see of the item is hitting the player
+		// 15. if so then do whatever and remove the item from the container
+		// 16. also check to see if item has fallen past the ground
+		// 17. we can make little animations, etc. when things are hit
+
+
+		// STEPS
+		// 1. create a backing that can be used as a mask (or just go full screen)
+		//var backing = new Rectangle(stageW, stageH, "#666")
+		//	.center(stage)
+		//	.mov(0,0);
+
+		// 2. create a container for the game (or just use the stage)
+		var game = new Container(stage.width, stage.height)
+			.addTo(stage)
+			.pos(0, 0);
+
+		//game.setMask(backing); // do not chain setMask
+		
+	label = new Label("", 30, "avenir", "#abc180")
+		.addTo(stage)
+		.pos(40, 40);
+	
+		
+		finalscore = new Label({
+			text:"",
+			size:140,
+			font:"avenir",
+			color:"#abc180",
+			align:"center"
+		})
+		.addTo(stage)
+		.pos(game.width / 2 - 10, 190);
+
+		
+		var intro = frame.asset("intro.png")
+			.addTo(game)
+			.pos(game.width / 2, game.height /2);
+		intro.reg(intro.width/2, intro.height/2); // don't chain because we need the width of the object
+		
+		var endframe = frame.asset("endframe.png")
+			.addTo(game)
+			.pos(game.width / 2, game.height /2);
+		endframe.reg(endframe.width/2, endframe.height/2);
+		endframe.alpha = 0;// don't chain because we need the width of the object
+
+		// 3. create a person to dodge and catch items and position at the bottom
+		var bag = frame.asset("bag.png")
+			.addTo(game)
+			.pos(game.width / 2, game.height - 30);
+		bag.reg(bag.width/2, bag.height); // don't chain because we need the width of the object
+		bag.alpha = 0;
+
+
+		// 4. optionally start the game when the user moves their mouse or swipes
+		stage.on("click", startGame, null, true); // only once
+		//stage.on("stagemousemove", startGame, null, true); // only once
+		
+		function startGame() {
+			// 5. add a Ticker to run an animation function
+			// note: Ticker consolidates and manages stage.updates
+			
+			intro.alpha = 0;
+			bag.alpha = 1;
+			label.text = 0;
+			
+			Ticker.add(animate);
+
+			// 6. call drop functions
+			dropsugars();
+			droppeas();
+			dropcorns();
+			
+			setTimeout(showscore,30000);
+		}
+
+		function showscore() {
+			
+			ended = true;
+			
+			endframe.alpha = 1;
+			bag.alpha = 0;
+			label.text = "";
+			finalscore.text = score;
+			
+			loop(peas, function(pea) {
+					var heart = pea.heart;
+					heart = null;
+					peas.removeChild(pea);
+					pea = null;
+			}, true);
+			
+			loop(corns, function(corn) {
+					var heart = corn.heart;
+					heart = null;
+					corns.removeChild(corn);
+					corn = null;
+			}, true);
+			
+			loop(sugars, function(sugar) {
+					var bomb = sugar.bomb;
+					bomb = null;
+					sugars.removeChild(sugar);
+					sugar = null;
+			}, true);
+			
+			stage.on("click", resetgame, null, true);
+			
+		}
+		
+		function resetgame() {
+			
+			ended = false;
+			
+			endframe.alpha = 0;
+			bag.x = game.width / 2;
+			bag.alpha = 1;
+			score = 0;
+			finalscore.text = "";
+			label.text = score;
+
+			setTimeout(showscore,30000);
+		}
+		
+		// 7. make a createjs.Container for the dropped items
+
+		// sugarS
+		var sugars = new Container();
+		game.addChild(sugars);
+
+		// 8. make the drop function to add a clone of the item to the container
+		function dropsugars() {
+
+			// 9. use a interval to randomly set the interval (and use requestAnimationFrame)
+			interval([1400, 2200], function() {
+				
+				if (ended === false) {
+				var sugar = frame.asset("sugar.png").clone();
+				sugar
+					.reg(sugar.width/2, sugar.height)
+					.pos(rand(sugar.width, game.width-sugar.width), -10)
+					.addTo(sugars);
+
+				var explosion = frame.asset("explosion.png").clone();
+				explosion.reg(explosion.width/2, explosion.height-10);
+				sugar.explosion = explosion;
+			}});
+		}
+
+		// 7. make a createjs.Container for the dropped items
+
+		// peaS
+		var peas = new Container().addTo(game);
+
+		// 8. make the drop function to add a clone of the item to the container
+		// if you have lots of types of items then consider a function with parameters
+		// and configuration arrays to handle asset, points, interval, speed, etc.
+		function droppeas() {
+
+			// 9. use a interval to randomly set the interval (and use requestAnimationFrame)
+			interval([1600, 3600], function() {
+				
+				if (ended === false) {
+				var pea = frame.asset("pea.png").clone();
+				pea
+					.reg(pea.width/2, pea.height)
+					.pos(rand(pea.width, game.width-pea.width), -10)
+					.addTo(peas);
+
+				var heart = frame.asset("heart.png").clone();
+				heart.reg(heart.width/2, heart.height - 10);
+				pea.heart = heart;
+			}});
+		}
+		
+		var corns = new Container().addTo(game);
+		
+		function dropcorns() {
+
+			// 9. use a interval to randomly set the interval (and use requestAnimationFrame)
+			interval([500, 1500], function() {
+				
+				if (ended === false) {
+				var corn = frame.asset("corn.png").clone();
+				corn
+					.reg(corn.width/2, corn.height)
+					.pos(rand(corn.width, game.width-corn.width), -10)
+					.addTo(corns);
+
+				var heart = frame.asset("heart.png").clone();
+				heart.reg(heart.width/2, heart.height);
+				corn.heart = heart;
+			}});
+		}
+
+		// 10. set a Damp object to handle damping the movement of the person
+		var damp = new Damp(null, .3);
+		damp.immediate(bag.x);
+
+		var speed = 10;
+		
+		function animate() {
+			// 11. in the animate function move the person to the damped stage.mouseX
+			
+			if (ended === false) {
+			
+			bag.x = damp.convert(stage.mouseX-game.x);
+
+			// 12. loop backwards through all the children of the falling item container
+			loop(sugars, function(sugar) {
+				// 13. move the item
+				sugar.y+=speed;
+				// hitTestCircle would be better test but could bog depending...
+				// if (bag.hitTestCircle(sugar)) {
+
+				// 14. check to see of the item is hitting the player
+				if (bag.hitTestBounds(sugar)) {
+
+					// 15. if so then do whatever and remove the item from the container
+					// lose game or take away life or points, play sound, etc.
+					explode(sugar);
+				}
+
+				// 16. also check to see if item has fallen past the ground
+				//if (sugar.y >= game.height+1) {
+				//	explode(sugar);
+				//}
+			}, true); // true loops backwards as we are removing children
+
+			var pea;
+			loop(peas, function(pea) {
+				pea.y+=speed;
+				if (bag.hitTestBounds(pea)) {
+					grabpea(pea);
+					// get points etc.
+				}
+				if (pea.y >= game.height+pea.height+10) {
+					var heart = pea.heart;
+					heart = null;
+					peas.removeChild(pea);
+					pea = null;
+				}
+			}, true); // true loops backwards as we are removing children
+			
+			var corn;
+			loop(corns, function(corn) {
+				corn.y+=speed;
+				if (bag.hitTestBounds(corn)) {
+					grabcorn(corn);
+					// get points etc.
+				}
+				if (corn.y >= game.height+corn.height+10) {
+					var heart = corn.heart;
+					heart = null;
+					corns.removeChild(corn);
+					corn = null;
+				}
+			}, true);
+		
+		} 
+		}
+
+		// 17. we can make little animations, etc. when things are hit
+		function explode(sugar) {
+			var explosion = sugar.explosion;
+			score --;
+			if (score < 0) score = 0;
+			label.text = score;
+			if (explosion) {
+				explosion
+					.addTo(stage)
+					.pos(game.x + sugar.x, game.y + sugar.y)
+					.animate({alpha:0}, 100, null, remove, null, 100); // last param is wait
+			}
+			sugar.removeFrom(sugars);
+			sugar = null;
+
+			// alternate closure for removing with setTimeout if performance issues
+			// not in this simple case but there could be with hundreds of items
+			// (function() {
+			// 	var oldExplosion = explosion;
+			// 	setTimeout(function(){
+			// 		remove(oldExplosion);
+			// 	}, 300)
+			// }());
+		}
+
+		// 17. we can make little animations, etc. when things are hit
+		function grabpea(pea) {
+			var heart = pea.heart;
+			pea.removeFrom(peas);
+			score += 2;
+			label.text = score;
+			pea = null;
+			heart
+				.addTo(stage)
+				.pos(game.x + bag.x, game.y  + bag.y - bag.height + 20)
+				.animate({alpha:0}, 100, null, remove, null, 100); // last param is wait;
+		}
+		
+		function grabcorn(corn) {
+			var heart = corn.heart;
+			corn.removeFrom(corns);
+			score ++;
+			label.text = score;
+			corn = null;
+			heart
+				.addTo(stage)
+				.pos(game.x + bag.x, game.y  + bag.y - bag.height + 20)
+				.animate({alpha:0}, 100, null, remove, null, 100); // last param is wait;
+		}
+
+		function remove(obj) {
+			stage.removeChild(obj);
+			obj = null;
+		}
+
+		stage.update();
+
+	}); // end of assets complete
+
+	stage.update();
+
+}); // end of ready
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+
+<style>
+
+#custom {
+  width: 998px;
+  height: 798px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+</head>
+
+<body>
+	<div id="custom"></div>
+</body>
+</html>

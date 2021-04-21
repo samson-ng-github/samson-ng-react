@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="ad.size" content="width=300,height=50">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PreloadJS/1.0.1/preloadjs.min.js"></script>
+        <script src="js/SplitText.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">   
+        <link rel="stylesheet" type="text/css" href="style.css" />
+	    <style type="text/css">#container_dc{display:none;z-index:20}</style>
+        <script type="text/javascript">var clickTag = "https://www.google.com";</script>
+        <script>
+            var copyArray = [
+                 "Don’t just manage data."]; //use <br> to split onto new line
+            var frameDelay = 1.5; //Pause between frames, use 1.5 for APAC
+            var cDelay = 1.75; //if the cursor appears too early increase to about 2
+            var eDelay = 0; //if the copy doesn't all appear on the last frame, increase in .1 amounts.
+            var backgroundColor = "#4e5052";
+            var cursorEndPosTop = 25;
+            var cursorEndPosLeft = 120;
+
+            var redlines = 1; //How many red highlighted frames are there?
+
+            //include copy images as required...
+            manifest = [
+                {src:"images/img_endcopy_01.png", id:"endcopy01"},
+                // {src:"images/img_endcopy_02.png", id:"endcopy02"},
+                // {src:"images/img_endcopy_03.png", id:"endcopy03"},
+                // {src:"images/img_endcopy_04.png", id:"endcopy04"},
+                {src:"images/img_highlight_01.png", id:"highlight01"},
+                // {src:"images/img_highlight_02.png", id:"highlight02"},
+                // {src:"images/img_highlight_03.png", id:"highlight03"},
+                // {src:"images/img_highlight_04.png", id:"highlight04"},
+                {src:"images/img_cta.png", id:"cta"},
+                {src:"images/img_ctaArrow.png", id:"ctaArrow"},
+                {src:"images/img_logo.png", id:"logo"},
+                {src:"images/img_replayBtn.png", id:"replayImg"}
+            ];
+            
+        </script>
+
+	</head>
+
+	<body>
+		<div id="container" class="fullsize" style="visibility: hidden">
+            
+            <div id="logo" class="fullsize"></div>
+            <div id="copyHolder">
+                <div id="copy" class="copy"></div>
+            </div>
+            <div id="cursor"></div>
+            
+            <div id="endCopyHolder01" class="fullsize">
+                <div id="highlightHolder01" class="fullsize">
+                    <div id="highlight01" class="fullsize"></div>
+                </div>
+                <div id="endcopy01" class="fullsize"></div>
+            </div>
+            <div id="endCopyHolder02" class="fullsize">
+                <div id="highlightHolder02" class="fullsize">
+                    <div id="highlight02" class="fullsize"></div>
+                </div>
+                <div id="endcopy02" class="fullsize"></div>
+            </div>
+            <div id="endCopyHolder03" class="fullsize">
+                <div id="highlightHolder03" class="fullsize">
+                    <div id="highlight03" class="fullsize"></div>
+                </div>
+                <div id="endcopy03" class="fullsize"></div>
+            </div>
+            <div id="endCopyHolder04" class="fullsize">
+                <div id="highlightHolder04" class="fullsize">
+                    <div id="highlight04" class="fullsize"></div>
+                </div>
+                <div id="endcopy04" class="fullsize"></div>
+            </div>
+            
+            <div id="cta" class="fullsize"></div>
+            <div id="ctaArrow" class="fullsize"></div>
+	    	<div id="replayImg" class="fullsize"></div>
+<div id="btn_exit" class="fullsize"></div>
+            <div id="replay_btn"></div>
+            <div id="margin" class="fullsize"><img src="images/margin.png" style="opacity:0;" /></div>
+            
+
+	    </div>
+
+
+	<script src="js/banner.js"></script>
+
+	</body>
+</html>

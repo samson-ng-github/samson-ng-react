@@ -1,0 +1,194 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 960px;
+  height: 378px;
+}
+
+#border {
+  position: absolute;
+  width: 960px;
+  height: 378px;
+  outline: 1px solid black;
+  outline-offset: -1px;
+  pointer-events: none;
+}
+
+#video-container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 672px;
+  height: 378px;
+  background-color: black;
+}
+
+#panel-container {
+  position: absolute;
+  left: 672px;
+  top: 0px;
+  width: 288px;
+  height: 378px;
+  background-color: white;
+}
+
+#video {
+  width: 672px;
+  height: 378px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+}
+
+.slide-txt {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 70%;
+}
+
+#txt {
+  position: absolute;
+  top: 39px;
+  left: 30px;
+}
+
+#logo {
+  position: absolute;
+  top: 312px;
+  left: 155px;
+  border: 0px;
+}
+
+#animal {
+  position: absolute;
+  top: 215px;
+  left: 15px;
+}
+
+#spot1 {
+  left: 105px;
+}
+
+#spot2 {
+  left: 138px;
+}
+
+#spot3 {
+  left: 171px;
+}
+
+.spot {
+  position: absolute;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.pulsate:hover {
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -ms-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+
+  -webkit-animation-name: activate;
+  -moz-animation-name: activate;
+  -ms-animation-name: activate;
+  -o-animation-name: activate;
+  animation-name: activate;
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+  -ms-animation-direction: alternate;
+  -o-animation-direction: alternate;
+  animation-direction: alternate;
+
+  -webkit-animation-timing-function: ease-out;
+  -moz-animation-timing-function: ease-out;
+  -ms-animation-timing-function: ease-out;
+  -o-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes activate {
+  from {
+    background-color: white;
+    -webkit-transform: scale(1);
+  }
+
+  to {
+    background-color: #53a7ea;
+    -webkit-transform: scale(1.5);
+  }
+}
+
+@-moz-keyframes activate {
+  from {
+    background-color: white;
+    -moz-transform: scale(1);
+  }
+
+  to {
+    background-color: #53a7ea;
+    -moz-transform: scale(1.5);
+  }
+}
+
+@-ms-keyframes activate {
+  from {
+    background-color: white;
+    -ms-transform: scale(1);
+  }
+
+  to {
+    background-color: #53a7ea;
+    -ms-transform: scale(1.5);
+  }
+}
+
+@-o-keyframes activate {
+  from {
+    background-color: white;
+    -o-transform: scale(1);
+  }
+
+  to {
+    background-color: #53a7ea;
+    -o-transform: scale(1.5);
+  }
+}
+
+@keyframes activate {
+  from {
+    background-color: white;
+    transform: scale(1);
+  }
+
+  to {
+    background-color: #53a7ea;
+    transform: scale(1.5);
+  }
+}
+
+#button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 288px;
+  height: 378px;
+  background-image: url("../assets/img/bg.jpg");
+}

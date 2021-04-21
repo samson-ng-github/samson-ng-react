@@ -1,0 +1,274 @@
+body, body * {
+  vertical-align: baseline;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  color: #333;
+}
+
+#preload {
+    position:absolute;
+    width:300px;
+    height:250px;
+    top:0;
+    left:0;
+}
+
+#preload .wheel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left:-25px;
+    margin-top:-25px;
+    background: url('../img/preloader.gif');
+}
+
+#banner {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  top: 0px;
+  left: 0px;
+}
+
+#exit {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+#safezone {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  border: none;
+  overflow: hidden; 
+  border: 1px solid black;
+  box-sizing: border-box;
+  background-color: #fff;
+  background-repeat: no-repeat;
+}
+
+#container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  visibility: hidden;
+}
+
+.container .img {
+  position: absolute;
+  width: 302px;
+  height: 252px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+	
+/* video */
+
+#video-container {
+   position: absolute;
+   width:300px;
+   height:250px;
+   opacity:1;
+   background-color: #000;
+}
+
+#video-BT {
+   position: absolute;
+   width:300px;
+   height: 168px;
+   background-color: #252525;
+   top: 29px;
+}
+
+#Video-controls {
+  opacity:0;
+  visibility:hidden;
+}
+
+.video-controls {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  bottom: 10px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* Video button hiding an positioning */
+
+.video-controls:hover {
+  border-bottom: 1px solid #e6328c;
+}
+
+#progress-bar {
+  position: absolute;
+  background-color: #fff;
+  bottom: 2px;
+  height: 2px;
+  opacity: 0.3;
+}
+
+#play-btn {
+  background-image:url(../img/play.svg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  left: 6px;
+}
+
+#pause-btn {
+  background-image:url(../img/pause.svg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  left: 6px;
+}
+
+#stop-btn {
+  background-image:url(../img/stop.svg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  left: 28px;
+}
+
+#unmute-btn {
+  background-image:url(../img/unmute.svg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  width:30px;
+  height:30px;
+  bottom: 5px;
+  right: 3px;
+}
+
+#mute-btn {
+  background-image:url(../img/mute.svg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  width:30px;
+  height:30px;
+  bottom: 5px;
+  right: 3px;
+}
+
+#replay-btn {
+  background-image:url(../img/replay.svg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  left: 50px;
+}
+
+.play-btn-iPad {
+  position:absolute;
+  background-image:url(../img/poster.jpg);
+  background-repeat:no-repeat;
+  width:300px;
+  height:250px;
+  top:0px;
+  left: 0px;;
+}
+
+.replay-side-btn {
+  position:absolute;
+  background-image:url(../img/replay-btn-big.svg);
+  background-repeat:no-repeat;
+  cursor: pointer;
+  width:30px;
+  height:30px;
+  bottom: 5px;
+  left: 3px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* banner images */
+.bt-logo{
+	position: absolute;
+	right: 8px;
+	bottom: 5px;
+	opacity: 0;
+}
+.bt-logo-white{
+	position: absolute;
+	right: 0px;
+	bottom: -3px;
+	opacity: 0;
+}
+.final-frame{
+	position: absolute;
+	right: -1px;
+	top: -1px;
+}
+.cta {
+  position:absolute;
+  left: 245px;
+  top: 187px;
+  width:180px;
+  height:40px;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 7px;
+  border: 2px solid white;
+  display:inline-block;
+}
+
+#cta {
+  position: absolute;
+  background-image:url(../img/cta.png);
+  width: 88px;
+  height: 20px;
+  left: 106px;
+  bottom: 13px;
+}
+
+#wtfs {
+  position:absolute;
+}
+
+#halo {
+  position:absolute;
+  background-image:url(../img/halo.png);
+  width: 120px;
+  height: 120px;
+  top: 65px;
+  left: 90px;
+}
+
+#start {
+  position:absolute;
+  background-image:url(../img/start.png);
+  width: 54px;
+  height: 62px;
+  top: 94px;
+  left: 129px;
+  -webkit-animation: glow 1s ease-out 0s alternate infinite;
+  animation: glow 1s ease-out 0s alternate infinite;;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes glow {
+    from {opacity: 0;}
+    to {opacity: 0.5;}
+}
+
+/* Standard syntax */
+@keyframes glow {
+    from {opacity: 0;}
+    to {opacity: 0.5;}
+}
+
+:focus {
+  outline:none;
+}
+::-moz-focus-inner {
+  border:0;
+}

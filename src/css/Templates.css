@@ -1,0 +1,292 @@
+.about-me-template {
+  width: 750px;
+}
+
+.about-me-template-img {
+  width: 750px;
+  height: 750px;
+}
+
+.single-iframe-container .about-me-template-img-mobile,
+.single-iframe-container .pencil-drawing-template-img-mobile {
+  width: 300px;
+  height: 250px;
+  display: none;
+}
+
+.single-iframe-container iframe {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+iframe {
+  border: none;
+}
+
+.general-300x250 {
+  width: 300px;
+  height: 250px;
+}
+
+.general-970x250 {
+  width: 970px;
+  height: 250px;
+}
+
+.general-300x600 {
+  width: 300px;
+  height: 600px;
+}
+
+.general-160x600 {
+  width: 160px;
+  height: 600px;
+}
+
+.general-728x90 {
+  width: 728px;
+  height: 90px;
+}
+
+.general-320x50 {
+  width: 320px;
+  height: 50px;
+}
+
+.general-300x50 {
+  width: 300px;
+  height: 50px;
+}
+
+.general-970x66 {
+  width: 970px;
+  height: 66px;
+}
+
+.general-960x378 {
+  width: 960px;
+  height: 378px;
+}
+
+.single-iframe-container {
+  padding: 1rem 1rem 1rem 0;
+}
+
+.four-mpu-container {
+  width: 100%;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-rows: 250px;
+  justify-content: start;
+  margin: 1rem 1rem 1rem 0;
+}
+
+.muliti-iframe-container {
+  position: relative;
+  margin: 1rem 1rem 1rem 0;
+}
+
+.muliti-iframe-container iframe {
+  position: absolute;
+}
+
+.facebook-300x600,
+.fifa19-300x250,
+.fitbit-300x250,
+.oracle-300x250,
+.philadelphia-970x250-1,
+.sky-160x600 {
+  left: 0;
+  top: 0;
+}
+
+.fifa19-970x250,
+.fitbit-970x250,
+.oracle-160x600 {
+  left: 300px;
+  top: 0;
+  transform: translate(1rem, 0);
+}
+
+.fifa19-300x600,
+.fitbit-300x600,
+.philadelphia-970x250-2,
+.oracle-300x600 {
+  left: 0px;
+  top: 250px;
+  transform: translate(0, 1rem);
+}
+
+.fifa19-160x600,
+.fitbit-728x90 {
+  left: 300px;
+  top: 250px;
+  transform: translate(1rem, 1rem);
+}
+
+.facebook-300x250 {
+  left: 300px;
+  top: 0px;
+  transform: translate(1rem, 0);
+}
+
+.facebook-728x90 {
+  left: 300px;
+  top: 250px;
+  transform: translate(1rem, 1rem);
+}
+
+.fifa19-970x66 {
+  left: 460px;
+  top: 250px;
+  transform: translate(2rem, 1rem);
+}
+
+.fifa19-728x90 {
+  left: 460px;
+  top: 316px;
+  transform: translate(2rem, 2rem);
+}
+
+.fifa19-320x50 {
+  left: 460px;
+  top: 406px;
+  transform: translate(2rem, 3rem);
+}
+
+.fitbit-300x50 {
+  left: 300px;
+  top: 390px;
+  transform: translate(1rem, 3rem);
+}
+
+.fitbit-320x50 {
+  left: 300px;
+  top: 340px;
+  transform: translate(1rem, 2rem);
+}
+
+.oracle-728x90 {
+  left: 460px;
+  top: 0px;
+  transform: translate(2rem, 0);
+}
+
+.oracle-320x50 {
+  left: 460px;
+  top: 90px;
+  transform: translate(2rem, 1rem);
+}
+
+.oracle-300x50 {
+  left: 460px;
+  top: 140px;
+  transform: translate(2rem, 2rem);
+}
+
+.philadelphia-970x250-3 {
+  left: 0px;
+  top: 500px;
+  transform: translate(0, 2rem);
+}
+
+.sky-300x250 {
+  left: 160px;
+  top: 0px;
+  transform: translate(1rem, 0);
+}
+
+.sky-728x90 {
+  left: 160px;
+  top: 250px;
+  transform: translate(1rem, 1rem);
+}
+
+.iframe-border {
+  border: 1px solid black;
+}
+
+.single-iframe-container p {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.3;
+}
+
+.single-iframe-container p:last-child {
+  margin: 1rem 0 0 0;
+}
+
+.single-iframe-container img {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .about-me-template-container,
+  .pencil-drawing-template-container {
+    width: 300px !important;
+  }
+
+  .single-iframe-container .about-me-template-img,
+  .single-iframe-container .pencil-drawing-template-img {
+    display: none;
+  }
+
+  .single-iframe-container .about-me-template-img-mobile,
+  .single-iframe-container .pencil-drawing-template-img-mobile {
+    width: 300px;
+    height: 250px;
+    display: block;
+  }
+
+  .single-iframe-container {
+    margin: 0 auto;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .four-mpu-container,
+  .muliti-iframe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    grid-gap: 0rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .philadelphia-mobile-container {
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .four-mpu-container iframe,
+  .muliti-iframe-container iframe {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    transform: translate(0, 0);
+    margin-bottom: 1rem;
+  }
+
+  .facebook-728x90,
+  .fifa19-970x250,
+  .fifa19-728x90,
+  .fifa19-970x66,
+  .fifa19-320x50,
+  .fitbit-970x250,
+  .fitbit-728x90,
+  .fitbit-320x50,
+  .oracle-728x90,
+  .oracle-320x50,
+  .sky-728x90 {
+    display: none;
+  }
+
+  .philadelphia-970x250-1,
+  .philadelphia-970x250-2,
+  .philadelphia-970x250-3 {
+    align-self: flex-start;
+  }
+}

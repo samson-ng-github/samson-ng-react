@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - particles - sprites</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0px;
+				overflow: hidden;
+
+			}
+
+
+		</style>
+	</head>
+	<body>
+
+
+		<script src="build/three.min.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<!--script src="js/libs/stats.min.js"></script-->
+
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var geometry, sprite, material, particles, camera, scene, renderer, /*stats,*/ container;
+                        var cameraCube, sceneCube;
+			var mouseX = 0, mouseY = 0, particle_count = 2000, time = 1000;
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+			init();
+			animate();
+
+			function init() {
+                            
+				scene = new THREE.Scene();
+                                scene.fog = new THREE.Fog( 0x000000, 500, 3000 );
+                                sceneCube = new THREE.Scene();
+                                
+
+                                
+                                
+                                // skybox
+
+				var path = "textures/cube/night_sky/";
+				var format = '.jpg';
+				var urls = [
+					path + 'px copy' + format, path + 'nx copy' + format,
+					path + 'py copy' + format, path + 'ny copy' + format,
+					path + 'pz copy' + format, path + 'nz copy' + format
+				];
+
+				var textureCube = THREE.ImageUtils.loadTextureCube( urls, new THREE.CubeRefractionMapping() );
+
+
+				var shader = THREE.ShaderLib[ "cube" ];
+				shader.uniforms[ "tCube" ].value = textureCube;
+
+				var material = new THREE.ShaderMaterial( {
+
+					fragmentShader: shader.fragmentShader,
+					vertexShader: shader.vertexShader,
+					uniforms: shader.uniforms,
+					depthWrite: false,
+					side: THREE.BackSide
+
+				} );
+
+				mesh = new THREE.Mesh( new THREE.CubeGeometry( 100, 100, 100 ), material );
+				sceneCube.add( mesh );
+                                
+                                // snow
+
+				geometry = new THREE.Geometry();
+        			sprite = THREE.ImageUtils.loadTexture( "textures/sprites/snowflake2.png" );
+
+				for ( var i = 0; i < particle_count; i ++ ) {
+                                    var pX = Math.random() * 2000 - 1000,
+                                        pY = Math.random() * 2000 - 1000,
+                                        pZ = Math.random() * 2000 - 1000,
+                                        particle = new THREE.Vector3(pX, pY, pZ);
+                    
+                                    particle.velocity = new THREE.Vector3(0, -Math.random(), 0);
+                                    geometry.vertices.push(particle);
+
+				}
+
+				material = new THREE.ParticleBasicMaterial( { size: 15, map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent : true } );
+				//material.color.setHSL( 1.0, 0.2, 0.5 );
+
+				particles = new THREE.ParticleSystem( geometry, material );
+                                particles.sortParticles = true;
+				scene.add( particles );
+                                
+                                
+                                
+                                // camera
+
+
+                                
+                                
+                                camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
+                                camera.position.z = 1000;
+                                cameraCube = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+                                //renderer.setClearColor( 0x000000 );
+                                renderer.autoClear = false;
+                                
+				//stats = new Stats();
+				//stats.domElement.style.position = 'absolute';
+				//stats.domElement.style.top = '0px';
+                                
+                                container = document.createElement( 'div' );
+				//container.appendChild( stats.domElement );
+				container.appendChild( renderer.domElement );
+                                
+                                document.body.appendChild( container );	
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+                                
+				cameraCube.aspect = window.innerWidth / window.innerHeight;
+				cameraCube.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function onDocumentMouseMove( event ) {
+
+				mouseX = event.clientX - windowHalfX;
+				mouseY = event.clientY - windowHalfY;
+
+			}
+
+			function onDocumentTouchStart( event ) {
+
+				if ( event.touches.length === 1 ) {
+
+					event.preventDefault();
+
+					mouseX = event.touches[ 0 ].pageX - windowHalfX;
+					mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+				}
+
+			}
+
+			function onDocumentTouchMove( event ) {
+
+				if ( event.touches.length === 1 ) {
+
+					event.preventDefault();
+
+					mouseX = event.touches[ 0 ].pageX - windowHalfX;
+					mouseY = event.touches[ 0 ].pageY - windowHalfY;
+
+				}
+
+			}
+
+			//
+
+			function animate() {
+
+				
+
+                                requestAnimationFrame( animate );
+                                
+				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+				camera.lookAt( scene.position );
+                                cameraCube.rotation.copy( camera.rotation );
+                                
+                                
+                                var num = perlin_noise(time);
+                                time += 0.01;
+                                
+                                particles.rotation.y += 0.002;
+                                for( var v = 0; v < geometry.vertices.length; v++ ) {
+			
+                                    if(geometry.vertices[v].y < -1000) {
+                                        geometry.vertices[v].y = 1000;
+                                        geometry.vertices[v].velocity.y = 0;
+                                        }
+                                        
+                                    //if(geometry.vertices[v].x < -1000) {
+                                    //    geometry.vertices[v].x = 1000;
+                                    //    geometry.vertices[v].velocity.x = 0;
+                                    //    }
+
+                                    geometry.vertices[v].velocity.y -= num * .05;
+                                    geometry.vertices[v].y += geometry.vertices[v].velocity.y;
+                                    
+                                    //geometry.vertices[v].velocity.x -= num * .01;
+                                    //geometry.vertices[v].x += geometry.vertices[v].velocity.x;
+                
+                                }
+
+                                renderer.render( sceneCube, cameraCube );
+				renderer.render( scene, camera );
+                                
+				//stats.update();
+                                
+
+			}
+
+                        function random(seed) {
+ 
+                               
+ 
+                                return ( (seed * 9301 + 49297) % 233280 ) / 233280;
+                        }
+                        
+
+                        function smoothed_noise (x) {
+                                return ( random(x)/2  +  random(x-1)/4  +  random(x+1)/4 );
+                        }
+
+                        function interpolated_noise(x) {
+
+                                var integer_x = Math.trunc(x),
+                                    fractional_x = x - integer_x,
+                                    v1 = smoothed_noise(integer_x),
+                                    v2 = smoothed_noise(integer_x + 1);
+                                return ( v1*(1-fractional_x) + v2*fractional_x );
+
+                        }
+
+
+                        function perlin_noise(x) {
+
+                                var total = 0,
+                                    p = 0.25,
+                                    n = 11 - 1;
+
+                                for (var i = 0; i < n; i ++) {
+
+                                    frequency = Math.pow(2,i); 
+                                    amplitude = Math.pow(p,i); 
+                                    total = total + interpolated_noise(x * frequency) * amplitude;
+
+                                }
+
+                        return total
+
+                        }
+
+		</script>
+	</body>
+</html>

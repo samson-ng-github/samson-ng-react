@@ -1,0 +1,516 @@
+  <!doctype html>
+
+<!-- John Hulme | 10/09/19 -->
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="ad.size" content="width=320, height=50"> <!--Needs updating when using DCM as adserver-->
+
+<script type="text/javascript">
+    var clickTag = "https://www.fitbit.com/uk/sense"; //URL only used for testing if DCM clicks through - this is overwritten in adsever
+</script>
+
+<!--update with brand and title as required-->
+
+<title>Fitbit | Sense</title>
+
+<script type="text/javascript" src="https://cdn.flashtalking.com/frameworks/js/gsap/1.19.1/TweenMax.min.js"></script>
+
+<!--CSS begins-->
+
+<style type="text/css">
+
+@charset "UTF-8";
+html, body, div, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	outline: 0px;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+* { position: absolute; background-repeat:no-repeat; -webkit-backface-visibility: hidden; transition-property: opacity, transform; }
+body { margin: 0px; overflow:hidden; background-color:#fff; font-kerning: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+img { width: 100%; height: 100%; }
+br { position:relative; }
+
+.pos {position: absolute; top:0; left:0; }
+.size { width: 100%; height: 100%; background-size: contain; overflow:hidden; }
+
+/*
+.blue   { color: #002a3a; }
+.lblue  { background-color: #00B0B9; }
+*/
+.white  { color: #fff; }
+
+
+#border { box-sizing: border-box; border: 1px solid black; opacity: 1; }
+
+#ad {
+    top:0px;
+	left:0px;
+    width:320px;
+	height:50px;
+    color: white;
+	cursor:pointer;
+	overflow:hidden;
+    visibility: hidden;
+}
+
+img {
+	width: 320px;
+	height: 50px;
+	top: 0;
+	left: 0;
+}
+
+#route{
+	visibility: hidden;
+	position: absolute;
+}
+    
+.light_colour1 { background-color: #8d8683; }
+.light_colour2 { background-color: #bcb1ac; }
+.dark_colour1 { background-color: #1f2328; }
+.dark_colour2 { background-color: #33383d; }
+.pink_colour1 { background-color: #b37363; }
+.pink_colour2 { background-color: #d88b76; }
+    
+
+.deviceImage {
+    width:400px;
+    height:400px;
+}
+	
+#masterHolder {	
+	top:36px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var server = 0;			//Select from the array below which adserver you require - Use DCM for locally served banner (no adserver)
+var adServer = ["dcm","studio","sizmek","ft"];	//This template can work with DCM - 0, Studio - 1, Sizmek 2 or - Flashtalking - 3 
+	
+var rollover = true; 	//make this true to have rollover effect 
+var legalID = "ad"		//name of the div id to target to activate rollover
+
+var newOn = true;
+
+var colour1, colour2, colour3, colour4, colour5, colour6, m;
+
+var gold = "#fee0d0";
+var silver = "#d5cccb"
+
+var fitbitTimeline = new TimelineMax();
+	
+var route = "smartphone";
+var range = "sense";
+var theme = "light";
+
+function init(){
+    
+        if (route == "voice") { duplicateDevice(); }
+        setRange(range);
+        setTheme(theme);
+        createTimeline();
+        resetTimeline();
+        setTimelineAnimation(route);
+        setClicks();
+        setRollovers();
+        tl_play();
+}
+
+function setRange(range) {
+    console.log("|| Preload: Product range: " + range);
+    switch(range){
+        case "sense" : 
+            document.getElementById("deviceHolder").style = "left: 0px; top: 18px;";
+            break;
+        case "versa" : 
+            document.getElementById("deviceHolder").style = "left: -3px; top: 17px;";
+            break;
+        case "inspire" :
+            document.getElementById("deviceHolder").style = "left: 0px; top: 17px;";
+            break;
+    }
+}
+    
+function setTheme(theme) {
+    console.log("|| Preload: Theme: " + theme);
+    switch(theme){
+        case "light" : 
+            document.getElementById("cover1").className = "pos size light_colour1";
+            document.getElementById("cover2").className = "pos size light_colour2"; 
+            break;
+        case "dark" :
+            document.getElementById("cover1").className = "pos size dark_colour1";
+            document.getElementById("cover2").className = "pos size dark_colour2"; 
+            break;
+        case "pink" :
+            document.getElementById("cover1").className = "pos size pink_colour1";
+            document.getElementById("cover2").className = "pos size pink_colour2"; 
+            break;
+    }
+}
+    
+function duplicateDevice() {
+    
+    var firstDevice = document.querySelector('#deviceHolder');
+    var cloneDevice = firstDevice.cloneNode(true);
+    
+    cloneDevice.id = 'deviceHolder2';
+    
+    cloneDevice.firstChild.id = 'device2';
+    cloneDevice.childNodes[2].id = 'device2Screen1';
+    
+    cloneDevice.firstChild.src = "images/device2.png";
+    cloneDevice.childNodes[2].src = "images/screen2.png";
+
+    firstDevice.after(cloneDevice);
+    
+}
+    
+function createTimeline () {
+    fitbitTimeline = new TimelineMax({paused:true, repeat:0, repeatDelay:3});
+    fitbitTimeline.timeScale(1);
+}
+    
+function resetTimeline () {
+    fitbitTimeline.set( "#copy1, #copy2, #copy3, #price, #flag, #cta, #cta_on, #deviceScreen2, #appButtons", { autoAlpha: 0 } );
+    fitbitTimeline.set( "#copy1, #copy2, #copy3, #price", { x: "-10%" } );
+    fitbitTimeline.set( "#cover1, #cover2", { x: "320" } );
+    fitbitTimeline.set( "#cta", { x: 320*0.3, y: 0} );
+    fitbitTimeline.set( "#masterHolder", { x: 0, y:-35 } );
+    fitbitTimeline.set( "#deviceHolder", { rotation: -40, scale:1, x: 520, y:230 } );
+    fitbitTimeline.set( "#flag", { y:-50 } );
+}
+    
+function setTimelineAnimation (route) {
+    console.log("|| Animation: Setup Timelines")
+
+    if(route=="voice"){
+        console.log("|| Animation: Voice route");
+
+        fitbitTimeline.set( "#deviceHolder", { rotation: 0, scale:1, x: 160, y:0 } );
+        fitbitTimeline.set( "#deviceHolder2", { rotation: 0, scale:1, x: -55, y:18 } );
+        fitbitTimeline.set( "#masterHolder", { rotation: -50, scale:.9, x: 300, y:80 } )
+        fitbitTimeline.set( "#cta", { x: "3.5%" } );
+
+        fitbitTimeline.addLabel( "frame1" )
+            .to( "#ad", 1, {autoAlpha: 1, ease:Sine.easeOut }, "frame1")
+            .to( "#copy1", .75, {x:'0%', autoAlpha: 1, ease:Power2.easeOut }, "frame1")
+        fitbitTimeline.addLabel( "frame2", "+=2" )
+            .to( "#copy1", .75, {x:'-10%', autoAlpha: 0, ease:Power2.easeIn }, "frame2")
+            .to( "#cover1", 1.25, {x:'0', ease:Power1.easeInOut }, "frame2")
+            .to( "#cover2", 1.25, {x:'585', ease:Power1.easeInOut }, "frame2")
+            .to( "#copy2, #cta", .75, {x:'25', autoAlpha: 1, ease:Power2.easeOut, delay:.75 }, "frame2")
+            .to( "#masterHolder", .75, { rotation: -30, scale:.11, x: 200, y:-10, ease:Power2.easeOut, delay:.75 }, "frame2" )
+            //.to( "#deviceHolder2", .75, { x: -8, ease:Power2.easeOut, delay:.95 }, "frame2" )
+        fitbitTimeline.addLabel( "frame3", "+=2" )
+            .to( "#cover2", 1.25, {x:'0', ease:Power1.easeInOut, delay:.25 }, "frame3")
+            .to( "#copy2", .75, {x:'-10%', autoAlpha: 0, ease:Power2.easeIn }, "frame3")
+            .to( "#masterHolder", 1.5, { rotation: 0, scale:.11, x: 77, y:-34, ease:Power2.easeInOut }, "frame3" )
+            //.to( "#deviceShadow", 1.5, { y: 0, autoAlpha: .6, ease:Power2.easeInOut }, "frame3" )
+            .to( "#copy3", .75, {x:'2%', autoAlpha: 1, ease:Power2.easeOut, delay:.75 }, "frame3")
+            
+            .to( "#cta", .75, { x: -20, ease:Power2.easeInOut, delay:0.5 }, "frame3" )
+            .to( "#price", .75, {x:'-3%', y:0, autoAlpha: 1, ease:Power2.easeOut, delay:1.5 }, "frame3") 
+            .to( "#flag", .75, {x:'0%', y:0, autoAlpha: 1, ease:Power2.easeOut, delay:1.5 }, "frame3")  
+            .to( "#appButtons", .75, {autoAlpha: 1, ease:Power2.easeOut, delay:1.5 }, "frame3") 
+    }else{
+        console.log("|| Animation: Single Route");
+        fitbitTimeline.addLabel( "frame1" )
+            .to( "#ad", 1, {autoAlpha: 1, ease:Sine.easeOut }, "frame1")
+            .to( "#copy1", .75, {x:'0%', autoAlpha: 1, ease:Power2.easeOut }, "frame1")
+        fitbitTimeline.addLabel( "frame2", "+=2" )
+            .to( "#copy1", .75, {x:'-10%', autoAlpha: 0, ease:Power2.easeIn }, "frame2")
+            .to( "#cover1", 1.25, {x:'0', ease:Power1.easeInOut }, "frame2")
+            .to( "#cover2", 1.25, {x:500/2, ease:Power1.easeInOut }, "frame2")
+            .to( "#copy2", .75, {x:'0%', autoAlpha: 1, ease:Power2.easeOut, delay:.75 }, "frame2")
+			//.to( "#cta", .75, {x:37, autoAlpha: 1, ease:Power2.easeOut, delay:.75 }, "frame2")
+            .to( "#deviceHolder", .75, { rotation: -30, scale:.187, x: 320-42-150-54+2, y:-120-25-50+16, ease:Power2.easeOut, delay:.75 }, "frame2" )
+        fitbitTimeline.addLabel( "frame3", "+=2" )
+            .to( "#cover2", 1.25, {x:'0', ease:Power1.easeInOut, delay:.25 }, "frame3")
+            .to( "#copy2", .75, {x:'-10%', autoAlpha: 0, ease:Power2.easeIn }, "frame3")
+            .to( "#deviceHolder", 1.5, { rotation: 0, scale:.114, x: 182-374/2-92, y:-200+56/2-21, ease:Power2.easeInOut }, "frame3" )
+            .to( "#copy3", .75, {x:'0%', autoAlpha: 1, ease:Power2.easeOut, delay:.75 }, "frame3")
+            .to( "#deviceScreen2", .75, {autoAlpha: 1, ease:Power2.easeInOut, delay:1 }, "frame3")
+            .to( "#cta", .75, {x:0, autoAlpha: 1, ease:Power2.easeInOut, delay:1.25 }, "frame3" )
+            .to( "#price, #flag", .75, {x:'0%', y:0, autoAlpha: 1, ease:Power2.easeOut, delay:1.5 }, "frame3")
+
+    }
+
+
+  //FRAME END------------------------------------------------------------------
+  fitbitTimeline.addLabel("frameEnd");
+
+  fitbitTimeline.eventCallback("onComplete", tl_complete, null, this);
+  console.log("|| Animation: Timeline Duration: " + Math.floor(fitbitTimeline.duration()));
+
+}
+
+function tl_play () {
+    console.log("|| Animation: Play Main Timeline")
+    fitbitTimeline.gotoAndPlay(0);
+}
+
+function tl_complete () {
+    console.log("|| Animation: Complete")
+    fitbitTimeline.pause(); 
+}
+    
+function setRollovers(){
+    console.log("|| Event: Setup CTA Rollover")
+    if(rollover){
+        lID.addEventListener('mouseover', function(){mover();})
+        lID.addEventListener('mouseleave', function(){mout();})
+    }
+}
+    
+function mout(){ TweenMax.to("#cta_on", .2,{autoAlpha:0}), TweenMax.to("#cta_off", .2,{autoAlpha:1})}
+function mover(){TweenMax.to("#cta_on", .2,{autoAlpha:1}),TweenMax.to("#cta_off", .2,{autoAlpha:0})}
+    
+function setClicks() {
+    lID.addEventListener('click', function(){   
+        console.log("|| Event: Clickthrough")
+        killAllAnim();
+    })
+}
+
+function killAllAnim() {
+  console.log('|| Animation: Kill All');
+  fitbitTimeline.gotoAndStop("frameEnd");
+}
+	
+</script>
+
+</head>
+
+<body>
+	<a href="#" onclick="javascript:click_tag()">
+		<div id="ad">
+            
+            <img id="heroImage" src="images/hero.jpg"/>
+            <div id="cover1"></div>
+            <div id="cover2"></div>
+
+            <img id="copy3" src="images/copy3.png">
+            
+            <div id="masterHolder">
+                <div id="deviceHolder" class="deviceImage"><img id="device" class="deviceImage" src="images/device.png"/>
+                    <img id="deviceScreen1" class="deviceImage" src="images/screen1.png"/>
+                    <img id="deviceScreen2" class="deviceImage" src="images/screen2.png"/>  
+                </div>
+            </div>
+            
+            <img id="copy1" src="images/copy1.png"/>
+			<img id="copy2" src="images/copy2.png"/>
+            
+            <img id="flag" src="images/flag.png"/>
+            <img id="appButtons" src="images/blank.png"/>
+			
+			<img id="price" src="images/price.png"/>
+			<img id="logo" src="images/logo.png"/>
+            <div id="cta" class="pos size">
+                <img id="cta_off" src="images/cta_off.png"/>
+                <img id="cta_on" src="images/cta_on.png"/>
+            </div>
+
+        	<div id="border" class="pos size"></div>
+
+        </div>
+    </a>
+</body>
+</html>
+
+<!-- Flashtalking Library -->
+<!-- <script src="https://cdn.flashtalking.com/frameworks/js/api/2/10/html5API.js"></script> -->
+
+<!--********************************DO NOT CHANGE ANY OF THE CODE BELOW THIS LINE********************************-->
+
+<script type="text/javascript">
+
+var y , x, z, s, r, t, d, e, ea, to, pan;
+
+var transform = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
+var transitionDuration = ["transition-duration", "-webkit-transition-duration", "-moz-transition-duration", "-o-transition-duration"];
+var transformOrigin = ["transform-origin", "-webkit-transform-origin", "-moz-transform-origin", "-o-transform-origin", "-ms-transform-origin"];
+var transformProperty = getSupportedPropertyName(transform);
+var transformTime = getSupportedPropertyName(transitionDuration);
+var transOrigin = getSupportedPropertyName(transformOrigin);
+
+function getSupportedPropertyName(properties) {
+	for (var i = 0; i < properties.length; i++) {
+		if (typeof document.body.style[properties[i]] != "undefined") {
+			return properties[i];
+		}
+	}
+	return null;
+}
+	
+/*this us used to disable pans in IE because they don't animate nicely*/
+		
+function detectIE() {
+	var ua = window.navigator.userAgent;
+	var answer;	
+	
+	if(panIE){
+		//console.log("can animate in IE");
+		var msie = ua.indexOf('MSIE ');
+		if (msie > 0) {
+			// IE 10 or older => return version number
+			//console.log("old IE");
+			(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+			answer = true;
+		}else{answer = false}
+				
+		var trident = ua.indexOf('Trident/');
+		if (trident > 0) {
+				//console.log("IE 11");
+				// IE 11 => return version number
+				var rv = ua.indexOf('rv:');
+				//return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+			answer = true;
+		}else{answer = false}
+	}else{answer = false}	
+	
+	if(useEdge){		
+		var edge = ua.indexOf('Edge/');
+		if (edge > 0) {
+			//console.log("use EDGE");
+			// Edge (IE 12+) => return version number
+			//return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+			answer = false;
+		}
+	}
+	
+	//console.log("hmm ",panRequired)
+	
+	/*if(answer&&panRequired||!answer&&!panIE){
+		console.log("IE set to the end of pan")
+		pan.style.left = x+'px';
+	}*/
+	
+	return answer;
+}
+
+var element = document.querySelector('meta[name="ad.size"]');
+var content = element && element.getAttribute("content");
+var ad = document.getElementById("ad");
+var lID 
+if(rollover){lID = document.getElementById(legalID)};
+var str = content.split("=");
+var str1 = str[1].split(",");
+
+//console.log("ad meta data is",content," banner width ",ad.offsetWidth," banner height ",ad.offsetHeight);
+if(str1[0]!=ad.offsetWidth||str[2]!=ad.offsetHeight){
+	//console.error("meta data does not match banner size");
+}
+	
+//console.log("Freedman master v2.5")
+
+
+/**/
+
+function panNow(){
+	//console.log('pan now ',detectIE())
+	
+	if(!detectIE()){
+		if(!detectIE()&&!panIE){
+			setTimeout(function(){
+				pan.style[transformTime] = t+"s";
+				pan.style[transformProperty] = "translate3d("+x+"px, "+y+"px, "+z+"px)  rotate("+r+"deg) scale("+s+")";
+				pan.style[transOrigin] = to;
+				pan.style.transitionTimingFunction = ea[e];
+			},d*1000);
+		}
+	};
+}
+
+window.onload = function(){
+	switch(server){
+		case 0 : init();
+		break;
+		case 1 : if (Enabler.isInitialized()){enablerInitHandler();} else {Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);}
+		break
+		case 2 : if (!EB.isInitialized()){EB.addEventListener(EBG.EventName.EB_INITIALIZED, init);} else {init();}
+		break
+		case 3 : myFT.applyClickTag(ad, 1); init();
+		break
+	} 
+
+	// if(adServer){
+	// 	if(dcm){init();console.log("DCM Banner - Make sure to remove the link to enabler!")}else{
+	// 		console.log("DCS Banner")
+	// 		if (Enabler.isInitialized()){
+	// 			enablerInitHandler();
+	// 		} else {
+	// 			Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+	// 		}
+	// 	}
+	// }else{
+	// 	console.log("Sizmek banner")
+	// 	if (!EB.isInitialized()) {
+	// 		EB.addEventListener(EBG.EventName.EB_INITIALIZED, init);
+	// 	} else {
+	// 		init();
+	// 	}
+	// }
+}
+
+function enablerInitHandler() {
+  if (Enabler.isPageLoaded()) {
+    pageLoadedHandler();
+  } else {
+    Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+  }
+}
+
+function pageLoadedHandler() {	
+	//console.log("polite loaded");
+	init();
+}
+
+function click_tag(){
+	switch(server){
+		case 0 : window.open(window.clickTag);
+		break;
+		case 1 : Enabler.exit("clicktag");
+		break
+		case 2 : EB.clickthrough();
+		break
+		case 3 : FT.clickTag(); 
+		break
+	}
+
+	// if(adServer){
+	// 	if(dcm){
+	// 		window.open(window.clickTag)
+	// 		console.log('DCM clickThru')
+	// 	}else{
+	// 		Enabler.exit("clicktag");
+	// 		console.log('DCS clickThru')
+	// 	}
+	// }else{
+	// 	EB.clickthrough();
+	// 	console.log('Sizmek clickThru')
+	// }
+}
+
+</script>        

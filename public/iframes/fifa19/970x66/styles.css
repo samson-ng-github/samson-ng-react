@@ -1,0 +1,218 @@
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+	box-sizing: border-box;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+img {
+	display: block;
+}
+
+br {
+	position: static !important;
+}
+
+@font-face {
+    font-family: 'DINProCondensedBold';
+    src:
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBold.woff),
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBold.eot?#iefix) format('embedded-opentype');
+    	font-style: normal;
+}
+@font-face {
+    font-family: 'DINProCondensedBoldItalic';
+    src:
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBoldItalic.woff),
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBoldItalic.eot?#iefix) format('embedded-opentype');
+    	font-style: normal;
+}
+
+body {
+    font-family: 'DINProCondensedBold';
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: normal;
+	color: #FFFFFF;
+	font-kerning: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#banner {
+	display: block;
+	width: 970px;
+	height: 66px;
+	background: #06397e;
+	position: relative;
+	overflow: hidden;
+}
+#banner * {
+	position: absolute;
+}
+.guide{
+    width: inherit;
+    height: inherit;
+    opacity: 0.5;
+    top:-1px;
+}
+#rating{
+    visibility: visible;
+    width: 34px;
+    height: 41px;  
+}
+#bing{
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+    width: inherit;
+    height: inherit;
+}
+#bg{
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+}
+
+.retina img{
+    width: 100%;
+    height: 100%;
+}
+#branding{
+    visibility:visible;
+    width: 150px;
+    height: 63px;
+}
+#bug{
+    visibility: visible;
+    width: 22px;
+    height: 17px;
+    top: 6px;
+    left: 6px;
+}
+
+#bgCopy{
+    visibility: visible;
+    width: 390px;
+    height: 66px;
+    top: 0px;
+    right: 0px;
+}
+#divider{
+    visibility: visible;
+	background-color: #FFFFFF;
+    width: 5px;
+    height: 90px;
+    top: 0px;
+    left: 0px;
+}
+#logo{
+    visibility: visible;
+    width: 183px;
+    height: 48px;
+}
+#hero{
+	width: 204px;
+    height: 131px;
+}
+#ctaCont{
+	visibility: visible;
+}
+#strokeCont{
+    width: 0px;
+    height: 66px;
+    right: 0;
+    overflow: hidden;
+}
+#strokeTop{
+    top: -24px;
+    right: 303px;
+    width: 159px;
+    height: 94px;
+}
+
+#strokeBtm{
+    bottom: -45px;
+    right: -42px;
+    width: 159px;
+    height: 94px;
+}
+#strokeFarTop{
+    width: 159px;
+    height: 94px;
+}
+#cover{
+	visibility: hidden;
+    top: 0px;
+    left: 0px;
+    width: 728px;
+    height: 90px;
+    background-color: #ffffff;
+}
+#copy1 {
+    visibility: visible;
+    text-rendering:optimizeLegibility;
+	white-space: nowrap;
+	font-size: 27px;
+	line-height: 1;
+	text-align: left;
+    clip: rect(0px 160px 30px 0px);
+}
+#underline{
+    visibility: visible;
+    height: 3px;
+    width: 155px;
+    background-color: #FFFFFF;
+}
+#copy2 {
+	white-space: nowrap;
+	font-size: 27px;
+	line-height: 1;
+    clip: rect(55px 135px 55px 0px);
+}
+#copy3 {
+    font-family: 'DINProCondensedBoldItalic';
+	white-space: nowrap;
+	font-size: 35px;
+	line-height: 1;
+}
+#cta {
+	white-space: nowrap;
+	color: #FFF;
+	font-size: 11px;
+	line-height: 18px;
+	text-rendering:optimizeLegibility;
+    letter-spacing: 0.08em;
+	text-align: center;
+/*    padding: 0px 12px 0px 12px;*/
+    width: 97px;
+	height: 19px;
+	left:0px;
+	top: 0px;
+	background-color: #e60064;
+	border-radius: 16px;
+    text-align: center;
+}
+#ctaCont{
+	visibility: visible;
+}
+#legal {
+	visibility: visible;
+	white-space: nowrap;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 8px;
+	line-height: 1;
+	text-align: center;
+}
+#mainExit {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	z-index: 50;
+	background-color: transparent;
+    border: 1px #000 solid;
+}

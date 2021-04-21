@@ -1,0 +1,178 @@
+@font-face {
+  font-family: Kontrapunkt;
+  src: url(../fonts/Kontrapunkt.light.ttf);
+}
+
+@font-face {
+  font-family: Kontrapunkt-Bold;
+  src: url(../fonts/Kontrapunkt.bold.ttf);
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Kontrapunkt;
+  color: black;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+aside {
+  width: 250px;
+  text-align: left;
+}
+
+.aside-logo {
+  width: 170px;
+  height: auto;
+  margin: 40px;
+  cursor: pointer;
+}
+
+nav {
+  padding: 0;
+  margin: 0 40px;
+  font-size: 0.9rem;
+}
+
+.about-me {
+  display: block;
+  text-decoration: none;
+  font-family: Kontrapunkt-Bold;
+}
+
+.project-ul,
+.hashtag-ul {
+  list-style-type: none;
+  margin: 2em 0;
+}
+
+.project-ul a,
+.hashtag-ul a {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 0.5em;
+}
+
+.project-ul a:hover,
+.hashtag-ul a:hover {
+  font-family: Kontrapunkt-Bold;
+}
+
+.cv {
+  margin-bottom: 1rem;
+}
+
+.cv button {
+  cursor: pointer;
+  border-radius: 3px;
+  color: white;
+  background-color: #aaa;
+  padding: 5px 6px 4px 6px;
+  font-family: Kontrapunkt-Bold;
+  text-decoration: none;
+  border: 0;
+}
+
+.social-media-icon {
+  width: 1rem;
+  margin: 0.2rem;
+}
+
+main {
+  flex-grow: 1;
+  margin: 1rem 1rem 1rem 0;
+}
+
+main ul {
+  list-style-type: none;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-rows: 250px;
+  justify-content: start;
+}
+
+main ul .Rollover {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  justify-content: center;
+}
+
+main ul .Rollover:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+main ul img {
+  width: 300px;
+  height: 250px;
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+    text-align: center;
+  }
+  .Aside-logo {
+    margin: 35px auto;
+  }
+
+  nav {
+    margin: 0 35px 35px 35px;
+  }
+  .project-ul {
+    margin: 1.5em 0 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hashtag-ul {
+    margin: 1em 0 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project-ul a,
+  .hashtag-ul a {
+    margin: 0 0.8rem 0.5em 0;
+  }
+
+  .project-ul a:hover,
+  .hashtag-ul a:hover {
+    font-family: Kontrapunkt;
+  }
+
+  main {
+    padding-bottom: 1rem;
+    margin: 0rem 1rem 0rem 1rem;
+  }
+  main ul {
+    justify-content: center;
+  }
+}

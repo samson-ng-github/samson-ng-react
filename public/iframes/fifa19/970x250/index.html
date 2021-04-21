@@ -1,0 +1,124 @@
+<!doctype html> 
+<html> 
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="ad.size" content="width=970, height=250">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/> 
+		<title>FIFA19</title>
+		<script type="text/javascript">
+			var clickTag = "https://www.google.com";
+		</script>
+		<link href="loader.css" rel="stylesheet">
+	</head> 
+	<body>
+		<div id="loader-container" class="size">
+			<div class="sk-fading-circle">
+	  			<div class="sk-circle1 sk-circle"></div>
+	  			<div class="sk-circle2 sk-circle"></div>
+	  			<div class="sk-circle3 sk-circle"></div>
+	  			<div class="sk-circle4 sk-circle"></div>
+	  			<div class="sk-circle5 sk-circle"></div>
+	  			<div class="sk-circle6 sk-circle"></div>
+	  			<div class="sk-circle7 sk-circle"></div>
+	  			<div class="sk-circle8 sk-circle"></div>
+	  			<div class="sk-circle9 sk-circle"></div>
+	  			<div class="sk-circle10 sk-circle"></div>
+	  			<div class="sk-circle11 sk-circle"></div>
+	  			<div class="sk-circle12 sk-circle"></div>
+			</div>
+		</div>
+		<div id="banner" class="size" style="display:none;opacity:0;">
+            <img id="bg" src="img/bg.jpg">
+            <img id="bug" src="img/bug.png">
+            <div id="rating" class="retina"><img src="img/rating.png"></div>
+            <div id="bgCopy">
+                            <div id="divider"></div> 
+            </div>
+            <div id="branding" class="retina"><img src="img/branding.png"></div>
+            <div id="strokeCont">
+                <img id="strokeTop" class="retina" src="img/stroke_small.png">
+                <img id="strokeBtm" class="retina" src="img/stroke_small.png">
+            </div> 
+            <img id="strokeFarTop" class="retina" src="img/stroke_small.png">
+            <img id="hero" class="retina" src="img/hero.png"></img>
+            <div id="logo"><embed src="img/logo.svg" width="294" height="77" type="image/svg+xml"></embed></div>
+            <div id="ctaCont">
+				<span id="cta">GET THE GAME</span>
+            </div>
+            <div id="copy1Cont">
+                <p id="copy1">CHAMPIONS<br>RISE</p>
+                <div id="underline"></div>
+            </div>
+            <p id="copy2">AVAILABLE<br>NOW</p>
+            <p id="copy3">CHAMPIONS RISE</p>
+<!--            <p id="legal">*CONDITIONS AND RESTRICTIONS APPLY. CLICK HERE FOR DETAILS.</p>-->
+            <img id="bing" src="img/bing.jpg"></img>
+			<div id="mainExit"></div>
+			<div id="cover"></div>
+<!--        <img class="guide" src="img/guide3.png">-->
+        </div>
+		<script type="text/javascript">
+			(function(window,document,undefined){
+
+				function loadScript(url, callback){
+
+					var script = document.createElement("script")
+					script.type = "text/javascript";
+
+				    if (script.readyState){  //IE
+				        script.onreadystatechange = function(){
+				            if (script.readyState == "loaded" || script.readyState == "complete"){
+				                script.onreadystatechange = null;
+				                callback();
+				            }
+				        };
+				    } else {  //Others
+				        script.onload = function(){
+				            callback();
+				        };
+				    }
+
+				    script.src = url;
+				    document.getElementsByTagName("head")[0].appendChild(script);
+				}
+
+				function politeLoad(urls, onComplete) {
+				    var l = urls.length,
+				        loaded = 0,
+				        checkProgress = function() {
+				            if (++loaded === l && onComplete) {
+				                onComplete();
+				            }
+				        },
+				        i;
+				    for (i = 0; i < l; i++) {
+				    
+				        loadScript(urls[i], checkProgress);
+				    }
+				}
+				
+				function politeInit(){
+					politeLoad(['https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.1_92cf05aba6ca4ea5cbc62b5a7cb924e3_min.js',
+					            'script.js'], function() {
+					            	Banner.init();
+					            	//Clear the load wheel here
+					            	document.getElementById("banner").style.opacity=1;
+									document.getElementById("loader-container").style.opacity=0;
+									document.getElementById("loader-container").style.display = "none";
+									document.getElementById("banner").style.display = "block";
+					});
+
+					//Load in CSS
+					var extCSS=document.createElement('link');
+					extCSS.setAttribute("rel", "stylesheet");
+					extCSS.setAttribute("type", "text/css");
+					extCSS.setAttribute("href", "styles.css"); 
+					document.getElementsByTagName("head")[0].appendChild(extCSS);
+				}
+
+				politeInit();
+
+			})(this,document);
+		</script>
+	</body> 
+</html> 
