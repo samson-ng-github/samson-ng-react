@@ -28,9 +28,8 @@ function AsideNavItem(props) {
 
 export default function Aside() {
   // Recieves project data, the sorting function and reset funtion from main App component
-  const { originalProjectData, sortProjects, resetProjects } = useContext(
-    ProjectContext
-  );
+  const { originalProjectData, sortProjects, resetProjects } =
+    useContext(ProjectContext);
 
   //Turning project data into a list of AsideNavItem components
   const AsideNavList = originalProjectData.map((project) => (
@@ -113,6 +112,17 @@ export default function Aside() {
               className="social-media-icon"
               alt="Linkedin"
               src="./assets/social_media_icons/linkedin.svg"
+            ></img>
+          </a>
+          <a
+            href="https://github.com/samson-ng-github"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="social-media-icon"
+              alt="GitHub"
+              src="./assets/social_media_icons/github.svg"
             ></img>
           </a>
           <a

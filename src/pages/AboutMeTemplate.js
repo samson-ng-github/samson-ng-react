@@ -22,6 +22,11 @@ export default function AboutMeTemplate() {
         Oracle, EA, Facebook, EE, BT and Sky.
       </p>
       <p>
+        I have been developing display ads for a number of years now. I am
+        looking for my next career move in React JS which I have been studying
+        outside work. This website is written in React.
+      </p>
+      <p>
         Outside of work I enjoy travelling. I have been to 510 cities in 46
         countries to date. Fine art is my other passion. I visit art museums
         every week and am myself a draughtsman. I am also a gym addict who
