@@ -1,1 +1,1 @@
-![samson_ng](http://www.samson-ng.com/assets/samson_ng_logo.png)
+The original code of online portfolio written in React.
