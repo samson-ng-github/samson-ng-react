@@ -28,6 +28,12 @@ iframe {
   height: 250px;
 }
 
+.video-300x533 {
+  width: 300px;
+  height: 533px;
+  border: 1px solid black;
+}
+
 .general-970x250 {
   width: 970px;
   height: 250px;
@@ -78,6 +84,16 @@ iframe {
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, 300px);
   grid-auto-rows: 250px;
+  justify-content: start;
+  margin: 1rem 1rem 1rem 0;
+}
+
+.four-dooh-container {
+  width: 100%;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-rows: 533px;
   justify-content: start;
   margin: 1rem 1rem 1rem 0;
 }
@@ -247,6 +263,7 @@ iframe {
   }
 
   .four-mpu-container,
+  .four-dooh-container,
   .muliti-iframe-container {
     display: flex;
     flex-direction: column;
@@ -262,6 +279,7 @@ iframe {
   }
 
   .four-mpu-container iframe,
+  .four-dooh-container video,
   .muliti-iframe-container iframe {
     position: relative;
     top: 0px;

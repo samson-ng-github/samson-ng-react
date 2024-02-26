@@ -32,8 +32,8 @@ export default function Aside() {
     useContext(ProjectContext);
 
   //Turning project data into a list of AsideNavItem components
-  const AsideNavList = originalProjectData.map((project) => (
-    <AsideNavItem key={project.id} {...project} />
+  const AsideNavList = originalProjectData.map((project, index) => (
+    <AsideNavItem key={index} {...project} />
   ));
 
   return (
@@ -60,27 +60,32 @@ export default function Aside() {
         <ul className="hashtag-ul">
           <li>
             <Link to="/" onClick={() => sortProjects("Display Ad")}>
-              #Display Ads
+              #Display ads
+            </Link>
+          </li>
+          <li>
+            <Link to="/" onClick={() => sortProjects("Digital out of home")}>
+              #Digital out of home
             </Link>
           </li>
           <li>
             <Link to="/" onClick={() => sortProjects("Mini Game")}>
-              #Mini Games
+              #Mini games
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => sortProjects("Web GL")}>
-              #Web GL
+            <Link to="/" onClick={() => sortProjects("Three.js")}>
+              #Three.js
             </Link>
           </li>
-          <li>
+          {/*<li>
             <Link to="/" onClick={() => sortProjects("Pencil Drawing")}>
-              #Pencil Drawings
+              #Pencil drawings
             </Link>
-          </li>
+          </li>*/}
           <li>
             <Link to="/" onClick={() => sortProjects("Installation Art")}>
-              #Installation Art
+              #Installation art
             </Link>
           </li>
           <li>
@@ -93,7 +98,7 @@ export default function Aside() {
         {/*CV button*/}
         <div className="cv">
           <a
-            href="/docs/samson-ng-cv-2021.pdf"
+            href="/docs/samson-ng-cv-2024.pdf"
             target="_blank"
             rel="noreferrer"
           >

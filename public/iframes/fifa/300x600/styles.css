@@ -1,0 +1,248 @@
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+	box-sizing: border-box;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+img {
+	display: block;
+}
+
+br {
+	position: static !important;
+}
+
+@font-face {
+    font-family: 'DINProCondensedBold';
+    src:
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBold.woff),
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBold.eot?#iefix) format('embedded-opentype');
+    	font-style: normal;
+}
+@font-face {
+    font-family: 'DINProCondensedBoldItalic';
+    src:
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBoldItalic.woff),
+    	url(https://s0.2mdn.net/creatives/assets/2337175/DINProCondensedBoldItalic.eot?#iefix) format('embedded-opentype');
+    	font-style: normal;
+}
+
+body {
+    font-family: 'DINProCondensedBold';
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: normal;
+	color: #FFFFFF;
+	font-kerning: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#banner {
+	display: block;
+	width: 300px;
+	height: 600px;
+	background: #06397e;
+	position: relative;
+	overflow: hidden;
+}
+#banner * {
+	position: absolute;
+}
+.guide{
+    width: inherit;
+    height: inherit;
+    opacity: 0.5;
+    top:-1px;
+}
+#bing{
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+    width: inherit;
+    height: inherit;
+}
+#rating{
+    visibility: visible;
+    width: 34px;
+    height: 41px;  
+}
+#bg{
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+}
+
+.retina img{
+    width: 100%;
+    height: 100%;
+}
+#branding{
+    visibility:visible;
+    width: 200px;
+    height: 84px;
+}
+#bug{
+    visibility: visible;
+    width: 23px;
+    height: 18px;
+    top: 4px;
+    left: 4px;
+}
+
+#bgCopy{
+    visibility: visible;
+    width: 300px;
+    height: 141px;
+    bottom: 0px;
+    right: 0px;
+}
+#divider{
+    visibility: visible;
+    width: 300px;
+    top: 0px;
+    left: 0px;
+    border-top: 3px solid #FFFFFF;
+}
+#logo{
+    visibility: visible;
+    width: 107px;
+    height: 63px;
+}
+#hero{
+    width: 448px;
+    height: 444px;
+}
+#strokeCont{
+    width: 300px;
+    height: 0px;
+    right: 0;
+    bottom: -3px;
+    overflow: hidden;
+}
+#strokeTop{
+    bottom: 82px;
+    left: -48px;
+    width: 159px;
+    height: 94px;
+}
+
+#strokeBtm{
+    bottom: -34px;
+    left: 185px;
+    width: 159px;
+    height: 94px;
+}
+#strokeFarTop{
+    top: -14px;
+    left: -169px;
+    width: 159px;
+    height: 94px;
+}
+#cover{
+	visibility: hidden;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 250px;
+    background-color: #ffffff;
+}
+#copy1 {
+    visibility: visible;
+    text-rendering:optimizeLegibility;
+	white-space: nowrap;
+	font-size: 24px;
+	line-height: 1;
+	text-align: left;
+    clip: rect(0px 100px 50px 0px);
+}
+#underline{
+    visibility: visible;
+    height: 4px;
+    width: 97px;
+    background-color: #FFFFFF;
+}
+#copy2 {
+	white-space: nowrap;
+	font-size: 24px;
+	line-height: 1;
+    clip: rect(50px 120px 50px 0px);
+}
+#copy3Cont{
+	visibility: visible;
+    width: 300px;
+}
+#copy3 {
+    font-family: 'DINProCondensedBoldItalic';
+	white-space: nowrap;
+	font-size: 42px;
+	line-height: 1;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+#ctaCont{
+	visibility: visible;
+    width: 300px;
+}
+#cta {
+	white-space: nowrap;
+	color: #FFF;
+	font-size: 14px;
+	line-height: 22px;
+	text-rendering:optimizeLegibility;
+    letter-spacing: 0.08em;
+	text-align: center;
+/*    padding: 0px 12px 0px 12px;*/
+    width: 130px;
+	height: 24px;
+	left:50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+	top: 0px;
+	background-color: #e60064;
+	border-radius: 16px;
+}
+
+#cta {
+    visibility: visible;
+	white-space: nowrap;
+	color: #FFF;
+	font-size: 14px;
+	line-height: 22px;
+	text-rendering:optimizeLegibility;
+    letter-spacing: 0.08em;
+	text-align: center;
+/*    padding: 0px 12px 0px 12px;*/
+    width: 130px;
+	height: 24px;
+	background-color: #e60064;
+	border-radius: 19px;
+}
+#ctaCont{
+	visibility: visible;
+}
+#legal {
+	visibility: visible;
+	white-space: nowrap;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 1;
+	text-align: center;
+    width: 300px;
+}
+#mainExit {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	z-index: 50;
+	background-color: transparent;
+    border: 1px #000 solid;
+}

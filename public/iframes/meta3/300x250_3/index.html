@@ -1,0 +1,437 @@
+<!doctype html>
+
+<!-- John Hulme | Feb 23 -->
+
+
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="ad.size" content="width=300, height=250"> <!--Needs updating when using DCM as adserver-->
+
+<script type="text/javascript">
+    var clickTag = "http://www.google.com"; //URL only used for testing if DCM clicks through - this is overwritten in adsever
+</script>
+
+<!--update with brand and title as required-->
+
+<title>Meta | TIWBRA</title>
+
+<!--remove following CDN links if not required to save extra http calls-->
+
+<!-- <script type="text/javascript" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>								Required only for DoubleClick Studio banners -->
+<!-- <script type="text/javascript" src="https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js"></script>			Required only for Sizmek banners -->
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.1_92cf05aba6ca4ea5cbc62b5a7cb924e3_min.js"></script>	<!--Required only if using greensock-->
+<!--<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.20.0_3393be0dce31ad0098cf6549eaa28a6c_min.js"></script>-->	
+<!--<script src="https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.20.0_35574bbb2cf06c392e9036c87b5a8474_min.js"></script>-->
+<!--<script src="https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.20.0_f9d13d59407792e37168747225359927_min.js"></script>--> <!--Only use TweenLite or TweenMax not both. TweenLite can be used for basic fadein/out copy arrow animation will need to be animated manualy as yoyo not allowed-->
+
+<!--CSS begins-->
+
+<style type="text/css">
+html, body {
+	margin:0;
+	padding:0;
+}
+
+#ad{
+	background: #1C2B33;
+	cursor:pointer;
+	overflow:hidden;
+}
+
+.size{
+	width:300px;
+	height:250px;
+	top:0px;
+	left:0px;
+} 
+
+#border{
+	border: 1px #000 solid;
+	width:298px;
+	height:248px;
+}
+
+#background, #bg-1, #bg-2, #bg-3{
+	overflow: hidden;
+}
+	
+.back{
+	-webkit-backface-visibility: hidden; /* This is to help stop images blurring when scaling*/
+    backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+}
+
+.pos{
+	position:absolute;
+	transition-property: opacity, transform;
+}
+
+#logo,#cta, #bg-2, #bg-3, #cta_on{
+	opacity:0;
+}
+
+#copy1-1, #copy1-2, #copy1-3, #copy1-4, #copy1-5, #copy1-6, #copy1-7, #copy1-8, #copy2-1, #copy2-2, #copy2-3, #copy2-4, #copy2-5{
+	opacity:0;
+	overflow: hidden;
+}
+	
+.up{
+	opacity: 0; /*Used for the legals*/		
+}
+
+</style>
+
+<script type="text/javascript">
+
+var server = 0;			//Select from the array below which adserver you require - Use DCM for locally served banner (no adserver)
+var adServer = ["dcm","studio","sizmek","ft"];	//This template can work with DCM - 0, Studio - 1, Sizmek 2 or - Flashtalking - 3 
+
+var panIE = false; 		//to disable pan working in IE make false
+var useEdge = true; 	//to disable pan working in Edge make false
+	
+var panRequired = false;//to diable pan make false;
+	
+var legal = true; 		//make this true to have 
+var legalID = "ad"		//name of the div id to target to activate legals
+
+function init(){
+	console.log("init")	
+	
+	var fadeTime = 2 //this is the duration of fades used in greensock tweens
+
+	var gap = 23;	// space between lines of copy
+	var topPad = 62; // space fron the top
+
+	var dw = 156;	// Device width
+	var dh = 230;	// Device height
+	var dl = 144;	// Device position from the left
+	
+	if(panRequired){
+		/*Pan code starts here - if a pan is not required delete this section until Animation start*/
+
+		id = "background" //name of the DIV to pan
+		y = 0;		//Pan in the Y direction
+		x = -147;	//Pan in the X direction
+		z = 0;	    //Rotate on the Z Axis
+		s = 1;	    //Scale amount (0-1)
+		r = 0.01    //Rotate amount NB Default should be 0.01 not 0
+		t = 3;		//Pan time
+		d = 1;		//Delay before Pan
+		e = 1;      //Look in the array below for easing type NB arrays start from 0
+		ea = ["ease-in", "ease-out", "ease-in-out", "linear"] //List of ease types
+		to = "100% 50%" //use mainly when scaling to move the start position, rather than using translate
+
+		pan = document.getElementById(id); //Name of the background ellement
+
+		panNow()
+	}
+			
+	/*Animation starts here*/
+	TweenMax.set("#logo,#cta",{y:15})
+	TweenMax.set("#background",{width:0, height:0, left:"222px", top:"70px"})
+
+	TweenMax.set("#bg-1, #bg-2, #bg-3",{width:dw+"px", height:dh+"px"})
+
+	TweenMax.set("#bg-1",{left:"-78px", top:"-70px"}) 
+	TweenMax.set("#bgi1",{ transformOrigin: '50% 0%'}) 
+	TweenMax.set("#bgi2",{transformOrigin: '50% 100%'}) 
+	TweenMax.set("#bgi3",{transformOrigin: '50% 0%'})
+	
+	TweenMax.set("#copy1-1,#copy2-1",{scale:.8, x:-20, y:(topPad+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-1,#copy2i-1",{y:-(topPad)+"px"})
+	
+	TweenMax.set("#copy1-2,#copy2-2",{scale:.8, x:-20, y:((topPad+gap)+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-2,#copy2i-2",{y:-((topPad+gap))+"px"})
+
+	TweenMax.set("#copy1-3,#copy2-3",{scale:.8, x:-20, y:((topPad+(gap*2))+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-3,#copy2i-3",{y:-((topPad+(gap*2)))+"px"})
+
+	TweenMax.set("#copy1-4,#copy2-4",{scale:.8, x:-20, y:((topPad+(gap*3))+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-4,#copy2i-4",{y:-((topPad+(gap*3)))+"px"})
+
+	TweenMax.set("#copy1-5,#copy2-5",{scale:.8, x:-20, y:((topPad+(gap*4))+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-5,#copy2i-5",{y:-((topPad+(gap*4)))+"px"})
+
+	TweenMax.set("#copy1-6",{scale:.8, x:-20, y:((topPad+(gap*5))+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-6",{y:-((topPad+(gap*5)))+"px"})
+
+	TweenMax.set("#copy1-7",{scale:.8, x:-20, y:((topPad+(gap*6))+10)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-7",{y:-((topPad+(gap*6)))+"px"})
+
+	TweenMax.set("#copy1-8",{scale:.8, x:-20, y:((topPad+(gap*7))+15)+"px", height:gap+"px"})
+	TweenMax.set("#copy1i-8",{y:-((topPad+(gap*7)))+"px"})
+
+
+	TweenMax.to("#logo", fadeTime,{y:0, opacity:1, delay:0, ease:Expo.easeOut})
+	TweenMax.to("#background", 1,{left:dl+"px", top:0, width:dw+"px", height:dh+"px", delay:0, ease:Linear.easeNone})
+	TweenMax.to("#bg-1", 1	,{left:0, top:0, delay:0, ease:Linear.easeOut})
+	TweenMax.to("#bgi1", 3,{scale:1.2, y:-20, delay:.6, ease:Linear.easeOut})
+	
+	TweenMax.to("#bg-2", 1.5,{opacity:1, delay:2.2})
+	TweenMax.to("#bgi2", 4,{scale:1.15, delay:2.1, y:-20, ease:Linear.easeOut})
+
+	TweenMax.to("#copy1-1", fadeTime,{scale:1, opacity:1, x:0, y:(topPad)+"px", delay:0.5, ease:Expo.easeOut})
+	
+	TweenMax.to("#copy1-2", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+gap))+"px", delay:1.95, ease:Expo.easeOut})
+	TweenMax.to("#copy1-3", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*2)))+"px", delay:2.05, ease:Expo.easeOut})
+	TweenMax.to("#copy1-4", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*3)))+"px", delay:2.35, ease:Expo.easeOut})
+	TweenMax.to("#copy1-5", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*4)))+"px", delay:2.5, ease:Expo.easeOut})
+	TweenMax.to("#copy1-6", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*5)))+"px", delay:2.6, ease:Expo.easeOut})
+	TweenMax.to("#copy1-7", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*6)))+"px", delay:2.65, ease:Expo.easeOut})
+	//TweenMax.to("#copy1-8", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*7)))+"px", delay:3.75, ease:Expo.easeOut})
+
+	TweenMax.to("#bg-3", 1.5,{opacity:1, delay:5.7})
+	TweenMax.to("#bgi3", 4.5,{scale:1.15, delay:5.6, y:-15, ease:Linear.easeOut})
+
+	TweenMax.to("#copy1-1", 1,{scale:1, opacity:0, y:(topPad-10)+"px", delay:5, ease:Expo.easeIn})
+	TweenMax.to("#copy1-2", 1,{scale:1, opacity:0, y:((topPad+(gap-10)))+"px", delay:5.1, ease:Expo.easeIn})
+	TweenMax.to("#copy1-3", 1,{scale:1, opacity:0, y:((topPad+((gap*2)-10)))+"px", delay:5.2, ease:Expo.easeIn})
+	TweenMax.to("#copy1-4", 1,{scale:1, opacity:0, y:((topPad+((gap*3)-10)))+"px", delay:5.3, ease:Expo.easeIn})
+	TweenMax.to("#copy1-5", 1,{scale:1, opacity:0, y:((topPad+((gap*4)-10)))+"px", delay:5.4, ease:Expo.easeIn})
+	TweenMax.to("#copy1-6", 1,{scale:1, opacity:0, y:((topPad+((gap*5)-10)))+"px", delay:5.5, ease:Expo.easeIn})
+	TweenMax.to("#copy1-7", 1,{scale:1, opacity:0,  y:((topPad+((gap*6)-10)))+"px", delay:5.6, ease:Expo.easeIn})
+
+	TweenMax.to("#copy2-1", fadeTime,{scale:1, opacity:1, x:0, y:(topPad)+"px", delay:6.5, ease:Expo.easeOut})
+	TweenMax.to("#copy2-2", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+gap))+"px", delay:6.75, ease:Expo.easeOut})
+
+	TweenMax.to("#copy2-3", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*2)))+"px", delay:6.95, ease:Expo.easeOut})
+	TweenMax.to("#copy2-4", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*3)))+"px", delay:7.15, ease:Expo.easeOut})
+	//TweenMax.to("#copy2-5", fadeTime,{scale:1, opacity:1, x:0, y:((topPad+(gap*4)))+"px", delay:7, ease:Expo.easeOut})
+	
+	TweenMax.to("#cta", fadeTime,{opacity:1, y:0, delay:7.15, onComplete:addRollovers, ease:Expo.easeOut})
+}
+
+</script>
+
+</head>
+
+<body>
+	<a href="#" onclick="javascript:click_tag()">
+		<div id="ad" class="size pos">
+        	<div id="background" class="pos">
+				<div id="bgi1"><img id="bg-1" class="pos" src="images/img1.jpg"/></div>
+				<div id="bgi2"><img id="bg-2" class="pos" src="images/img2.jpg"/></div>
+				<div id="bgi3"><img id="bg-3" class="pos" src="images/img3.jpg"/></div>
+			</div>
+
+
+			<div id="frame1" class="size pos">
+				<div id="copy1-1" class="size pos" ><img id="copy1i-1" class="size pos" src="images/copy1.png"/></div>
+            	<div id="copy1-2" class="size pos" ><img id="copy1i-2" class="size pos" src="images/copy1.png"/></div>
+				<div id="copy1-3" class="size pos" ><img id="copy1i-3" class="size pos" src="images/copy1.png"/></div>
+				<div id="copy1-4" class="size pos" ><img id="copy1i-4" class="size pos" src="images/copy1.png"/></div>
+				<div id="copy1-5" class="size pos" ><img id="copy1i-5" class="size pos" src="images/copy1.png"/></div>
+				<div id="copy1-6" class="size pos" ><img id="copy1i-6" class="size pos" src="images/copy1.png"/></div>
+				<div id="copy1-7" class="size pos" ><img id="copy1i-7" class="size pos" src="images/copy1.png"/></div>
+				<div id="copy1-8" class="size pos" ><img id="copy1i-8" class="size pos" src="images/copy1.png"/></div>
+			</div>
+			<div id="frame2" class="size pos">
+				<div id="copy2-1" class="size pos" ><img id="copy2i-1" class="size pos" src="images/copy2.png"/></div>
+            	<div id="copy2-2" class="size pos" ><img id="copy2i-2" class="size pos" src="images/copy2.png"/></div>
+				<div id="copy2-3" class="size pos" ><img id="copy2i-3" class="size pos" src="images/copy2.png"/></div>
+				<div id="copy2-4" class="size pos" ><img id="copy2i-4" class="size pos" src="images/copy2.png"/></div>
+				<div id="copy2-5" class="size pos" ><img id="copy2i-5" class="size pos" src="images/copy2.png"/></div>
+			</div>
+            <!-- <div id="copy2" class="size pos"></div> -->
+			<img id="cta" class="size pos" src="images/cta.png"/>
+			<img id="cta_on" class="size pos" src="images/cta_on.png"/>
+			
+            <!-- <div id="arrow" class="size pos"></div> -->
+            <img id="logo" class="size pos" src="images/logo.png"/>
+            <!-- <div id="legal" class="legal size pos"></div> -->
+        	<div id="border" class="pos"></div>
+        </div>
+    </a>
+</body>
+</html>
+<!-- <script src="https://cdn.flashtalking.com/frameworks/js/api/2/10/html5API.js"></script>	 -->
+<script type="text/javascript">
+
+//********************************DO NOT CHANGE ANY OF THE CODE BELOW THIS LINE********************************
+
+var y , x, z, s, r, t, d, e, ea, to, pan;
+
+var transform = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
+var transitionDuration = ["transition-duration", "-webkit-transition-duration", "-moz-transition-duration", "-o-transition-duration"];
+var transformOrigin = ["transform-origin", "-webkit-transform-origin", "-moz-transform-origin", "-o-transform-origin", "-ms-transform-origin"];
+var transformProperty = getSupportedPropertyName(transform);
+var transformTime = getSupportedPropertyName(transitionDuration);
+var transOrigin = getSupportedPropertyName(transformOrigin);
+
+function getSupportedPropertyName(properties) {
+	for (var i = 0; i < properties.length; i++) {
+		if (typeof document.body.style[properties[i]] != "undefined") {
+			return properties[i];
+		}
+	}
+	return null;
+}
+	
+/*this us used to disable pans in IE because they don't animate nicely*/
+		
+function detectIE() {
+	var ua = window.navigator.userAgent;
+	var answer;	
+	
+	if(panIE){
+		console.log("can animate in IE");
+		var msie = ua.indexOf('MSIE ');
+		if (msie > 0) {
+			// IE 10 or older => return version number
+			console.log("old IE");
+			(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+			answer = true;
+		}else{answer = false}
+				
+		var trident = ua.indexOf('Trident/');
+		if (trident > 0) {
+				console.log("IE 11");
+				// IE 11 => return version number
+				var rv = ua.indexOf('rv:');
+				//return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+			answer = true;
+		}else{answer = false}
+	}else{answer = false}	
+	
+	if(useEdge){		
+		var edge = ua.indexOf('Edge/');
+		if (edge > 0) {
+			console.log("use EDGE");
+			// Edge (IE 12+) => return version number
+			//return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+			answer = false;
+		}
+	}
+	
+	//console.log("hmm ",panRequired)
+	
+	/*if(answer&&panRequired||!answer&&!panIE){
+		console.log("IE set to the end of pan")
+		pan.style.left = x+'px';
+	}*/
+	
+	return answer;
+}
+
+var element = document.querySelector('meta[name="ad.size"]');
+var content = element && element.getAttribute("content");
+var ad = document.getElementById("ad");
+var lID 
+if(legal){lID = document.getElementById(legalID)};
+var str = content.split("=");
+var str1 = str[1].split(",");
+
+console.log("ad meta data is",content," banner width ",ad.offsetWidth," banner height ",ad.offsetHeight);
+if(str1[0]!=ad.offsetWidth||str[2]!=ad.offsetHeight){
+	console.error("meta data does not match banner size");
+}
+	
+console.log("Freedman master v2.5")
+//console.log("2nd val = ",str[2])
+
+/**/
+	
+function addRollovers(){
+	console.log("legal activated")
+	//l = document.getElementById("cta");
+	lID.addEventListener('mouseover', function(){
+		//l.className += " up"
+		TweenMax.to("#cta_on", .25,{opacity:1})
+		console.log("roll over");				
+	})
+	lID.addEventListener('mouseleave', function(){
+		//l.className = "pos size"
+		TweenMax.to("#cta_on", .25,{opacity:0})
+		console.log("roll out")				
+	})
+}	
+
+function panNow(){
+	console.log('pan now ',detectIE())
+	
+	if(!detectIE()){
+		if(!detectIE()&&!panIE){
+			setTimeout(function(){
+				pan.style[transformTime] = t+"s";
+				pan.style[transformProperty] = "translate3d("+x+"px, "+y+"px, "+z+"px)  rotate("+r+"deg) scale("+s+")";
+				pan.style[transOrigin] = to;
+				pan.style.transitionTimingFunction = ea[e];
+			},d*1000);
+		}
+	};
+}
+
+window.onload = function(){
+	switch(server){
+		case 0 : console.log("DCM Banner - Make sure to comment out any adserver APIs"); setTimeout(pageLoadedHandler, 200);
+		break;
+		case 1 : console.log("DCS Banner"); if (Enabler.isInitialized()){enablerInitHandler();} else {Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);}
+		break
+		case 2 : console.log("Sizmek banner"); if (!EB.isInitialized()){EB.addEventListener(EBG.EventName.EB_INITIALIZED, init);} else {init();}
+		break
+		case 3 : console.log("FlashTalking banner"); myFT.applyClickTag(ad, 1);
+		break
+	} 
+
+	// if(adServer){
+	// 	if(dcm){init();console.log("DCM Banner - Make sure to remove the link to enabler!")}else{
+	// 		console.log("DCS Banner")
+	// 		if (Enabler.isInitialized()){
+	// 			enablerInitHandler();
+	// 		} else {
+	// 			Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+	// 		}
+	// 	}
+	// }else{
+	// 	console.log("Sizmek banner")
+	// 	if (!EB.isInitialized()) {
+	// 		EB.addEventListener(EBG.EventName.EB_INITIALIZED, init);
+	// 	} else {
+	// 		init();
+	// 	}
+	// }
+}
+
+function enablerInitHandler() {
+  if (Enabler.isPageLoaded()) {
+    pageLoadedHandler();
+  } else {
+    Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+  }
+}
+
+function pageLoadedHandler() {	
+	console.log("polite loaded");
+	init();
+}
+
+function click_tag(){
+	switch(server){
+		case 0 : console.log('DCM clickThru'); window.open(window.clickTag);
+		break;
+		case 1 : console.log('DCS clickThru'); Enabler.exit("clicktag");
+		break
+		case 2 : console.log("Sizmek clickThru"); EB.clickthrough();
+		break
+		// case 3 : console.log("FlashTalking clickThru"); FT.clickTag(); 
+		// break
+	}
+
+	// if(adServer){
+	// 	if(dcm){
+	// 		window.open(window.clickTag)
+	// 		console.log('DCM clickThru')
+	// 	}else{
+	// 		Enabler.exit("clicktag");
+	// 		console.log('DCS clickThru')
+	// 	}
+	// }else{
+	// 	EB.clickthrough();
+	// 	console.log('Sizmek clickThru')
+	// }
+}
+
+</script>        

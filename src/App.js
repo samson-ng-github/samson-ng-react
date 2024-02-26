@@ -12,15 +12,20 @@ import originalProjectData from "./data/data";
 
 //Template pages for each project
 import AboutMeTemplate from "./pages/AboutMeTemplate";
+import EightMpuTemplate from "./pages/EightMpuTemplate";
 import FacebookTemplate from "./pages/FacebookTemplate";
-import Fifa19Template from "./pages/Fifa19Template";
+import FifaTemplate from "./pages/FifaTemplate";
 import FitbitTemplate from "./pages/FitbitTemplate";
 import FourMpuTemplate from "./pages/FourMpuTemplate";
 import FullPageTemplate from "./pages/FullPageTemplate";
 import OracleTemplate from "./pages/OracleTemplate";
 import PencilDrawingTemplate from "./pages/PencilDrawingTemplate";
 import PhiladelphiaTemplate from "./pages/PhiladelphiaTemplate";
+import Meta1DoohTemplate from "./pages/Meta1DoohTemplate";
+import Meta2DoohTemplate from "./pages/Meta2DoohTemplate";
+import MetaEuDoohTemplate from "./pages/MetaEuDoohTemplate";
 import SkyTemplate from "./pages/SkyTemplate";
+import ThreeMpuTemplate from "./pages/ThreeMpuTemplate";
 import VideoTemplate from "./pages/VideoTemplate";
 
 //Context for passing data between components
@@ -81,10 +86,32 @@ function App() {
 
             {/*Individual project pages*/}
             <Route
-              path="/fitbit_christmas20"
-              element={
-                <FitbitTemplate props={findData("Fitbit: Christmas 2020")} />
-              }
+              path="/meta1"
+              element={<Meta1DoohTemplate props={findData("Metaverse 1")} />}
+            />
+            <Route
+              path="/meta2"
+              element={<Meta2DoohTemplate props={findData("Metaverse 2")} />}
+            />
+            <Route
+              path="/meta3"
+              element={<ThreeMpuTemplate props={findData("Metaverse 3")} />}
+            />
+            <Route
+              path="/meta4"
+              element={<EightMpuTemplate props={findData("Metaverse 4")} />}
+            />
+            <Route
+              path="/meta_eu"
+              element={<MetaEuDoohTemplate props={findData("Meta: Europe")} />}
+            />
+            <Route
+              path="/ig_ywb"
+              element={<FourMpuTemplate props={findData("Instagram")} />}
+            />
+            <Route
+              path="/fitbit_seasonal"
+              element={<FitbitTemplate props={findData("Fitbit: Seasonal")} />}
             />
             <Route
               path="/fitbit_sense"
@@ -105,8 +132,8 @@ function App() {
               element={<FacebookTemplate props={findData("Facebook")} />}
             />
             <Route
-              path="/fifa19"
-              element={<Fifa19Template props={findData("Fifa19")} />}
+              path="/fifa"
+              element={<FifaTemplate props={findData("Fifa: Champion Rise")} />}
             />
             <Route
               path="/ee"
