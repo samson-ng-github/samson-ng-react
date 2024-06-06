@@ -84,7 +84,7 @@ export default function Aside() {
           to="/"
           onClick={showBillboardSection}
         >
-          Web applications
+          Digital billboards
         </Link>
         <ul className="project-ul">{billboardProjectList}</ul>
 
