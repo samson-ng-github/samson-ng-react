@@ -21,7 +21,7 @@ const webProjects = [
     slug: 'van_gogh_printshop',
     color: webColor,
     src: './iframes/meta1',
-    external: 'https://github.com/samson-ng-github/van-gogh-printshop',
+    external: 'https://van-gogh-printshop.samson-ng.com/',
   },
   {
     type: 'PSQL + Express',
@@ -107,7 +107,7 @@ const bannerProjects = [
     name: 'Instagram',
     slug: 'ig_ywb',
     color: bannerColor,
-    src: './iframes/ig_ywb'
+    src: './iframes/ig_ywb',
   },
   {
     type: banner,
