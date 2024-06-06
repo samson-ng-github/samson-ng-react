@@ -48,28 +48,29 @@ nav {
   font-size: 0.9rem;
 }
 
-.about-me {
+#about-me {
   display: block;
   text-decoration: none;
   font-family: Kontrapunkt-Bold;
+  margin-bottom: 2em;
 }
 
-.project-ul,
-.hashtag-ul {
-  list-style-type: none;
-  margin: 2em 0;
-}
-
-.project-ul a,
-.hashtag-ul a {
+.nav-section-header {
   display: block;
   text-decoration: none;
+  font-family: Kontrapunkt-Bold;
   margin-bottom: 0.5em;
 }
 
-.project-ul a:hover,
-.hashtag-ul a:hover {
-  font-family: Kontrapunkt-Bold;
+.project-ul {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.project-ul a {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 0.5em;
 }
 
 .cv {
@@ -159,26 +160,13 @@ nav {
     margin: 0 35px 35px 35px;
   }
   .project-ul {
-    margin: 1.5em 0 1rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .hashtag-ul {
-    margin: 1em 0 1.5rem 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .project-ul a,
-  .hashtag-ul a {
+  .project-ul a {
     margin: 0 0.8rem 0.5em 0;
-  }
-
-  .project-ul a:hover,
-  .hashtag-ul a:hover {
-    font-family: Kontrapunkt;
   }
 
   #thumbnail-page {
@@ -187,5 +175,12 @@ nav {
   }
   #thumbnail-page ul {
     justify-content: center;
+  }
+
+  .nav-section-header {
+    margin-bottom: 0.5em;
+  }
+  .section-header {
+    text-align: center;
   }
 }

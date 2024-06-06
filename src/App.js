@@ -71,16 +71,16 @@ function App() {
       <ProjectContext.Provider
         value={{
           webProjects,
-          isWebSectionOn,
-          setWebSection,
-          showWebSection,
           bannerProjects,
-          isBannerSectionOn,
-          setBannerSection,
-          showBannerSection,
           billboardProjects,
+          isWebSectionOn,
+          isBannerSectionOn,
           isBillboardSectionOn,
+          setWebSection,
+          setBannerSection,
           setBillboardSectionOn,
+          showWebSection,
+          showBannerSection,
           showBillboardSection,
           resetProjects,
         }}

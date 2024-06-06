@@ -3,7 +3,7 @@ const webColor = '#131a3f';
 const banner = 'JavaScript banner';
 const bannerColor = '#60134d';
 const billboard = 'Digital billboard';
-const billboardColor = '#2c0144';
+const billboardColor = '#0f3b00';
 
 // const installation = 'Installation art';
 // const installationColor = '#440101';
@@ -21,6 +21,7 @@ const webProjects = [
     slug: 'van_gogh_printshop',
     color: webColor,
     src: './iframes/meta1',
+    external: 'https://github.com/samson-ng-github/van-gogh-printshop',
   },
   {
     type: 'PSQL + Express',
@@ -28,6 +29,7 @@ const webProjects = [
     slug: 'nc_news',
     color: webColor,
     src: './iframes/meta1',
+    external: 'https://be-nc-news-v1e2.onrender.com/api/',
   },
   {
     type: 'React',
@@ -35,6 +37,8 @@ const webProjects = [
     slug: 'credit_card_validator',
     color: webColor,
     src: './iframes/meta1',
+    external:
+      'https://github.com/samson-ng-github/luhn-algorithm-credit-card-form',
   },
   {
     type: 'Three.js',
@@ -103,7 +107,7 @@ const bannerProjects = [
     name: 'Instagram',
     slug: 'ig_ywb',
     color: bannerColor,
-    src: './iframes/ig_ywb',
+    src: './iframes/ig_ywb'
   },
   {
     type: banner,

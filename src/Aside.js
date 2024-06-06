@@ -4,7 +4,7 @@ import { ProjectContext } from './App';
 
 // This is the component for each list item in the nav bar
 function AsideNavItem(props) {
-  const { name, slug, color } = props;
+  const { name, slug, color, external } = props;
   const [hoverColor, setHoverColor] = useState('black');
 
   // On hover, the text changed to the colour specify in data sheet.
@@ -15,7 +15,7 @@ function AsideNavItem(props) {
   return (
     <li>
       <Link
-        to={'/' + slug}
+        to={external ? external : '/' + slug}
         style={hoverStyle}
         onMouseOver={() => setHoverColor(color)}
         onMouseOut={() => setHoverColor('black')}
@@ -30,6 +30,8 @@ export default function Aside() {
   // Recieves project data, the sorting function and reset funtion from main App component
   const {
     webProjects,
+    bannerProjects,
+    billboardProjects,
     showWebSection,
     showBannerSection,
     showBillboardSection,
@@ -37,14 +39,22 @@ export default function Aside() {
   } = useContext(ProjectContext);
 
   //Turning project data into a list of AsideNavItem components
-  const AsideNavList = webProjects.map((project, index) => (
+  const webProjectList = webProjects.map((project, index) => (
+    <AsideNavItem key={index} {...project} />
+  ));
+
+  const bannerProjectList = bannerProjects.map((project, index) => (
+    <AsideNavItem key={index} {...project} />
+  ));
+
+  const billboardProjectList = billboardProjects.map((project, index) => (
     <AsideNavItem key={index} {...project} />
   ));
 
   return (
     <aside>
       {/*Website logo*/}
-      <Link to="/">
+      <Link to="/" onClick={resetProjects}>
         <img
           className="aside-logo"
           alt="aside-logo"
@@ -54,36 +64,29 @@ export default function Aside() {
 
       <nav>
         {/*About me page*/}
-        <Link className="about-me" to="/about_me">
+        <Link id="about-me" to="/about_me">
           About me
         </Link>
 
         {/*Project list*/}
-        <ul className="project-ul">{AsideNavList}</ul>
+        <Link className="nav-section-header" to="/" onClick={showWebSection}>
+          Web applications
+        </Link>
+        <ul className="project-ul">{webProjectList}</ul>
 
-        {/*Filter list*/}
-        <ul className="hashtag-ul">
-          <li>
-            <Link to="/" onClick={showWebSection}>
-              #Web applications
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={showBannerSection}>
-              #JavaScript banners
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={showBillboardSection}>
-              #Digital billboards
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={resetProjects}>
-              #Everything
-            </Link>
-          </li>
-        </ul>
+        <Link className="nav-section-header" to="/" onClick={showBannerSection}>
+          JavaScript banners
+        </Link>
+        <ul className="project-ul">{bannerProjectList}</ul>
+
+        <Link
+          className="nav-section-header"
+          to="/"
+          onClick={showBillboardSection}
+        >
+          Web applications
+        </Link>
+        <ul className="project-ul">{billboardProjectList}</ul>
 
         {/*CV button*/}
         <div className="cv">
