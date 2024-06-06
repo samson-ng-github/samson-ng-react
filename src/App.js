@@ -30,26 +30,21 @@ export const ProjectContext = createContext();
 
 function App() {
   // projectData stores the randomised or filtered project list on the main page.
-  const [projectData, setProjectData] = React.useState([]);
+  const [projectData, setProjectData] = React.useState(originalProjectData);
 
-  useEffect(() => {
+  /*useEffect(() => {
     // On load, randomise originalProjectData's project order.
     resetProjects();
-  }, []);
+  }, []);*/
 
-  // This function is passed to nav bar through createContext
-  // When you click the website logo, the project list resets
   const resetProjects = () => {
-    setProjectData([...originalProjectData].sort(() => Math.random() - 0.5));
+    setProjectData([...originalProjectData]);
   };
 
-  // This function is aslo passed to nav bar through createContext
-  // When you click the hastags, it filters out the relevant projects
   const sortProjects = (type) => {
-    resetProjects();
-    setProjectData((projectData) => {
-      return projectData.filter((project) => project.type === type);
-    });
+    setProjectData(
+      originalProjectData.filter((project) => project.type === type)
+    );
   };
 
   // This is to find the project data by project name

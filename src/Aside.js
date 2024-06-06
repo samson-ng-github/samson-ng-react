@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { ProjectContext } from "./App";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { ProjectContext } from './App';
 
 // This is the component for each list item in the nav bar
 function AsideNavItem(props) {
   const { name, slug, color } = props;
-  const [hoverColor, setHoverColor] = useState("black");
+  const [hoverColor, setHoverColor] = useState('black');
 
   // On hover, the text changed to the colour specify in data sheet.
   const hoverStyle = {
@@ -15,10 +15,10 @@ function AsideNavItem(props) {
   return (
     <li>
       <Link
-        to={"/" + slug}
+        to={'/' + slug}
         style={hoverStyle}
         onMouseOver={() => setHoverColor(color)}
-        onMouseOut={() => setHoverColor("black")}
+        onMouseOut={() => setHoverColor('black')}
       >
         {name}
       </Link>
@@ -39,7 +39,7 @@ export default function Aside() {
   return (
     <aside>
       {/*Website logo*/}
-      <Link to="/" onClick={resetProjects}>
+      <Link to="/">
         <img
           className="aside-logo"
           alt="aside-logo"
@@ -59,37 +59,22 @@ export default function Aside() {
         {/*Filter list*/}
         <ul className="hashtag-ul">
           <li>
-            <Link to="/" onClick={() => sortProjects("Display Ad")}>
-              #Display ads
+            <Link to="/" onClick={() => sortProjects('Web application')}>
+              #Web applications
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => sortProjects("Digital out of home")}>
-              #Digital out of home
+            <Link to="/" onClick={() => sortProjects('JavaScript banner')}>
+              #JavaScript banners
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => sortProjects("Mini Game")}>
-              #Mini games
+            <Link to="/" onClick={() => sortProjects('Digital billboard')}>
+              #Digital billboards
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => sortProjects("Three.js")}>
-              #Three.js
-            </Link>
-          </li>
-          {/*<li>
-            <Link to="/" onClick={() => sortProjects("Pencil Drawing")}>
-              #Pencil drawings
-            </Link>
-          </li>*/}
-          <li>
-            <Link to="/" onClick={() => sortProjects("Installation Art")}>
-              #Installation art
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={resetProjects}>
+            <Link to="/" onClick={() => resetProjects()}>
               #Everything
             </Link>
           </li>
