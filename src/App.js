@@ -60,8 +60,18 @@ function App() {
 
   // This is to find the project data by project name
   // The data is passed into the relavent page template to create the page in the router.
-  const findData = (name) => {
+  const findWebData = (name) => {
     const data = webProjects.find((project) => project.name === name);
+    return data;
+  };
+
+  const findBannerData = (name) => {
+    const data = bannerProjects.find((project) => project.name === name);
+    return data;
+  };
+
+  const findBillboardData = (name) => {
+    const data = billboardProjects.find((project) => project.name === name);
     return data;
   };
 
@@ -99,107 +109,125 @@ function App() {
             {/*Individual project pages*/}
             <Route
               path="/meta3"
-              element={<Dooh6xTemplate props={findData('Metaverse 3')} />}
+              element={
+                <Dooh6xTemplate props={findBillboardData('Metaverse 3')} />
+              }
             />
             <Route
               path="/meta4"
-              element={<Dooh6xTemplate props={findData('Metaverse 4')} />}
+              element={
+                <Dooh6xTemplate props={findBillboardData('Metaverse 4')} />
+              }
             />
             <Route
               path="/meta1"
-              element={<Meta3 props={findData('Metaverse 1')} />}
+              element={<Meta3 props={findBannerData('Metaverse 1')} />}
             />
             <Route
               path="/meta2"
-              element={<Meta4 props={findData('Metaverse 2')} />}
+              element={<Meta4 props={findBannerData('Metaverse 2')} />}
             />
             <Route
               path="/meta_eu"
-              element={<Dooh6xTemplate props={findData('Meta: Europe')} />}
+              element={
+                <Dooh6xTemplate props={findBillboardData('Meta: Europe')} />
+              }
             />
             <Route
               path="/ig_ywb"
-              element={<Mpu4xTemplate props={findData('Instagram')} />}
+              element={<Mpu4xTemplate props={findBannerData('Instagram')} />}
             />
             <Route
               path="/fitbit_seasonal"
-              element={<FitbitTemplate props={findData('Fitbit: Seasonal')} />}
+              element={
+                <FitbitTemplate props={findBannerData('Fitbit: Seasonal')} />
+              }
             />
             <Route
               path="/fitbit_sense"
-              element={<FitbitTemplate props={findData('Fitbit: Sense')} />}
+              element={
+                <FitbitTemplate props={findBannerData('Fitbit: Sense')} />
+              }
             />
             <Route
               path="/fitbit_backtoschool"
               element={
-                <FitbitTemplate props={findData('Fitbit: Back to School')} />
+                <FitbitTemplate
+                  props={findBannerData('Fitbit: Back to School')}
+                />
               }
             />
             <Route
               path="/oracle"
-              element={<Oracle props={findData('Oracle')} />}
+              element={<Oracle props={findBannerData('Oracle')} />}
             />
             <Route
               path="/facebook"
-              element={<Facebook props={findData('Facebook')} />}
+              element={<Facebook props={findBannerData('Facebook')} />}
             />
             <Route
               path="/fifa"
-              element={<Fifa props={findData('Fifa: Champion Rise')} />}
+              element={<Fifa props={findBannerData('Fifa: Champion Rise')} />}
             />
             <Route
               path="/ee"
-              element={<Mpu4xTemplate props={findData('EE')} />}
+              element={<Mpu4xTemplate props={findBannerData('EE')} />}
             />
             <Route
               path="/btb"
-              element={<Mpu4xTemplate props={findData('BT Business')} />}
+              element={<Mpu4xTemplate props={findBannerData('BT Business')} />}
             />
             <Route
               path="/sky"
-              element={<Sky props={findData('Sky Box Sets')} />}
+              element={<Sky props={findBannerData('Sky Box Sets')} />}
             />
             <Route
               path="/british_gas"
-              element={<FullPageTemplate props={findData('British Gas')} />}
+              element={
+                <FullPageTemplate props={findBannerData('British Gas')} />
+              }
             />
             <Route
               path="/tusker"
-              element={<FullPageTemplate props={findData('Tusker')} />}
+              element={<FullPageTemplate props={findWebData('Tusker')} />}
             />
             <Route
               path="/organix"
-              element={<FullPageTemplate props={findData('Organix')} />}
+              element={<FullPageTemplate props={findWebData('Organix')} />}
             />
             <Route
               path="/phantom_football"
               element={
-                <FullPageTemplate props={findData('Phantom Football')} />
+                <FullPageTemplate props={findWebData('Phantom Football')} />
               }
             />
             <Route
               path="/spotlight_casino_3d"
               element={
-                <FullPageTemplate props={findData('Spotlight Casino 3D')} />
+                <FullPageTemplate props={findWebData('Spotlight Casino 3D')} />
               }
             />
             <Route
               path="/snowfall_3d"
-              element={<FullPageTemplate props={findData('Snowfall 3D')} />}
+              element={<FullPageTemplate props={findWebData('Snowfall 3D')} />}
             />
             <Route
               path="/a_touch_of_me"
-              element={<VideoTemplate props={findData('A Touch of Me')} />}
+              element={
+                <VideoTemplate props={findBannerData('A Touch of Me')} />
+              }
             />
             <Route
               path="/heartbeat_in_a_bottle"
               element={
-                <VideoTemplate props={findData('Heartbeat in a Bottle')} />
+                <VideoTemplate
+                  props={findBannerData('Heartbeat in a Bottle')}
+                />
               }
             />
             <Route
               path="/philadelphia"
-              element={<Philadelphia props={findData('Philadelphia')} />}
+              element={<Philadelphia props={findBannerData('Philadelphia')} />}
             />
           </Routes>
         </Router>
