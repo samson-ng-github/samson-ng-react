@@ -14,30 +14,30 @@ const billboardColor = '#2c0144';
 // const pencilDrawing = "Pencil Drawing";
 // const pencilDrawingColor = "#252525";
 
-const webData = [
+const webProjects = [
   {
-    type: web,
+    type: 'React (Frontend)',
     name: 'Van Gogh Printshop',
     slug: 'van_gogh_printshop',
     color: webColor,
     src: './iframes/meta1',
   },
   {
-    type: web,
+    type: 'PSQL + Express',
     name: 'NC News',
     slug: 'nc_news',
     color: webColor,
     src: './iframes/meta1',
   },
   {
-    type: web,
+    type: 'React',
     name: 'Credit Card Validator',
     slug: 'credit_card_validator',
     color: webColor,
     src: './iframes/meta1',
   },
   {
-    type: web,
+    type: 'Three.js',
     name: 'Spotlight Casino 3D',
     slug: 'spotlight_casino_3d',
     color: webColor,
@@ -46,7 +46,7 @@ const webData = [
     text: "This Three.js project is part of the website for Spotlight Casino. It tells the story of Keith Taft, a professional con man and the four wearable gadgets he invented to cheat in casinos in the 1980's. Each gadget rotates in 3D and can be spun by dragging the mouse. Click on the hotspots to know more about each gadgets.",
   },
   {
-    type: web,
+    type: 'JavaScript mini-game',
     name: 'Tusker',
     slug: 'tusker',
     color: webColor,
@@ -55,7 +55,7 @@ const webData = [
     text: 'This is game commissioned by Tusker, a car benefit company. 50 clues lie hidden in the picture, each suggests a car brand. Click and enter the answer to win.',
   },
   {
-    type: web,
+    type: 'JavaScript mini-game',
     name: 'Organix',
     slug: 'organix',
     color: webColor,
@@ -64,7 +64,7 @@ const webData = [
     text: 'Control the bag to catch the nutritious peas and corns. Avoid the evil sugar.',
   },
   {
-    type: web,
+    type: 'JavaScript mini-game',
     name: 'Phantom Football',
     slug: 'phantom_football',
     color: webColor,
@@ -73,7 +73,7 @@ const webData = [
     text: 'A new take on the classic Pong game. Control the goal keeper with the left and right keys.',
   },
   {
-    type: web,
+    type: 'Three.js',
     name: 'Snowfall 3D',
     slug: 'snowfall_3d',
     color: webColor,
@@ -246,4 +246,4 @@ const billboardProjects = [
     src: './iframes/philadelphia',
   },*/
 
-export { webData, bannerProjects, billboardProjects };
+export { webProjects, bannerProjects, billboardProjects };

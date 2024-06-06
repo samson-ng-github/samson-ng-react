@@ -28,10 +28,16 @@ function AsideNavItem(props) {
 
 export default function Aside() {
   // Recieves project data, the sorting function and reset funtion from main App component
-  const { webData, sortProjects, resetProjects } = useContext(ProjectContext);
+  const {
+    webProjects,
+    showWebSection,
+    showBannerSection,
+    showBillboardSection,
+    resetProjects,
+  } = useContext(ProjectContext);
 
   //Turning project data into a list of AsideNavItem components
-  const AsideNavList = webData.map((project, index) => (
+  const AsideNavList = webProjects.map((project, index) => (
     <AsideNavItem key={index} {...project} />
   ));
 
@@ -58,22 +64,22 @@ export default function Aside() {
         {/*Filter list*/}
         <ul className="hashtag-ul">
           <li>
-            <Link to="/" onClick={() => sortProjects('Web application')}>
+            <Link to="/" onClick={showWebSection}>
               #Web applications
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => sortProjects('JavaScript banner')}>
+            <Link to="/" onClick={showBannerSection}>
               #JavaScript banners
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => sortProjects('Digital billboard')}>
+            <Link to="/" onClick={showBillboardSection}>
               #Digital billboards
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => resetProjects()}>
+            <Link to="/" onClick={resetProjects}>
               #Everything
             </Link>
           </li>

@@ -1,42 +1,27 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import { ProjectContext } from './App';
-
-// This is the component for each project thumbnail on main page
-// On hover, it will show the project name and project type
-function ProjectThumbnail(props) {
-  const { type, name, slug, color } = props;
-  const thumbPath = './assets/thumbnails/' + slug + '.jpg';
-
-  return (
-    <li>
-      <Link to={'/' + slug}>
-        <div>
-          <div className="Rollover" style={{ backgroundColor: color }}>
-            {type}
-            <br />
-            {name}
-          </div>
-          <img alt={name} src={thumbPath} />
-        </div>
-      </Link>
-    </li>
-  );
-}
+import { Section } from './Section';
 
 export default function ThumbnailPage() {
-  // Recieves data from main App component
-  const { projectData } = useContext(ProjectContext);
-
-  //Turning project data into a list of ProjectThumbnail components
-  const ThumbnalList = projectData.map((project, index) => {
-    return <ProjectThumbnail key={index} {...project} />;
-  });
-
+  const { webProjects, bannerProjects, billboardProjects } =
+    useContext(ProjectContext);
   return (
-    <div id="main">
-      <p>Web applications</p>
-      <ul>{ThumbnalList}</ul>
+    <div id="thumbnail-page">
+      <Section
+        header="Web applications"
+        color="#131a3f"
+        projects={webProjects}
+      />
+      <Section
+        header="JavaScript banners"
+        color="#60134d"
+        projects={bannerProjects}
+      />
+      <Section
+        header="Digital billboard"
+        color="#2c0144"
+        projects={billboardProjects}
+      />
     </div>
   );
 }

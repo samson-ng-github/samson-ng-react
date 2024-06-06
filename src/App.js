@@ -8,7 +8,7 @@ import Aside from './Aside';
 import ThumbnailPage from './ThumbnailPage';
 
 //Json that stores data for all projects
-import { webData, bannerProjects, billboardProjects } from './data/data';
+import { webProjects, bannerProjects, billboardProjects } from './data/data';
 
 //Template pages for each project
 import AboutMe from './pages/AboutMe';
@@ -30,20 +30,38 @@ export const ProjectContext = createContext();
 
 function App() {
   // projectData stores current project list on the main page.
-  const [projectData, setProjectData] = useState(webData);
+  const [isWebSectionOn, setWebSection] = useState(true);
+  const [isBannerSectionOn, setBannerSection] = useState(true);
+  const [isBillboardSectionOn, setBillboardSectionOn] = useState(true);
 
   const resetProjects = () => {
-    setProjectData([...webData]);
+    setWebSection(true);
+    setBannerSection(true);
+    setBillboardSectionOn(true);
   };
 
-  const sortProjects = (type) => {
-    setProjectData(webData.filter((project) => project.type === type));
+  const showWebSection = () => {
+    setWebSection(true);
+    setBannerSection(false);
+    setBillboardSectionOn(false);
+  };
+
+  const showBannerSection = () => {
+    setWebSection(false);
+    setBannerSection(true);
+    setBillboardSectionOn(false);
+  };
+
+  const showBillboardSection = () => {
+    setWebSection(false);
+    setBannerSection(false);
+    setBillboardSectionOn(true);
   };
 
   // This is to find the project data by project name
   // The data is passed into the relavent page template to create the page in the router.
   const findData = (name) => {
-    const data = webData.find((project) => project.name === name);
+    const data = webProjects.find((project) => project.name === name);
     return data;
   };
 
@@ -52,9 +70,18 @@ function App() {
       {/*Context Provider*/}
       <ProjectContext.Provider
         value={{
-          webData,
-          projectData,
-          sortProjects,
+          webProjects,
+          isWebSectionOn,
+          setWebSection,
+          showWebSection,
+          bannerProjects,
+          isBannerSectionOn,
+          setBannerSection,
+          showBannerSection,
+          billboardProjects,
+          isBillboardSectionOn,
+          setBillboardSectionOn,
+          showBillboardSection,
           resetProjects,
         }}
       >

@@ -92,12 +92,12 @@ nav {
   margin: 0.2rem;
 }
 
-#main {
+#thumbnail-page {
   flex-grow: 1;
   margin: 1rem 1rem 1rem 0;
 }
 
-#main ul {
+#thumbnail-page ul {
   list-style-type: none;
   display: grid;
   grid-gap: 1rem;
@@ -106,7 +106,7 @@ nav {
   justify-content: start;
 }
 
-#main ul .Rollover {
+#thumbnail-page ul .Rollover {
   position: absolute;
   width: 300px;
   height: 250px;
@@ -120,14 +120,27 @@ nav {
   justify-content: center;
 }
 
-#main ul .Rollover:hover {
+#thumbnail-page ul .Rollover:hover {
   opacity: 1;
   cursor: pointer;
 }
 
-#main ul img {
+#thumbnail-page ul img {
   width: 300px;
   height: 250px;
+}
+
+.section {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.section-header {
+  width: auto;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 600px) {
@@ -168,11 +181,11 @@ nav {
     font-family: Kontrapunkt;
   }
 
-  #main {
+  #thumbnail-page {
     padding-bottom: 1rem;
     margin: 0rem 1rem 0rem 1rem;
   }
-  #main ul {
+  #thumbnail-page ul {
     justify-content: center;
   }
 }
