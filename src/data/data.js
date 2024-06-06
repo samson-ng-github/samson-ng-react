@@ -14,7 +14,7 @@ const billboardColor = '#2c0144';
 // const pencilDrawing = "Pencil Drawing";
 // const pencilDrawingColor = "#252525";
 
-const data = [
+const webData = [
   {
     type: web,
     name: 'Van Gogh Printshop',
@@ -39,9 +39,9 @@ const data = [
   {
     type: web,
     name: 'Spotlight Casino 3D',
-    slug: 'spotlight_casino',
+    slug: 'spotlight_casino_3d',
     color: webColor,
-    src: './iframes/spotlight_casino',
+    src: './iframes/spotlight_casino_3d',
     size: { width: 1000, height: 800 },
     text: "This Three.js project is part of the website for Spotlight Casino. It tells the story of Keith Taft, a professional con man and the four wearable gadgets he invented to cheat in casinos in the 1980's. Each gadget rotates in 3D and can be spun by dragging the mouse. Click on the hotspots to know more about each gadgets.",
   },
@@ -75,46 +75,28 @@ const data = [
   {
     type: web,
     name: 'Snowfall 3D',
-    slug: 'snowfall',
+    slug: 'snowfall_3d',
     color: webColor,
-    src: './iframes/snowfall',
+    src: './iframes/snowfall_3d',
     size: { width: 1000, height: 800 },
     text: 'This is a particle system generated using Three.js. The 5000 particles of snow fall freely under gravity. To make it look more natural, I have had the gravity randomised by Perlin noise, a combination of eight wave curves, each of which has double the frequency and half the amplitude than the previous curve.',
   },
+];
+
+const bannerProjects = [
   {
-    type: billboard,
+    type: banner,
     name: 'Metaverse 1',
     slug: 'meta1',
-    color: billboardColor,
+    color: bannerColor,
     src: './iframes/meta1',
   },
   {
-    type: billboard,
+    type: banner,
     name: 'Metaverse 2',
     slug: 'meta2',
-    color: billboardColor,
+    color: bannerColor,
     src: './iframes/meta2',
-  },
-  {
-    type: banner,
-    name: 'Metaverse 3',
-    slug: 'meta3',
-    color: bannerColor,
-    src: './iframes/meta3',
-  },
-  {
-    type: banner,
-    name: 'Metaverse 4',
-    slug: 'meta4',
-    color: bannerColor,
-    src: './iframes/meta4',
-  },
-  {
-    type: billboard,
-    name: 'Meta: Europe',
-    slug: 'meta_eu',
-    color: billboardColor,
-    src: './iframes/meta_eu',
   },
   {
     type: banner,
@@ -194,8 +176,33 @@ const data = [
     color: bannerColor,
     size: { width: 960, height: 378 },
   },
+];
 
-  /*{
+const billboardProjects = [
+  {
+    type: billboard,
+    name: 'Metaverse 3',
+    slug: 'meta3',
+    color: billboardColor,
+    src: './iframes/meta3',
+  },
+  {
+    type: billboard,
+    name: 'Metaverse 4',
+    slug: 'meta4',
+    color: billboardColor,
+    src: './iframes/meta4',
+  },
+  {
+    type: billboard,
+    name: 'Meta: Europe',
+    slug: 'meta_eu',
+    color: billboardColor,
+    src: './iframes/meta_eu',
+  },
+];
+
+/*{
     type: pencilDrawing,
     name: "Adrian the Bodybuilder",
     slug: "adrian",
@@ -238,6 +245,5 @@ const data = [
     color: bannerColor,
     src: './iframes/philadelphia',
   },*/
-];
 
-export default data;
+export { webData, bannerProjects, billboardProjects };

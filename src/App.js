@@ -1,14 +1,14 @@
-import React, { useEffect, createContext } from 'react';
+import { useState, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/Templates.css';
 
 //The two main parts of the website
 import Aside from './Aside';
-import Main from './ThumbnailPage';
+import ThumbnailPage from './ThumbnailPage';
 
 //Json that stores data for all projects
-import originalProjectData from './data/data';
+import { webData, bannerProjects, billboardProjects } from './data/data';
 
 //Template pages for each project
 import AboutMe from './pages/AboutMe';
@@ -29,28 +29,21 @@ import VideoTemplate from './pages/templates/VideoTemplate';
 export const ProjectContext = createContext();
 
 function App() {
-  // projectData stores the randomised or filtered project list on the main page.
-  const [projectData, setProjectData] = React.useState(originalProjectData);
-
-  /*useEffect(() => {
-    // On load, randomise originalProjectData's project order.
-    resetProjects();
-  }, []);*/
+  // projectData stores current project list on the main page.
+  const [projectData, setProjectData] = useState(webData);
 
   const resetProjects = () => {
-    setProjectData([...originalProjectData]);
+    setProjectData([...webData]);
   };
 
   const sortProjects = (type) => {
-    setProjectData(
-      originalProjectData.filter((project) => project.type === type)
-    );
+    setProjectData(webData.filter((project) => project.type === type));
   };
 
   // This is to find the project data by project name
   // The data is passed into the relavent page template to create the page in the router.
   const findData = (name) => {
-    const data = originalProjectData.find((project) => project.name === name);
+    const data = webData.find((project) => project.name === name);
     return data;
   };
 
@@ -59,7 +52,7 @@ function App() {
       {/*Context Provider*/}
       <ProjectContext.Provider
         value={{
-          originalProjectData,
+          webData,
           projectData,
           sortProjects,
           resetProjects,
@@ -70,28 +63,28 @@ function App() {
           <Aside />
 
           <Routes>
-            {/*Main project list*/}
-            <Route path="/*" element={<Main />} />
+            {/*Thumbnail page*/}
+            <Route path="/*" element={<ThumbnailPage />} />
 
             {/*About me page*/}
             <Route path="/about_me" element={<AboutMe />} />
 
             {/*Individual project pages*/}
             <Route
-              path="/meta1"
-              element={<Dooh6xTemplate props={findData('Metaverse 1')} />}
-            />
-            <Route
-              path="/meta2"
-              element={<Dooh6xTemplate props={findData('Metaverse 2')} />}
-            />
-            <Route
               path="/meta3"
-              element={<Meta3 props={findData('Metaverse 3')} />}
+              element={<Dooh6xTemplate props={findData('Metaverse 3')} />}
             />
             <Route
               path="/meta4"
-              element={<Meta4 props={findData('Metaverse 4')} />}
+              element={<Dooh6xTemplate props={findData('Metaverse 4')} />}
+            />
+            <Route
+              path="/meta1"
+              element={<Meta3 props={findData('Metaverse 1')} />}
+            />
+            <Route
+              path="/meta2"
+              element={<Meta4 props={findData('Metaverse 2')} />}
             />
             <Route
               path="/meta_eu"
@@ -158,29 +151,15 @@ function App() {
               }
             />
             <Route
-              path="/spotlight_casino"
+              path="/spotlight_casino_3d"
               element={
-                <FullPageTemplate props={findData('Spotlight Casino')} />
+                <FullPageTemplate props={findData('Spotlight Casino 3D')} />
               }
             />
             <Route
-              path="/snowfall"
-              element={<FullPageTemplate props={findData('Snowfall')} />}
+              path="/snowfall_3d"
+              element={<FullPageTemplate props={findData('Snowfall 3D')} />}
             />
-            {/* <Route
-              path="/adrian"
-              element={
-                <PencilDrawingTemplate
-                  props={findData('Adrian the Bodybuilder')}
-                />
-              }
-            />
-            <Route
-              path="/ronan"
-              element={
-                <PencilDrawingTemplate props={findData('Ronan the Groom')} />
-              }
-            /> */}
             <Route
               path="/a_touch_of_me"
               element={<VideoTemplate props={findData('A Touch of Me')} />}

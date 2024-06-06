@@ -28,11 +28,10 @@ function AsideNavItem(props) {
 
 export default function Aside() {
   // Recieves project data, the sorting function and reset funtion from main App component
-  const { originalProjectData, sortProjects, resetProjects } =
-    useContext(ProjectContext);
+  const { webData, sortProjects, resetProjects } = useContext(ProjectContext);
 
   //Turning project data into a list of AsideNavItem components
-  const AsideNavList = originalProjectData.map((project, index) => (
+  const AsideNavList = webData.map((project, index) => (
     <AsideNavItem key={index} {...project} />
   ));
 

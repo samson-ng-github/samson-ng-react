@@ -35,6 +35,7 @@ export default function ThumbnailPage() {
 
   return (
     <div id="main">
+      <p>Web applications</p>
       <ul>{ThumbnalList}</ul>
     </div>
   );
