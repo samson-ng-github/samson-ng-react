@@ -1,32 +1,31 @@
-import React, { useEffect, createContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./css/App.css";
-import "./css/Templates.css";
+import React, { useEffect, createContext } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './css/App.css';
+import './css/Templates.css';
 
 //The two main parts of the website
-import Aside from "./Aside";
-import Main from "./Main";
+import Aside from './Aside';
+import Main from './Main';
 
 //Json that stores data for all projects
-import originalProjectData from "./data/data";
+import originalProjectData from './data/data';
 
 //Template pages for each project
-import AboutMeTemplate from "./pages/AboutMeTemplate";
-import EightMpuTemplate from "./pages/EightMpuTemplate";
-import FacebookTemplate from "./pages/FacebookTemplate";
-import FifaTemplate from "./pages/FifaTemplate";
-import FitbitTemplate from "./pages/FitbitTemplate";
-import FourMpuTemplate from "./pages/FourMpuTemplate";
-import FullPageTemplate from "./pages/FullPageTemplate";
-import OracleTemplate from "./pages/OracleTemplate";
-import PencilDrawingTemplate from "./pages/PencilDrawingTemplate";
-import PhiladelphiaTemplate from "./pages/PhiladelphiaTemplate";
-import Meta1DoohTemplate from "./pages/Meta1DoohTemplate";
-import Meta2DoohTemplate from "./pages/Meta2DoohTemplate";
-import MetaEuDoohTemplate from "./pages/MetaEuDoohTemplate";
-import SkyTemplate from "./pages/SkyTemplate";
-import ThreeMpuTemplate from "./pages/ThreeMpuTemplate";
-import VideoTemplate from "./pages/VideoTemplate";
+import AboutMe from './pages/AboutMe';
+import Meta4 from './pages/Meta4';
+import Facebook from './pages/Facebook';
+import Fifa from './pages/Fifa';
+import FitbitTemplate from './pages/templates/FitbitTemplate';
+import FourMpuTemplate from './pages/templates/FourMpuTemplate';
+import FullPageTemplate from './pages/templates/FullPageTemplate';
+import Oracle from './pages/Oracle';
+import Philadelphia from './pages/Philadelphia';
+import Meta1DoohTemplate from './pages/templates/Meta1DoohTemplate';
+import Meta2DoohTemplate from './pages/templates/Meta2DoohTemplate';
+import MetaEuDoohTemplate from './pages/templates/MetaEuDoohTemplate';
+import Sky from './pages/Sky';
+import Meta3 from './pages/Meta3';
+import VideoTemplate from './pages/templates/VideoTemplate';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -82,128 +81,126 @@ function App() {
             <Route path="/*" element={<Main />} />
 
             {/*About me page*/}
-            <Route path="/about_me" element={<AboutMeTemplate />} />
+            <Route path="/about_me" element={<AboutMe />} />
 
             {/*Individual project pages*/}
             <Route
               path="/meta1"
-              element={<Meta1DoohTemplate props={findData("Metaverse 1")} />}
+              element={<Meta1DoohTemplate props={findData('Metaverse 1')} />}
             />
             <Route
               path="/meta2"
-              element={<Meta2DoohTemplate props={findData("Metaverse 2")} />}
+              element={<Meta2DoohTemplate props={findData('Metaverse 2')} />}
             />
             <Route
               path="/meta3"
-              element={<ThreeMpuTemplate props={findData("Metaverse 3")} />}
+              element={<Meta3 props={findData('Metaverse 3')} />}
             />
             <Route
               path="/meta4"
-              element={<EightMpuTemplate props={findData("Metaverse 4")} />}
+              element={<Meta4 props={findData('Metaverse 4')} />}
             />
             <Route
               path="/meta_eu"
-              element={<MetaEuDoohTemplate props={findData("Meta: Europe")} />}
+              element={<Meta1DoohTemplate props={findData('Meta: Europe')} />}
             />
             <Route
               path="/ig_ywb"
-              element={<FourMpuTemplate props={findData("Instagram")} />}
+              element={<FourMpuTemplate props={findData('Instagram')} />}
             />
             <Route
               path="/fitbit_seasonal"
-              element={<FitbitTemplate props={findData("Fitbit: Seasonal")} />}
+              element={<FitbitTemplate props={findData('Fitbit: Seasonal')} />}
             />
             <Route
               path="/fitbit_sense"
-              element={<FitbitTemplate props={findData("Fitbit: Sense")} />}
+              element={<FitbitTemplate props={findData('Fitbit: Sense')} />}
             />
             <Route
               path="/fitbit_backtoschool"
               element={
-                <FitbitTemplate props={findData("Fitbit: Back to School")} />
+                <FitbitTemplate props={findData('Fitbit: Back to School')} />
               }
             />
             <Route
               path="/oracle"
-              element={<OracleTemplate props={findData("Oracle")} />}
+              element={<Oracle props={findData('Oracle')} />}
             />
             <Route
               path="/facebook"
-              element={<FacebookTemplate props={findData("Facebook")} />}
+              element={<Facebook props={findData('Facebook')} />}
             />
             <Route
               path="/fifa"
-              element={<FifaTemplate props={findData("Fifa: Champion Rise")} />}
+              element={<Fifa props={findData('Fifa: Champion Rise')} />}
             />
             <Route
               path="/ee"
-              element={<FourMpuTemplate props={findData("EE")} />}
+              element={<FourMpuTemplate props={findData('EE')} />}
             />
             <Route
               path="/btb"
-              element={<FourMpuTemplate props={findData("BT Business")} />}
+              element={<FourMpuTemplate props={findData('BT Business')} />}
             />
             <Route
               path="/sky"
-              element={<SkyTemplate props={findData("Sky Box Sets")} />}
+              element={<Sky props={findData('Sky Box Sets')} />}
             />
             <Route
               path="/british_gas"
-              element={<FullPageTemplate props={findData("British Gas")} />}
+              element={<FullPageTemplate props={findData('British Gas')} />}
             />
             <Route
               path="/tusker"
-              element={<FullPageTemplate props={findData("Tusker")} />}
+              element={<FullPageTemplate props={findData('Tusker')} />}
             />
             <Route
               path="/organix"
-              element={<FullPageTemplate props={findData("Organix")} />}
+              element={<FullPageTemplate props={findData('Organix')} />}
             />
             <Route
               path="/phantom_football"
               element={
-                <FullPageTemplate props={findData("Phantom Football")} />
+                <FullPageTemplate props={findData('Phantom Football')} />
               }
             />
             <Route
               path="/spotlight_casino"
               element={
-                <FullPageTemplate props={findData("Spotlight Casino")} />
+                <FullPageTemplate props={findData('Spotlight Casino')} />
               }
             />
             <Route
               path="/snowfall"
-              element={<FullPageTemplate props={findData("Snowfall")} />}
+              element={<FullPageTemplate props={findData('Snowfall')} />}
             />
-            <Route
+            {/* <Route
               path="/adrian"
               element={
                 <PencilDrawingTemplate
-                  props={findData("Adrian the Bodybuilder")}
+                  props={findData('Adrian the Bodybuilder')}
                 />
               }
             />
             <Route
               path="/ronan"
               element={
-                <PencilDrawingTemplate props={findData("Ronan the Groom")} />
+                <PencilDrawingTemplate props={findData('Ronan the Groom')} />
               }
-            />
+            /> */}
             <Route
               path="/a_touch_of_me"
-              element={<VideoTemplate props={findData("A Touch of Me")} />}
+              element={<VideoTemplate props={findData('A Touch of Me')} />}
             />
             <Route
               path="/heartbeat_in_a_bottle"
               element={
-                <VideoTemplate props={findData("Heartbeat in a Bottle")} />
+                <VideoTemplate props={findData('Heartbeat in a Bottle')} />
               }
             />
             <Route
               path="/philadelphia"
-              element={
-                <PhiladelphiaTemplate props={findData("Philadelphia")} />
-              }
+              element={<Philadelphia props={findData('Philadelphia')} />}
             />
           </Routes>
         </Router>

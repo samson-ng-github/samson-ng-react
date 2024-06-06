@@ -1,8 +1,8 @@
-export default function AboutMeTemplate() {
+export default function AboutMe() {
   return (
     <div
       className="single-iframe-container about-me-template-container"
-      style={{ width: "700px" }}
+      style={{ width: '700px' }}
     >
       <img
         className="about-me-template-img"
