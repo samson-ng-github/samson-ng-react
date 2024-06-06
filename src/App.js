@@ -5,7 +5,7 @@ import './css/Templates.css';
 
 //The two main parts of the website
 import Aside from './Aside';
-import Main from './Main';
+import Main from './ThumbnailPage';
 
 //Json that stores data for all projects
 import originalProjectData from './data/data';
