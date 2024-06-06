@@ -16,13 +16,11 @@ import Meta4 from './pages/Meta4';
 import Facebook from './pages/Facebook';
 import Fifa from './pages/Fifa';
 import FitbitTemplate from './pages/templates/FitbitTemplate';
-import FourMpuTemplate from './pages/templates/FourMpuTemplate';
+import Mpu4xTemplate from './pages/templates/Mpu4xTemplate';
 import FullPageTemplate from './pages/templates/FullPageTemplate';
 import Oracle from './pages/Oracle';
 import Philadelphia from './pages/Philadelphia';
-import Meta1DoohTemplate from './pages/templates/Meta1DoohTemplate';
-import Meta2DoohTemplate from './pages/templates/Meta2DoohTemplate';
-import MetaEuDoohTemplate from './pages/templates/MetaEuDoohTemplate';
+import Dooh6xTemplate from './pages/templates/Dooh6xTemplate';
 import Sky from './pages/Sky';
 import Meta3 from './pages/Meta3';
 import VideoTemplate from './pages/templates/VideoTemplate';
@@ -86,11 +84,11 @@ function App() {
             {/*Individual project pages*/}
             <Route
               path="/meta1"
-              element={<Meta1DoohTemplate props={findData('Metaverse 1')} />}
+              element={<Dooh6xTemplate props={findData('Metaverse 1')} />}
             />
             <Route
               path="/meta2"
-              element={<Meta2DoohTemplate props={findData('Metaverse 2')} />}
+              element={<Dooh6xTemplate props={findData('Metaverse 2')} />}
             />
             <Route
               path="/meta3"
@@ -102,11 +100,11 @@ function App() {
             />
             <Route
               path="/meta_eu"
-              element={<Meta1DoohTemplate props={findData('Meta: Europe')} />}
+              element={<Dooh6xTemplate props={findData('Meta: Europe')} />}
             />
             <Route
               path="/ig_ywb"
-              element={<FourMpuTemplate props={findData('Instagram')} />}
+              element={<Mpu4xTemplate props={findData('Instagram')} />}
             />
             <Route
               path="/fitbit_seasonal"
@@ -136,11 +134,11 @@ function App() {
             />
             <Route
               path="/ee"
-              element={<FourMpuTemplate props={findData('EE')} />}
+              element={<Mpu4xTemplate props={findData('EE')} />}
             />
             <Route
               path="/btb"
-              element={<FourMpuTemplate props={findData('BT Business')} />}
+              element={<Mpu4xTemplate props={findData('BT Business')} />}
             />
             <Route
               path="/sky"

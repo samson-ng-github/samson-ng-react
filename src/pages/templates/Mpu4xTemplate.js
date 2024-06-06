@@ -18,6 +18,11 @@ export default function Mpu4xTemplate(props) {
         src={src + '/300x250_3'}
         title={name + ' 300x250'}
       />
+      <iframe
+        className="general-300x250"
+        src={src + '/300x250_4'}
+        title={name + ' 300x250'}
+      />
     </div>
   );
 }
