@@ -1,29 +1,28 @@
 import { useState, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './css/App.css';
-import './css/Templates.css';
 
 //The two main parts of the website
 import Aside from './Aside';
-import ThumbnailPage from './ThumbnailPage';
+import ThumbnailPage from './pages/ThumbnailPage';
 
 //Json that stores data for all projects
 import { webProjects, bannerProjects, billboardProjects } from './data/data';
 
 //Template pages for each project
 import AboutMe from './pages/AboutMe';
-import Meta4 from './pages/Meta4';
+import Meta2 from './pages/Meta2';
 import Facebook from './pages/Facebook';
 import Fifa from './pages/Fifa';
-import FitbitTemplate from './pages/templates/FitbitTemplate';
-import Mpu4xTemplate from './pages/templates/Mpu4xTemplate';
-import FullPageTemplate from './pages/templates/FullPageTemplate';
+import FitbitTemplate from './templates/FitbitTemplate';
+import Mpu4xTemplate from './templates/Mpu4xTemplate';
+import BroadsheetTemplate from './templates/BroadsheetTemplate';
 import Oracle from './pages/Oracle';
 import Philadelphia from './pages/Philadelphia';
-import Dooh6xTemplate from './pages/templates/Dooh6xTemplate';
+import Dooh6xTemplate from './templates/Dooh6xTemplate';
 import Sky from './pages/Sky';
-import Meta3 from './pages/Meta3';
-import VideoTemplate from './pages/templates/VideoTemplate';
+import Meta1 from './pages/Meta1';
+import VideoTemplate from './templates/VideoTemplate';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -108,24 +107,24 @@ function App() {
 
             {/*Individual project pages*/}
             <Route
-              path="/meta3"
+              path="/Meta3"
               element={
                 <Dooh6xTemplate props={findBillboardData('Metaverse 3')} />
               }
             />
             <Route
-              path="/meta4"
+              path="/Meta4"
               element={
                 <Dooh6xTemplate props={findBillboardData('Metaverse 4')} />
               }
             />
             <Route
               path="/meta1"
-              element={<Meta3 props={findBannerData('Metaverse 1')} />}
+              element={<Meta1 props={findBannerData('Metaverse 1')} />}
             />
             <Route
               path="/meta2"
-              element={<Meta4 props={findBannerData('Metaverse 2')} />}
+              element={<Meta2 props={findBannerData('Metaverse 2')} />}
             />
             <Route
               path="/meta_eu"
@@ -184,32 +183,36 @@ function App() {
             <Route
               path="/british_gas"
               element={
-                <FullPageTemplate props={findBannerData('British Gas')} />
+                <BroadsheetTemplate props={findBannerData('British Gas')} />
               }
             />
             <Route
               path="/tusker"
-              element={<FullPageTemplate props={findWebData('Tusker')} />}
+              element={<BroadsheetTemplate props={findWebData('Tusker')} />}
             />
             <Route
               path="/organix"
-              element={<FullPageTemplate props={findWebData('Organix')} />}
+              element={<BroadsheetTemplate props={findWebData('Organix')} />}
             />
             <Route
               path="/phantom_football"
               element={
-                <FullPageTemplate props={findWebData('Phantom Football')} />
+                <BroadsheetTemplate props={findWebData('Phantom Football')} />
               }
             />
             <Route
               path="/spotlight_casino_3d"
               element={
-                <FullPageTemplate props={findWebData('Spotlight Casino 3D')} />
+                <BroadsheetTemplate
+                  props={findWebData('Spotlight Casino 3D')}
+                />
               }
             />
             <Route
               path="/snowfall_3d"
-              element={<FullPageTemplate props={findWebData('Snowfall 3D')} />}
+              element={
+                <BroadsheetTemplate props={findWebData('Snowfall 3D')} />
+              }
             />
             <Route
               path="/a_touch_of_me"

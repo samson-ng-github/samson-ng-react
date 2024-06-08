@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 // This is the component for each project thumbnail on main page
@@ -10,14 +9,12 @@ export function ProjectThumbnail(props) {
   return (
     <li>
       <Link to={external ? external : '/' + slug}>
-        <div>
-          <div className="Rollover" style={{ backgroundColor: color }}>
-            {type}
-            <br />
-            {name}
-          </div>
-          <img alt={name} src={thumbPath} />
+        <div className="Rollover" style={{ backgroundColor: color }}>
+          {type}
+          <br />
+          {name}
         </div>
+        <img alt={name} src={thumbPath} />
       </Link>
     </li>
   );

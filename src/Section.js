@@ -6,12 +6,7 @@ export const Section = ({ header, color, projects }) => {
   });
   return (
     <div className="section">
-      <p
-        className="section-header"
-        style={{ color: color, borderBottom: `1px solid ${color}` }}
-      >
-        {header}
-      </p>
+      <header>{header}</header>
       <ul>{ThumbnalList}</ul>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ProjectContext } from './App';
-import { Section } from './Section';
+import { ProjectContext } from '../App';
+import { Section } from '../Section';
 
 export default function ThumbnailPage() {
   const {
@@ -12,7 +12,7 @@ export default function ThumbnailPage() {
     isBillboardSectionOn,
   } = useContext(ProjectContext);
   return (
-    <div id="thumbnail-page">
+    <div className="page">
       {isWebSectionOn ? (
         <Section
           header="Web applications"
