@@ -216,27 +216,39 @@ header {
   margin-bottom: 1rem;
 }
 
-.mpu-block:last-child {
-  margin-right: 0;
+.dooh-block {
+  width: 300px;
+  height: 533px;
+  margin-right: 1rem;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 1rem;
 }
+
+/*.mpu-block:last-child {
+  margin-right: 0;
+}*/
+
 .mpu-block img {
   width: 300px;
   height: 250px;
 }
 
-.single-iframe-container .pencil-drawing-template-img-mobile {
-  width: 300px;
-  height: 250px;
-  display: none;
+.mpu-text-block p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.3;
 }
 
-.single-iframe-container iframe {
-  display: block;
-  margin-bottom: 1rem;
+.mpu-text-block p:last-child {
+  margin-bottom: 0;
 }
 
 iframe {
   border: none;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 
 .iframe-300x250 {
@@ -300,8 +312,7 @@ iframe {
   margin: 1rem 1rem 1rem 0;
 }
 
-.page,
-.single-iframe-container {
+.page {
   width: 100%;
   margin: 1rem 1rem 1rem 0;
 }
@@ -315,7 +326,6 @@ iframe {
 #fifa19-300x250,
 #fitbit-300x250,
 #oracle-300x250,
-.philadelphia-970x250-1,
 #sky-160x600 {
   left: 0;
   top: 0;
@@ -333,7 +343,6 @@ iframe {
 
 #fifa19-300x600,
 #fitbit-300x600,
-.philadelphia-970x250-2,
 #oracle-300x600 {
   left: 0px;
   top: 250px;
@@ -419,13 +428,6 @@ iframe {
   position: absolute;
 }
 
-.philadelphia-970x250-3 {
-  left: 0px;
-  top: 500px;
-  transform: translate(0, 2rem);
-  position: absolute;
-}
-
 #sky-300x250 {
   left: 160px;
   top: 0px;
@@ -444,59 +446,13 @@ iframe {
   border: 1px solid black;
 }
 
-.mpu-text-block p {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  color: #333;
-  line-height: 1.3;
-}
-
-.mpu-text-block p:last-child {
-  margin-bottom: 0;
-}
-
-.single-iframe-container img {
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
 @media only screen and (max-width: 600px) {
-  .pencil-drawing-template-container {
-    width: 300px !important;
-  }
-
-  .single-iframe-container .pencil-drawing-template-img {
-    display: none;
-  }
-
-  .single-iframe-container .pencil-drawing-template-img-mobile {
-    width: 300px;
-    height: 250px;
-    display: block;
-  }
-
-  .single-iframe-container {
-    margin: 0 auto;
-    padding: 0 1rem 1rem 1rem;
-  }
-
-  .philadelphia-mobile-container {
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
   .four-dooh-container video,
   .page iframe {
     position: relative;
     top: 0px;
     left: 0px;
     transform: translate(0, 0);
-  }
-
-  .philadelphia-970x250-1,
-  .philadelphia-970x250-2,
-  .philadelphia-970x250-3 {
-    align-self: flex-start;
   }
 
   .main {
@@ -519,11 +475,10 @@ iframe {
   #oracle-300x50,
   #facebook-300x250,
   #facebook-300x600,
-  #fifa-300x600,
-  #fifa-300x250,
+  #fifa19-300x600,
+  #fifa19-300x250,
   #sky-300x250 {
     display: inline-block;
-    margin-bottom: 1rem;
     left: 0px;
     top: 0px;
     transform: none;
@@ -546,5 +501,4 @@ iframe {
   #sky-160x600 {
     display: none;
   }
-
 }

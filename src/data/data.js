@@ -188,14 +188,14 @@ const billboardProjects = [
     name: 'Metaverse 3',
     slug: 'Meta3',
     color: billboardColor,
-    src: './iframes/Meta1',
+    src: './iframes/meta3',
   },
   {
     type: billboard,
     name: 'Metaverse 4',
     slug: 'Meta4',
     color: billboardColor,
-    src: './iframes/Meta2',
+    src: './iframes/meta2',
   },
   {
     type: billboard,
