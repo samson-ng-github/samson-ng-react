@@ -4,7 +4,7 @@ import './css/App.css';
 
 //The two main parts of the website
 import Aside from './Aside';
-import ThumbnailPage from './pages/ThumbnailPage';
+import ThumbnailPage from './thumbnail-page/ThumbnailPage';
 
 //Json that stores data for all projects
 import { webProjects, bannerProjects, billboardProjects } from './data/data';

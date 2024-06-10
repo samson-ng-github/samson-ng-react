@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ProjectContext } from '../App';
-import { Section } from '../Section';
+import { Section } from './Section';
 
 export default function ThumbnailPage() {
   const {
