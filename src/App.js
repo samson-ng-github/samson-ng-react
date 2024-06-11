@@ -24,6 +24,7 @@ import Sky from './pages/Sky';
 import Meta1 from './pages/Meta1';
 import LaunchTemplate from './templates/LaunchTemplate';
 import NCNews from './templates/NCNews';
+import PhantomFootball from './pages/PhantomFootball';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -211,7 +212,7 @@ function App() {
             <Route
               path="/phantom_football"
               element={
-                <BroadsheetTemplate props={findWebData('Phantom Football')} />
+                <PhantomFootball props={findWebData('Phantom Football')} />
               }
             />
             <Route

@@ -448,7 +448,10 @@ iframe {
 }
 
 @media only screen and (max-width: 600px) {
-  .four-dooh-container video,
+  .aside-logo {
+    margin: 40px 65px;
+  }
+
   .page iframe {
     position: relative;
     top: 0px;
