@@ -15,7 +15,7 @@ function AsideNavItem(props) {
   return (
     <li>
       <Link
-        to={external ? external : '/' + slug}
+        to={'/' + slug}
         style={hoverStyle}
         onMouseOver={() => setHoverColor(color)}
         onMouseOut={() => setHoverColor('black')}

@@ -20,23 +20,21 @@ const webProjects = [
     name: 'Van Gogh Printshop',
     slug: 'van_gogh_printshop',
     color: webColor,
-    src: './iframes/meta1',
   },
   {
     type: 'PSQL + Express',
     name: 'NC News',
     slug: 'nc_news',
     color: webColor,
-    src: './iframes/meta1',
   },
   {
     type: 'React',
     name: 'Credit Card Validator',
     slug: 'credit_card_validator',
     color: webColor,
-    src: './iframes/meta1',
-    external:
-      'https://github.com/samson-ng-github/luhn-algorithm-credit-card-form',
+    src: './iframes/credit_card_validator',
+    size: { width: 700, height: 600 },
+    text: 'This is a practice project to build a credit card form using React. After entering the details, the credit card number will be checked if it is valid using the Luhn Algoritm. Other details will also be checked. The card holder\'s name can only accept alphabets, spaces and hyphens. The CVV can only accept three numbers. Upon clicking "Submit", there will be a message on top to tell you if the valiation has been successful. You will also know which field has been successful by its color code and icon. Once valiation has passed, the card details will be saved and displayed below the form. You can keep adding new keeps and delete old cards.',
   },
   {
     type: 'Three.js',

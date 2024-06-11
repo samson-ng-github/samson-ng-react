@@ -112,14 +112,20 @@ function App() {
             <Route
               path="/van_gogh_printshop"
               element={
-                <LaunchTemplate
-                  props={findBillboardData('Van Gogh Printshop')}
-                />
+                <LaunchTemplate props={findWebData('Van Gogh Printshop')} />
               }
             />
             <Route
               path="/nc_news"
-              element={<NCNews props={findBillboardData('NC News')} />}
+              element={<NCNews props={findWebData('NC News')} />}
+            />
+            <Route
+              path="/credit_card_validator"
+              element={
+                <BroadsheetTemplate
+                  props={findWebData('Credit Card Validator')}
+                />
+              }
             />
             <Route
               path="/meta3"

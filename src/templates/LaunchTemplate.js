@@ -20,7 +20,8 @@ export default function LaucherTemplate() {
             paintings and order the prints in one of the four sizes available:
             original, half, quarter and postcard sizes. Go to the cart on the
             top right and you can see all the posters you have selected and the
-            total price.
+            total price. All of the data are stored in useState and are passed
+            around the components using React Redux Toolkit
           </p>
           <p>
             The website is built in React with Vite. At the moment, only the
