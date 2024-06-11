@@ -77,7 +77,7 @@ nav {
   margin-bottom: 1rem;
 }
 
-.cv button {
+button {
   cursor: pointer;
   border-radius: 3px;
   color: white;
@@ -86,6 +86,7 @@ nav {
   font-family: Kontrapunkt-Bold;
   text-decoration: none;
   border: 0;
+  margin-right: 1rem;
 }
 
 .social-media-icon {

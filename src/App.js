@@ -22,7 +22,8 @@ import Philadelphia from './pages/Philadelphia';
 import Dooh6xTemplate from './templates/Dooh6xTemplate';
 import Sky from './pages/Sky';
 import Meta1 from './pages/Meta1';
-import VideoTemplate from './templates/VideoTemplate';
+import LaunchTemplate from './templates/LaunchTemplate';
+import NCNews from './templates/NCNews';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -106,14 +107,27 @@ function App() {
             <Route path="/about_me" element={<AboutMe />} />
 
             {/*Individual project pages*/}
+
             <Route
-              path="/Meta3"
+              path="/van_gogh_printshop"
+              element={
+                <LaunchTemplate
+                  props={findBillboardData('Van Gogh Printshop')}
+                />
+              }
+            />
+            <Route
+              path="/nc_news"
+              element={<NCNews props={findBillboardData('NC News')} />}
+            />
+            <Route
+              path="/meta3"
               element={
                 <Dooh6xTemplate props={findBillboardData('Metaverse 3')} />
               }
             />
             <Route
-              path="/Meta4"
+              path="/meta4"
               element={
                 <Dooh6xTemplate props={findBillboardData('Metaverse 4')} />
               }
@@ -213,24 +227,6 @@ function App() {
               element={
                 <BroadsheetTemplate props={findWebData('Snowfall 3D')} />
               }
-            />
-            <Route
-              path="/a_touch_of_me"
-              element={
-                <VideoTemplate props={findBannerData('A Touch of Me')} />
-              }
-            />
-            <Route
-              path="/heartbeat_in_a_bottle"
-              element={
-                <VideoTemplate
-                  props={findBannerData('Heartbeat in a Bottle')}
-                />
-              }
-            />
-            <Route
-              path="/philadelphia"
-              element={<Philadelphia props={findBannerData('Philadelphia')} />}
             />
           </Routes>
         </Router>

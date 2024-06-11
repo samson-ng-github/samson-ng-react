@@ -21,7 +21,6 @@ const webProjects = [
     slug: 'van_gogh_printshop',
     color: webColor,
     src: './iframes/meta1',
-    external: 'https://van-gogh-printshop.samson-ng.com/',
   },
   {
     type: 'PSQL + Express',
@@ -29,7 +28,6 @@ const webProjects = [
     slug: 'nc_news',
     color: webColor,
     src: './iframes/meta1',
-    external: 'https://be-nc-news-v1e2.onrender.com/api/',
   },
   {
     type: 'React',
@@ -186,14 +184,14 @@ const billboardProjects = [
   {
     type: billboard,
     name: 'Metaverse 3',
-    slug: 'Meta3',
+    slug: 'meta3',
     color: billboardColor,
     src: './iframes/meta3',
   },
   {
     type: billboard,
     name: 'Metaverse 4',
-    slug: 'Meta4',
+    slug: 'meta4',
     color: billboardColor,
     src: './iframes/meta2',
   },

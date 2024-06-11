@@ -5,16 +5,19 @@ export default function AboutMe() {
       <div className="main">
         <div className="mpu-text-block">
           <p>
-            I am a multiple award-winning designer and programmer with accolades
-            from the US, France, Croatia, Taiwan and Hong Kong. I earned two
-            master's degrees in Computation at Goldsmiths after graduating from
-            Central Saint Martins in Graphic Design. Notable clients include
-            Fitbit, Oracle, EA, Facebook, EE, BT and Sky.
-          </p>
-          <p>
-            I have been developing display ads for a number of years now. I am
-            looking for my next career move in React JS which I have been
-            studying outside work. This website is written in React.
+            I am a creative programmer from an artistic background. After 9
+            professional years in making JavaScript banners, I am looking for my
+            next career move as a front or backend developer where I can design
+            and build more complex and sophisticated web applications. In
+            addition to my proficiency in HTML, CSS, and JavaScript, I have been
+            upskilling on various front and backend technologies. With a degree
+            in Graphic Design, I had experience working as a graphic designer,
+            specialising in layout and user interface design. My strengths in
+            mathematics and problem-solving, honed both academically and
+            professionally, enable me to tackle programming challenges
+            effectively. With a diverse skill set and a passion for creating
+            captivating digital experiences, I am eager to bring my expertise to
+            your business.
           </p>
           <p>
             Outside of work I enjoy travelling. I have been to 510 cities in 46
@@ -32,7 +35,7 @@ export default function AboutMe() {
           </p>
         </div>
         <div className="mpu-block">
-          <img src="./assets/samson_ng.jpg" alt="Samson Ng" />
+          <img src="./assets/thumbnails/samson_ng.jpg" alt="Samson Ng" />
         </div>
       </div>
     </div>
