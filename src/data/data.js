@@ -34,7 +34,7 @@ const webProjects = [
     color: webColor,
     src: './iframes/credit_card_validator',
     size: { width: 700, height: 600 },
-    text: 'This is a practice project to build a credit card form using React. After entering the details, the credit card number will be checked if it is valid using the Luhn Algoritm. Other details will also be checked. The card holder\'s name can only accept alphabets, spaces and hyphens. The CVV can only accept three numbers. Upon clicking "Submit", there will be a message on top to tell you if the valiation has been successful. You will also know which field has been successful by its color code and icon. Once valiation has passed, the card details will be saved and displayed below the form. You can keep adding new keeps and delete old cards.',
+    text: 'Please do not enter real credit card details.\n\nThis is a practice project to build a credit card form using React. After entering the details, the credit card number will be checked if it is valid using the Luhn Algoritm. That is to say if you add up all the even digits times two plus all the odd digits together and the answer is a multiple of 10. This is provisionally a valid credit card number.\n\nApart from this other details will also be checked. The card holder\'s name can only accept alphabets, spaces and hyphens. The CVV can only accept three numbers. Upon clicking "Submit", there will be a message on top to tell you if the valiation has been successful. You will also know which field has been successful by its color code and icon. Once valiation has passed, the card details will be saved and displayed below the form. You can keep adding new keeps and delete old cards.',
   },
   {
     type: 'Three.js',
