@@ -29,7 +29,10 @@ export default function LaucherTemplate() {
             along with new features such as a login system as well as a map API
             that tells you the current locations of the paintings.
           </p>
-          <a href="https://van-gogh-printshop.samson-ng.com/" target="_blank">
+          <a
+            href="https://apps.samson-ng.com/van-gogh-printshop/"
+            target="_blank"
+          >
             <button>Launch</button>
           </a>
           <a
