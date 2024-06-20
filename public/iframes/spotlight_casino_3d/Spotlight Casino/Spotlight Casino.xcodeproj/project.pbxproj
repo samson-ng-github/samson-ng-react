@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A2E46AD91A7F9D2800D7B97D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E46AD81A7F9D2800D7B97D /* main.m */; };
+		A2E46ADC1A7F9D2800D7B97D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E46ADB1A7F9D2800D7B97D /* AppDelegate.m */; };
+		A2E46ADF1A7F9D2800D7B97D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E46ADE1A7F9D2800D7B97D /* RootViewController.m */; };
+		A2E46AE21A7F9D2800D7B97D /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E46AE11A7F9D2800D7B97D /* DataViewController.m */; };
+		A2E46AE51A7F9D2800D7B97D /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E46AE41A7F9D2800D7B97D /* ModelController.m */; };
+		A2E46AE81A7F9D2800D7B97D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E46AE61A7F9D2800D7B97D /* Main.storyboard */; };
+		A2E46AEA1A7F9D2800D7B97D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E46AE91A7F9D2800D7B97D /* Images.xcassets */; };
+		A2E46AED1A7F9D2800D7B97D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2E46AEB1A7F9D2800D7B97D /* LaunchScreen.xib */; };
+		A2E46AF91A7F9D2800D7B97D /* Spotlight_CasinoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E46AF81A7F9D2800D7B97D /* Spotlight_CasinoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A2E46AF31A7F9D2800D7B97D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2E46ACB1A7F9D2800D7B97D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2E46AD21A7F9D2800D7B97D;
+			remoteInfo = "Spotlight Casino";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A2E46AD31A7F9D2800D7B97D /* Spotlight Casino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotlight Casino.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2E46AD71A7F9D2800D7B97D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E46AD81A7F9D2800D7B97D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A2E46ADA1A7F9D2800D7B97D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A2E46ADB1A7F9D2800D7B97D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A2E46ADD1A7F9D2800D7B97D /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		A2E46ADE1A7F9D2800D7B97D /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		A2E46AE01A7F9D2800D7B97D /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
+		A2E46AE11A7F9D2800D7B97D /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
+		A2E46AE31A7F9D2800D7B97D /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
+		A2E46AE41A7F9D2800D7B97D /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		A2E46AE71A7F9D2800D7B97D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A2E46AE91A7F9D2800D7B97D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A2E46AEC1A7F9D2800D7B97D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A2E46AF21A7F9D2800D7B97D /* Spotlight CasinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Spotlight CasinoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2E46AF71A7F9D2800D7B97D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E46AF81A7F9D2800D7B97D /* Spotlight_CasinoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spotlight_CasinoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A2E46AD01A7F9D2800D7B97D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2E46AEF1A7F9D2800D7B97D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A2E46ACA1A7F9D2800D7B97D = {
+			isa = PBXGroup;
+			children = (
+				A2E46AD51A7F9D2800D7B97D /* Spotlight Casino */,
+				A2E46AF51A7F9D2800D7B97D /* Spotlight CasinoTests */,
+				A2E46AD41A7F9D2800D7B97D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A2E46AD41A7F9D2800D7B97D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2E46AD31A7F9D2800D7B97D /* Spotlight Casino.app */,
+				A2E46AF21A7F9D2800D7B97D /* Spotlight CasinoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2E46AD51A7F9D2800D7B97D /* Spotlight Casino */ = {
+			isa = PBXGroup;
+			children = (
+				A2E46ADA1A7F9D2800D7B97D /* AppDelegate.h */,
+				A2E46ADB1A7F9D2800D7B97D /* AppDelegate.m */,
+				A2E46ADD1A7F9D2800D7B97D /* RootViewController.h */,
+				A2E46ADE1A7F9D2800D7B97D /* RootViewController.m */,
+				A2E46AE01A7F9D2800D7B97D /* DataViewController.h */,
+				A2E46AE11A7F9D2800D7B97D /* DataViewController.m */,
+				A2E46AE31A7F9D2800D7B97D /* ModelController.h */,
+				A2E46AE41A7F9D2800D7B97D /* ModelController.m */,
+				A2E46AE61A7F9D2800D7B97D /* Main.storyboard */,
+				A2E46AE91A7F9D2800D7B97D /* Images.xcassets */,
+				A2E46AEB1A7F9D2800D7B97D /* LaunchScreen.xib */,
+				A2E46AD61A7F9D2800D7B97D /* Supporting Files */,
+			);
+			path = "Spotlight Casino";
+			sourceTree = "<group>";
+		};
+		A2E46AD61A7F9D2800D7B97D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2E46AD71A7F9D2800D7B97D /* Info.plist */,
+				A2E46AD81A7F9D2800D7B97D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2E46AF51A7F9D2800D7B97D /* Spotlight CasinoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2E46AF81A7F9D2800D7B97D /* Spotlight_CasinoTests.m */,
+				A2E46AF61A7F9D2800D7B97D /* Supporting Files */,
+			);
+			path = "Spotlight CasinoTests";
+			sourceTree = "<group>";
+		};
+		A2E46AF61A7F9D2800D7B97D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2E46AF71A7F9D2800D7B97D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A2E46AD21A7F9D2800D7B97D /* Spotlight Casino */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2E46AFC1A7F9D2800D7B97D /* Build configuration list for PBXNativeTarget "Spotlight Casino" */;
+			buildPhases = (
+				A2E46ACF1A7F9D2800D7B97D /* Sources */,
+				A2E46AD01A7F9D2800D7B97D /* Frameworks */,
+				A2E46AD11A7F9D2800D7B97D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Spotlight Casino";
+			productName = "Spotlight Casino";
+			productReference = A2E46AD31A7F9D2800D7B97D /* Spotlight Casino.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A2E46AF11A7F9D2800D7B97D /* Spotlight CasinoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2E46AFF1A7F9D2800D7B97D /* Build configuration list for PBXNativeTarget "Spotlight CasinoTests" */;
+			buildPhases = (
+				A2E46AEE1A7F9D2800D7B97D /* Sources */,
+				A2E46AEF1A7F9D2800D7B97D /* Frameworks */,
+				A2E46AF01A7F9D2800D7B97D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2E46AF41A7F9D2800D7B97D /* PBXTargetDependency */,
+			);
+			name = "Spotlight CasinoTests";
+			productName = "Spotlight CasinoTests";
+			productReference = A2E46AF21A7F9D2800D7B97D /* Spotlight CasinoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A2E46ACB1A7F9D2800D7B97D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Samson Ng";
+				TargetAttributes = {
+					A2E46AD21A7F9D2800D7B97D = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					A2E46AF11A7F9D2800D7B97D = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = A2E46AD21A7F9D2800D7B97D;
+					};
+				};
+			};
+			buildConfigurationList = A2E46ACE1A7F9D2800D7B97D /* Build configuration list for PBXProject "Spotlight Casino" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A2E46ACA1A7F9D2800D7B97D;
+			productRefGroup = A2E46AD41A7F9D2800D7B97D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2E46AD21A7F9D2800D7B97D /* Spotlight Casino */,
+				A2E46AF11A7F9D2800D7B97D /* Spotlight CasinoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A2E46AD11A7F9D2800D7B97D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2E46AE81A7F9D2800D7B97D /* Main.storyboard in Resources */,
+				A2E46AED1A7F9D2800D7B97D /* LaunchScreen.xib in Resources */,
+				A2E46AEA1A7F9D2800D7B97D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2E46AF01A7F9D2800D7B97D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A2E46ACF1A7F9D2800D7B97D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2E46AE21A7F9D2800D7B97D /* DataViewController.m in Sources */,
+				A2E46ADC1A7F9D2800D7B97D /* AppDelegate.m in Sources */,
+				A2E46AE51A7F9D2800D7B97D /* ModelController.m in Sources */,
+				A2E46AD91A7F9D2800D7B97D /* main.m in Sources */,
+				A2E46ADF1A7F9D2800D7B97D /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2E46AEE1A7F9D2800D7B97D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2E46AF91A7F9D2800D7B97D /* Spotlight_CasinoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A2E46AF41A7F9D2800D7B97D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2E46AD21A7F9D2800D7B97D /* Spotlight Casino */;
+			targetProxy = A2E46AF31A7F9D2800D7B97D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A2E46AE61A7F9D2800D7B97D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2E46AE71A7F9D2800D7B97D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A2E46AEB1A7F9D2800D7B97D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2E46AEC1A7F9D2800D7B97D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A2E46AFA1A7F9D2800D7B97D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A2E46AFB1A7F9D2800D7B97D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A2E46AFD1A7F9D2800D7B97D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Spotlight Casino/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A2E46AFE1A7F9D2800D7B97D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Spotlight Casino/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A2E46B001A7F9D2800D7B97D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Spotlight CasinoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spotlight Casino.app/Spotlight Casino";
+			};
+			name = Debug;
+		};
+		A2E46B011A7F9D2800D7B97D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Spotlight CasinoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spotlight Casino.app/Spotlight Casino";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A2E46ACE1A7F9D2800D7B97D /* Build configuration list for PBXProject "Spotlight Casino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2E46AFA1A7F9D2800D7B97D /* Debug */,
+				A2E46AFB1A7F9D2800D7B97D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2E46AFC1A7F9D2800D7B97D /* Build configuration list for PBXNativeTarget "Spotlight Casino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2E46AFD1A7F9D2800D7B97D /* Debug */,
+				A2E46AFE1A7F9D2800D7B97D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A2E46AFF1A7F9D2800D7B97D /* Build configuration list for PBXNativeTarget "Spotlight CasinoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2E46B001A7F9D2800D7B97D /* Debug */,
+				A2E46B011A7F9D2800D7B97D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A2E46ACB1A7F9D2800D7B97D /* Project object */;
+}

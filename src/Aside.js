@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { ProjectContext } from "./App";
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { ProjectContext } from './App';
 
 // This is the component for each list item in the nav bar
 function AsideNavItem(props) {
-  const { name, slug, color } = props;
-  const [hoverColor, setHoverColor] = useState("black");
+  const { name, slug, color, external } = props;
+  const [hoverColor, setHoverColor] = useState('black');
 
   // On hover, the text changed to the colour specify in data sheet.
   const hoverStyle = {
@@ -15,10 +15,10 @@ function AsideNavItem(props) {
   return (
     <li>
       <Link
-        to={"/" + slug}
+        to={'/' + slug}
         style={hoverStyle}
         onMouseOver={() => setHoverColor(color)}
-        onMouseOut={() => setHoverColor("black")}
+        onMouseOut={() => setHoverColor('black')}
       >
         {name}
       </Link>
@@ -28,11 +28,26 @@ function AsideNavItem(props) {
 
 export default function Aside() {
   // Recieves project data, the sorting function and reset funtion from main App component
-  const { originalProjectData, sortProjects, resetProjects } =
-    useContext(ProjectContext);
+  const {
+    webProjects,
+    bannerProjects,
+    billboardProjects,
+    showWebSection,
+    showBannerSection,
+    showBillboardSection,
+    resetProjects,
+  } = useContext(ProjectContext);
 
   //Turning project data into a list of AsideNavItem components
-  const AsideNavList = originalProjectData.map((project, index) => (
+  const webProjectList = webProjects.map((project, index) => (
+    <AsideNavItem key={index} {...project} />
+  ));
+
+  const bannerProjectList = bannerProjects.map((project, index) => (
+    <AsideNavItem key={index} {...project} />
+  ));
+
+  const billboardProjectList = billboardProjects.map((project, index) => (
     <AsideNavItem key={index} {...project} />
   ));
 
@@ -49,51 +64,29 @@ export default function Aside() {
 
       <nav>
         {/*About me page*/}
-        <Link className="about-me" to="/about_me">
+        <Link id="about-me" to="/about_me">
           About me
         </Link>
 
         {/*Project list*/}
-        <ul className="project-ul">{AsideNavList}</ul>
+        <Link className="nav-section-header" to="/" onClick={showWebSection}>
+          Web applications
+        </Link>
+        <ul className="project-ul">{webProjectList}</ul>
 
-        {/*Filter list*/}
-        <ul className="hashtag-ul">
-          <li>
-            <Link to="/" onClick={() => sortProjects("Display Ad")}>
-              #Display ads
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={() => sortProjects("Digital out of home")}>
-              #Digital out of home
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={() => sortProjects("Mini Game")}>
-              #Mini games
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={() => sortProjects("Three.js")}>
-              #Three.js
-            </Link>
-          </li>
-          {/*<li>
-            <Link to="/" onClick={() => sortProjects("Pencil Drawing")}>
-              #Pencil drawings
-            </Link>
-          </li>*/}
-          <li>
-            <Link to="/" onClick={() => sortProjects("Installation Art")}>
-              #Installation art
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={resetProjects}>
-              #Everything
-            </Link>
-          </li>
-        </ul>
+        <Link className="nav-section-header" to="/" onClick={showBannerSection}>
+          JavaScript banners
+        </Link>
+        <ul className="project-ul">{bannerProjectList}</ul>
+
+        <Link
+          className="nav-section-header"
+          to="/"
+          onClick={showBillboardSection}
+        >
+          Digital billboards
+        </Link>
+        <ul className="project-ul">{billboardProjectList}</ul>
 
         {/*CV button*/}
         <div className="cv">

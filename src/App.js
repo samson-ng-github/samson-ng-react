@@ -1,64 +1,78 @@
-import React, { useEffect, createContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./css/App.css";
-import "./css/Templates.css";
+import { useState, createContext } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './css/App.css';
 
 //The two main parts of the website
-import Aside from "./Aside";
-import Main from "./Main";
+import Aside from './Aside';
+import ThumbnailPage from './thumbnail-page/ThumbnailPage';
 
 //Json that stores data for all projects
-import originalProjectData from "./data/data";
+import { webProjects, bannerProjects, billboardProjects } from './data/data';
 
 //Template pages for each project
-import AboutMeTemplate from "./pages/AboutMeTemplate";
-import EightMpuTemplate from "./pages/EightMpuTemplate";
-import FacebookTemplate from "./pages/FacebookTemplate";
-import FifaTemplate from "./pages/FifaTemplate";
-import FitbitTemplate from "./pages/FitbitTemplate";
-import FourMpuTemplate from "./pages/FourMpuTemplate";
-import FullPageTemplate from "./pages/FullPageTemplate";
-import OracleTemplate from "./pages/OracleTemplate";
-import PencilDrawingTemplate from "./pages/PencilDrawingTemplate";
-import PhiladelphiaTemplate from "./pages/PhiladelphiaTemplate";
-import Meta1DoohTemplate from "./pages/Meta1DoohTemplate";
-import Meta2DoohTemplate from "./pages/Meta2DoohTemplate";
-import MetaEuDoohTemplate from "./pages/MetaEuDoohTemplate";
-import SkyTemplate from "./pages/SkyTemplate";
-import ThreeMpuTemplate from "./pages/ThreeMpuTemplate";
-import VideoTemplate from "./pages/VideoTemplate";
+import AboutMe from './pages/AboutMe';
+import Meta2 from './pages/Meta2';
+import Facebook from './pages/Facebook';
+import Fifa from './pages/Fifa';
+import FitbitTemplate from './templates/FitbitTemplate';
+import Mpu4xTemplate from './templates/Mpu4xTemplate';
+import BroadsheetTemplate from './templates/BroadsheetTemplate';
+import Oracle from './pages/Oracle';
+import Philadelphia from './pages/Philadelphia';
+import Dooh6xTemplate from './templates/Dooh6xTemplate';
+import Sky from './pages/Sky';
+import Meta1 from './pages/Meta1';
+import LaunchTemplate from './templates/LaunchTemplate';
+import NCNews from './templates/NCNews';
+import PhantomFootball from './pages/PhantomFootball';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
 
 function App() {
-  // projectData stores the randomised or filtered project list on the main page.
-  const [projectData, setProjectData] = React.useState([]);
+  // projectData stores current project list on the main page.
+  const [isWebSectionOn, setWebSection] = useState(true);
+  const [isBannerSectionOn, setBannerSection] = useState(true);
+  const [isBillboardSectionOn, setBillboardSectionOn] = useState(true);
 
-  useEffect(() => {
-    // On load, randomise originalProjectData's project order.
-    resetProjects();
-  }, []);
-
-  // This function is passed to nav bar through createContext
-  // When you click the website logo, the project list resets
   const resetProjects = () => {
-    setProjectData([...originalProjectData].sort(() => Math.random() - 0.5));
+    setWebSection(true);
+    setBannerSection(true);
+    setBillboardSectionOn(true);
   };
 
-  // This function is aslo passed to nav bar through createContext
-  // When you click the hastags, it filters out the relevant projects
-  const sortProjects = (type) => {
-    resetProjects();
-    setProjectData((projectData) => {
-      return projectData.filter((project) => project.type === type);
-    });
+  const showWebSection = () => {
+    setWebSection(true);
+    setBannerSection(false);
+    setBillboardSectionOn(false);
+  };
+
+  const showBannerSection = () => {
+    setWebSection(false);
+    setBannerSection(true);
+    setBillboardSectionOn(false);
+  };
+
+  const showBillboardSection = () => {
+    setWebSection(false);
+    setBannerSection(false);
+    setBillboardSectionOn(true);
   };
 
   // This is to find the project data by project name
   // The data is passed into the relavent page template to create the page in the router.
-  const findData = (name) => {
-    const data = originalProjectData.find((project) => project.name === name);
+  const findWebData = (name) => {
+    const data = webProjects.find((project) => project.name === name);
+    return data;
+  };
+
+  const findBannerData = (name) => {
+    const data = bannerProjects.find((project) => project.name === name);
+    return data;
+  };
+
+  const findBillboardData = (name) => {
+    const data = billboardProjects.find((project) => project.name === name);
     return data;
   };
 
@@ -67,9 +81,18 @@ function App() {
       {/*Context Provider*/}
       <ProjectContext.Provider
         value={{
-          originalProjectData,
-          projectData,
-          sortProjects,
+          webProjects,
+          bannerProjects,
+          billboardProjects,
+          isWebSectionOn,
+          isBannerSectionOn,
+          isBillboardSectionOn,
+          setWebSection,
+          setBannerSection,
+          setBillboardSectionOn,
+          showWebSection,
+          showBannerSection,
+          showBillboardSection,
           resetProjects,
         }}
       >
@@ -78,131 +101,138 @@ function App() {
           <Aside />
 
           <Routes>
-            {/*Main project list*/}
-            <Route path="/*" element={<Main />} />
+            {/*Thumbnail page*/}
+            <Route path="/*" element={<ThumbnailPage />} />
 
             {/*About me page*/}
-            <Route path="/about_me" element={<AboutMeTemplate />} />
+            <Route path="/about_me" element={<AboutMe />} />
 
             {/*Individual project pages*/}
+
             <Route
-              path="/meta1"
-              element={<Meta1DoohTemplate props={findData("Metaverse 1")} />}
-            />
-            <Route
-              path="/meta2"
-              element={<Meta2DoohTemplate props={findData("Metaverse 2")} />}
-            />
-            <Route
-              path="/meta3"
-              element={<ThreeMpuTemplate props={findData("Metaverse 3")} />}
-            />
-            <Route
-              path="/meta4"
-              element={<EightMpuTemplate props={findData("Metaverse 4")} />}
-            />
-            <Route
-              path="/meta_eu"
-              element={<MetaEuDoohTemplate props={findData("Meta: Europe")} />}
-            />
-            <Route
-              path="/ig_ywb"
-              element={<FourMpuTemplate props={findData("Instagram")} />}
-            />
-            <Route
-              path="/fitbit_seasonal"
-              element={<FitbitTemplate props={findData("Fitbit: Seasonal")} />}
-            />
-            <Route
-              path="/fitbit_sense"
-              element={<FitbitTemplate props={findData("Fitbit: Sense")} />}
-            />
-            <Route
-              path="/fitbit_backtoschool"
+              path="/van_gogh_printshop"
               element={
-                <FitbitTemplate props={findData("Fitbit: Back to School")} />
+                <LaunchTemplate props={findWebData('Van Gogh Printshop')} />
               }
             />
             <Route
-              path="/oracle"
-              element={<OracleTemplate props={findData("Oracle")} />}
+              path="/nc_news"
+              element={<NCNews props={findWebData('NC News')} />}
             />
             <Route
-              path="/facebook"
-              element={<FacebookTemplate props={findData("Facebook")} />}
-            />
-            <Route
-              path="/fifa"
-              element={<FifaTemplate props={findData("Fifa: Champion Rise")} />}
-            />
-            <Route
-              path="/ee"
-              element={<FourMpuTemplate props={findData("EE")} />}
-            />
-            <Route
-              path="/btb"
-              element={<FourMpuTemplate props={findData("BT Business")} />}
-            />
-            <Route
-              path="/sky"
-              element={<SkyTemplate props={findData("Sky Box Sets")} />}
-            />
-            <Route
-              path="/british_gas"
-              element={<FullPageTemplate props={findData("British Gas")} />}
-            />
-            <Route
-              path="/tusker"
-              element={<FullPageTemplate props={findData("Tusker")} />}
-            />
-            <Route
-              path="/organix"
-              element={<FullPageTemplate props={findData("Organix")} />}
-            />
-            <Route
-              path="/phantom_football"
+              path="/credit_card_validator"
               element={
-                <FullPageTemplate props={findData("Phantom Football")} />
-              }
-            />
-            <Route
-              path="/spotlight_casino"
-              element={
-                <FullPageTemplate props={findData("Spotlight Casino")} />
-              }
-            />
-            <Route
-              path="/snowfall"
-              element={<FullPageTemplate props={findData("Snowfall")} />}
-            />
-            <Route
-              path="/adrian"
-              element={
-                <PencilDrawingTemplate
-                  props={findData("Adrian the Bodybuilder")}
+                <BroadsheetTemplate
+                  props={findWebData('Credit Card Validator')}
                 />
               }
             />
             <Route
-              path="/ronan"
+              path="/meta3"
               element={
-                <PencilDrawingTemplate props={findData("Ronan the Groom")} />
+                <Dooh6xTemplate props={findBillboardData('Metaverse 3')} />
               }
             />
             <Route
-              path="/a_touch_of_me"
-              element={<VideoTemplate props={findData("A Touch of Me")} />}
-            />
-            <Route
-              path="/heartbeat_in_a_bottle"
+              path="/meta4"
               element={
-                <VideoTemplate props={findData("Heartbeat in a Bottle")} />
+                <Dooh6xTemplate props={findBillboardData('Metaverse 4')} />
               }
             />
             <Route
-              path="/philadelphia"
+              path="/meta1"
+              element={<Meta1 props={findBannerData('Metaverse 1')} />}
+            />
+            <Route
+              path="/meta2"
+              element={<Meta2 props={findBannerData('Metaverse 2')} />}
+            />
+            <Route
+              path="/meta_eu"
               element={
-                <PhiladelphiaTemplate props={findData("Philadelphia")} />
+                <Dooh6xTemplate props={findBillboardData('Meta: Europe')} />
+              }
+            />
+            <Route
+              path="/ig_ywb"
+              element={<Mpu4xTemplate props={findBannerData('Instagram')} />}
+            />
+            <Route
+              path="/fitbit_seasonal"
+              element={
+                <FitbitTemplate props={findBannerData('Fitbit: Seasonal')} />
+              }
+            />
+            <Route
+              path="/fitbit_sense"
+              element={
+                <FitbitTemplate props={findBannerData('Fitbit: Sense')} />
+              }
+            />
+            <Route
+              path="/fitbit_backtoschool"
+              element={
+                <FitbitTemplate
+                  props={findBannerData('Fitbit: Back to School')}
+                />
+              }
+            />
+            <Route
+              path="/oracle"
+              element={<Oracle props={findBannerData('Oracle')} />}
+            />
+            <Route
+              path="/facebook"
+              element={<Facebook props={findBannerData('Facebook')} />}
+            />
+            <Route
+              path="/fifa"
+              element={<Fifa props={findBannerData('Fifa: Champion Rise')} />}
+            />
+            <Route
+              path="/ee"
+              element={<Mpu4xTemplate props={findBannerData('EE')} />}
+            />
+            <Route
+              path="/btb"
+              element={<Mpu4xTemplate props={findBannerData('BT Business')} />}
+            />
+            <Route
+              path="/sky"
+              element={<Sky props={findBannerData('Sky Box Sets')} />}
+            />
+            <Route
+              path="/british_gas"
+              element={
+                <BroadsheetTemplate props={findBannerData('British Gas')} />
+              }
+            />
+            <Route
+              path="/tusker"
+              element={<BroadsheetTemplate props={findWebData('Tusker')} />}
+            />
+            <Route
+              path="/organix"
+              element={<BroadsheetTemplate props={findWebData('Organix')} />}
+            />
+            <Route
+              path="/phantom_football"
+              element={
+                <PhantomFootball props={findWebData('Phantom Football')} />
+              }
+            />
+            <Route
+              path="/spotlight_casino_3d"
+              element={
+                <BroadsheetTemplate
+                  props={findWebData('Spotlight Casino 3D')}
+                />
+              }
+            />
+            <Route
+              path="/snowfall_3d"
+              element={
+                <BroadsheetTemplate props={findWebData('Snowfall 3D')} />
               }
             />
           </Routes>
