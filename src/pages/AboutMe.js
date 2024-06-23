@@ -6,21 +6,21 @@ export default function AboutMe() {
         <div className="mpu-text-block">
           <p>
             I am a creative programmer from an artistic background. After 9
-            professional years in making JavaScript banners, I am looking for my
-            next career move as a front or backend developer where I can design
-            and build more complex and sophisticated web applications. In
-            addition to my proficiency in HTML, CSS, and JavaScript, I have been
-            upskilling on various front and backend technologies. With a degree
-            in Graphic Design, I had experience working as a graphic designer,
-            specialising in layout and user interface design. My strengths in
-            mathematics and problem-solving, honed both academically and
-            professionally, enable me to tackle programming challenges
-            effectively. With a diverse skill set and a passion for creating
-            captivating digital experiences, I am eager to bring my expertise to
-            your business.
+            professional years in JavaScript development in the advertising
+            field, I am looking for my next career move as a front or full-stack
+            developer where I can design and build complex and sophisticated web
+            applications. In addition to my proficiency in HTML, CSS, and
+            JavaScript, I am skillful in various front and backend technologies
+            listed below. With a degree in Graphic Design, I was a graphic
+            designer before becoming a programmer, specialising in layout and
+            user interface design. My strengths in mathematics and
+            problem-solving, honed both academically and professionally, enable
+            me to tackle programming challenges effectively. With a diverse
+            skill set and a passion for creating captivating digital
+            experiences, I am eager to bring my expertise to your business.
           </p>
           <p>
-            Outside of work I enjoy travelling. I have been to 510 cities in 46
+            Outside of work I enjoy travelling. I have been to 653 cities in 50
             countries to date. Fine art is my other passion. I visit art museums
             every week and am myself a draughtsman. I am also a gym addict who
             visits four to five times every week. Of course all these happened
