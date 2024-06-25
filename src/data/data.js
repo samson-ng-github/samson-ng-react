@@ -16,13 +16,13 @@ const billboardColor = '#0f3b00';
 
 const webProjects = [
   {
-    type: 'React (Frontend)',
+    type: 'React',
     name: 'Van Gogh Printshop',
     slug: 'van_gogh_printshop',
     color: webColor,
   },
   {
-    type: 'PSQL + Express',
+    type: 'React, Express, PSQL',
     name: 'NC News',
     slug: 'nc_news',
     color: webColor,
@@ -44,6 +44,22 @@ const webProjects = [
     src: './iframes/spotlight_casino_3d',
     size: { width: 1000, height: 800 },
     text: "This Three.js project is part of the website for Spotlight Casino. It tells the story of Keith Taft, a professional con man and the four wearable gadgets he invented to cheat in casinos in the 1980's. Each gadget rotates in 3D and can be spun by dragging the mouse. Click on the hotspots to know more about each gadgets.",
+  },
+  {
+    type: 'Three.js',
+    name: 'Snowfall 3D',
+    slug: 'snowfall_3d',
+    color: webColor,
+    src: './iframes/snowfall_3d',
+    size: { width: 1000, height: 800 },
+    text: 'This is a particle system generated using Three.js. The 5000 particles of snow fall freely under gravity. To make it look more natural, I have had the gravity randomised by Perlin noise, a combination of eight wave curves, each of which has double the frequency and half the amplitude than the previous curve.',
+  },
+  {
+    type: 'UI Programming',
+    name: 'Evil Genius',
+    slug: 'evil-genius',
+    color: webColor,
+    src: './iframes/evil-genius',
   },
   {
     type: 'JavaScript mini-game',
@@ -71,15 +87,6 @@ const webProjects = [
     src: './iframes/phantom_football',
     size: { width: 298, height: 248 },
     text: 'A new take on the classic Pong game. Control the goal keeper with the left and right keys.',
-  },
-  {
-    type: 'Three.js',
-    name: 'Snowfall 3D',
-    slug: 'snowfall_3d',
-    color: webColor,
-    src: './iframes/snowfall_3d',
-    size: { width: 1000, height: 800 },
-    text: 'This is a particle system generated using Three.js. The 5000 particles of snow fall freely under gravity. To make it look more natural, I have had the gravity randomised by Perlin noise, a combination of eight wave curves, each of which has double the frequency and half the amplitude than the previous curve.',
   },
 ];
 

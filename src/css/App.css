@@ -447,6 +447,18 @@ iframe {
   border: 1px solid black;
 }
 
+.screenshot {
+  width: 616px;
+  margin-right: 1rem;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.screenshot img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
   .aside-logo {
     margin: 40px 65px;
@@ -504,5 +516,9 @@ iframe {
   #sky-728x90,
   #sky-160x600 {
     display: none;
+  }
+
+  .screenshot {
+    width: 300px;
   }
 }

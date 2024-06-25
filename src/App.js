@@ -25,6 +25,7 @@ import Meta1 from './pages/Meta1';
 import LaunchTemplate from './templates/LaunchTemplate';
 import NCNews from './templates/NCNews';
 import PhantomFootball from './pages/PhantomFootball';
+import EvilGenius from './pages/EvilGenius';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -127,6 +128,7 @@ function App() {
                 />
               }
             />
+            <Route path="/evil-genius" element={<EvilGenius />} />
             <Route
               path="/meta3"
               element={
