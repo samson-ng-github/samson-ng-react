@@ -43,7 +43,7 @@ const webProjects = [
     color: webColor,
     src: './iframes/spotlight_casino_3d',
     size: { width: 1000, height: 800 },
-    text: "This Three.js project is part of the website for Spotlight Casino. It tells the story of Keith Taft, a professional con man and the four wearable gadgets he invented to cheat in casinos in the 1980's. Each gadget rotates in 3D and can be spun by dragging the mouse. Click on the hotspots to know more about each gadgets.",
+    text: "This Three.js project is commissioned by Spotlight Casino as part of their website which tells the story of Keith Taft, a professional con artist and the four wearable gadgets he invented to cheat in casinos in the 1980's. Each gadget rotates in 3D and can be spun by dragging the mouse. Click on the hotspots to know more about each gadgets.",
   },
   {
     type: 'Three.js',
