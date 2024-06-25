@@ -108,6 +108,10 @@ button {
   margin-bottom: 1rem;
 }
 
+.page ul li {
+  position: relative;
+}
+
 .page ul .Rollover {
   position: absolute;
   width: 300px;
@@ -120,6 +124,7 @@ button {
   flex-direction: column;
   line-height: 1.2;
   justify-content: center;
+  top: 0;
 }
 
 .page ul .Rollover:hover {
