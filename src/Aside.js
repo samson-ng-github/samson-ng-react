@@ -70,7 +70,7 @@ export default function Aside() {
 
         {/*Project list*/}
         <Link className="nav-section-header" to="/" onClick={showWebSection}>
-          Web applications
+          Web development
         </Link>
         <ul className="project-ul">{webProjectList}</ul>
 

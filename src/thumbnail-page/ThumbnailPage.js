@@ -16,7 +16,7 @@ export default function ThumbnailPage() {
       <div className="main">
         {isWebSectionOn ? (
           <Section
-            header="Web applications"
+            header="Web development"
             color="#131a3f"
             projects={webProjects}
           />
