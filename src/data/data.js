@@ -16,6 +16,12 @@ const billboardColor = '#0f3b00';
 
 const webProjects = [
   {
+    type: 'React Native, React Three Fiber',
+    name: 'Ready Salted',
+    slug: 'ready_salted',
+    color: webColor,
+  },
+  {
     type: 'React',
     name: 'Van Gogh Printshop',
     slug: 'van_gogh_printshop',

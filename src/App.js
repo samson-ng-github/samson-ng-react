@@ -26,6 +26,7 @@ import LaunchTemplate from './templates/LaunchTemplate';
 import NCNews from './templates/NCNews';
 import PhantomFootball from './pages/PhantomFootball';
 import EvilGenius from './pages/EvilGenius';
+import ReadySalted from './pages/ReadySalted';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -110,6 +111,7 @@ function App() {
 
             {/*Individual project pages*/}
 
+            <Route path="/ready_salted" element={<ReadySalted />} />
             <Route
               path="/van_gogh_printshop"
               element={
