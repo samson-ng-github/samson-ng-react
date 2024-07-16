@@ -1,4 +1,4 @@
-export default function LaucherTemplate() {
+export default function NCNews() {
   return (
     <div className="page">
       <header>NC News</header>

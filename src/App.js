@@ -22,8 +22,8 @@ import Philadelphia from './pages/Philadelphia';
 import Dooh6xTemplate from './templates/Dooh6xTemplate';
 import Sky from './pages/Sky';
 import Meta1 from './pages/Meta1';
-import LaunchTemplate from './templates/LaunchTemplate';
-import NCNews from './templates/NCNews';
+import VanGoghPrintshop from './pages/VanGoghPrintshop';
+import NCNews from './pages/NCNews';
 import PhantomFootball from './pages/PhantomFootball';
 import EvilGenius from './pages/EvilGenius';
 import ReadySalted from './pages/ReadySalted';
@@ -115,7 +115,7 @@ function App() {
             <Route
               path="/van_gogh_printshop"
               element={
-                <LaunchTemplate props={findWebData('Van Gogh Printshop')} />
+                <VanGoghPrintshop props={findWebData('Van Gogh Printshop')} />
               }
             />
             <Route

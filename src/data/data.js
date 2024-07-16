@@ -22,7 +22,7 @@ const webProjects = [
     color: webColor,
   },
   {
-    type: 'React, Redux Toolkit ',
+    type: 'React, Redux Toolkit',
     name: 'Van Gogh Printshop',
     slug: 'van_gogh_printshop',
     color: webColor,
@@ -69,7 +69,7 @@ const webProjects = [
   },
   {
     type: 'JavaScript, CreateJS',
-    name: 'Tusker mini-game',
+    name: 'Tusker mini game',
     slug: 'tusker',
     color: webColor,
     src: './iframes/tusker',
@@ -78,7 +78,7 @@ const webProjects = [
   },
   {
     type: 'JavaScript, CreateJS',
-    name: 'Organix mini-game',
+    name: 'Organix mini game',
     slug: 'organix',
     color: webColor,
     src: './iframes/organix',
@@ -86,8 +86,8 @@ const webProjects = [
     text: 'Control the bag to catch the nutritious peas and corns. Avoid the evil sugar.',
   },
   {
-    type: 'JavaScript mini-game',
-    name: 'Phantom Football',
+    type: 'JavaScript',
+    name: 'Phantom Football mini game',
     slug: 'phantom_football',
     color: webColor,
     src: './iframes/phantom_football',

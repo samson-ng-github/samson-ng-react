@@ -3,7 +3,7 @@ export default function ReadySalted() {
     <div className="page">
       <header>Ready Salted</header>
       <div className="main">
-        <div className="mpu-block">
+        <div className="mpu-block" style={{ height: 650 }}>
           <iframe
             className="iframe-border"
             src="https://player.vimeo.com/video/982832966?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"

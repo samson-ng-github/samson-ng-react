@@ -1,4 +1,4 @@
-export default function LaucherTemplate() {
+export default function VanGoghPrintshop() {
   return (
     <div className="page">
       <header>Van Gogh Printshop</header>
@@ -43,10 +43,15 @@ export default function LaucherTemplate() {
           </a>
         </div>
         <div className="mpu-block">
-          <img
-            src="./assets/thumbnails/van_gogh_printshop.jpg"
-            alt="Samson Ng"
-          />
+          <a
+            href="https://apps.samson-ng.com/van-gogh-printshop/"
+            target="_blank"
+          >
+            <img
+              src="./assets/thumbnails/van_gogh_printshop.jpg"
+              alt="Samson Ng"
+            />
+          </a>
         </div>
       </div>
     </div>
