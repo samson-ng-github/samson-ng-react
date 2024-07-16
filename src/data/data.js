@@ -16,13 +16,13 @@ const billboardColor = '#0f3b00';
 
 const webProjects = [
   {
-    type: 'React Native, React Three Fiber',
-    name: 'Ready Salted',
+    type: 'React Native, R3F, Expo',
+    name: 'Ready Salted 3D Game',
     slug: 'ready_salted',
     color: webColor,
   },
   {
-    type: 'React',
+    type: 'React, Redux Toolkit ',
     name: 'Van Gogh Printshop',
     slug: 'van_gogh_printshop',
     color: webColor,
@@ -68,8 +68,8 @@ const webProjects = [
     src: './iframes/evil-genius',
   },
   {
-    type: 'JavaScript mini-game',
-    name: 'Tusker',
+    type: 'JavaScript, CreateJS',
+    name: 'Tusker mini-game',
     slug: 'tusker',
     color: webColor,
     src: './iframes/tusker',
@@ -77,8 +77,8 @@ const webProjects = [
     text: 'This is game commissioned by Tusker, a car benefit company. 50 clues lie hidden in the picture, each suggests a car brand. Click and enter the answer to win.',
   },
   {
-    type: 'JavaScript mini-game',
-    name: 'Organix',
+    type: 'JavaScript, CreateJS',
+    name: 'Organix mini-game',
     slug: 'organix',
     color: webColor,
     src: './iframes/organix',
