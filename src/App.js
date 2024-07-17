@@ -213,16 +213,22 @@ function App() {
             />
             <Route
               path="/tusker"
-              element={<BroadsheetTemplate props={findWebData('Tusker')} />}
+              element={
+                <BroadsheetTemplate props={findWebData('Tusker mini game')} />
+              }
             />
             <Route
               path="/organix"
-              element={<BroadsheetTemplate props={findWebData('Organix')} />}
+              element={
+                <BroadsheetTemplate props={findWebData('Organix mini game')} />
+              }
             />
             <Route
               path="/phantom_football"
               element={
-                <PhantomFootball props={findWebData('Phantom Football')} />
+                <PhantomFootball
+                  props={findWebData('Phantom Football mini game')}
+                />
               }
             />
             <Route
