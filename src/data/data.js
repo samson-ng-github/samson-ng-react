@@ -63,7 +63,7 @@ const webProjects = [
   {
     type: 'UI Programming',
     name: 'Evil Genius',
-    slug: 'evil-genius',
+    slug: 'evil_genius',
     color: webColor,
     src: './iframes/evil-genius',
   },
@@ -93,6 +93,12 @@ const webProjects = [
     src: './iframes/phantom_football',
     size: { width: 298, height: 248 },
     text: 'A new take on the classic Pong game. Control the goal keeper with the left and right keys.',
+  },
+  {
+    type: 'C++',
+    name: 'Procedural City',
+    slug: 'procedural_city',
+    color: webColor,
   },
 ];
 

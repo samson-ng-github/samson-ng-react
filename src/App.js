@@ -27,6 +27,7 @@ import NCNews from './pages/NCNews';
 import PhantomFootball from './pages/PhantomFootball';
 import EvilGenius from './pages/EvilGenius';
 import ReadySalted from './pages/ReadySalted';
+import ProceduralCity from './pages/ProceduralCity';
 
 //Context for passing data between components
 export const ProjectContext = createContext();
@@ -130,7 +131,8 @@ function App() {
                 />
               }
             />
-            <Route path="/evil-genius" element={<EvilGenius />} />
+            <Route path="/evil_genius" element={<EvilGenius />} />
+            <Route path="/procedural_city" element={<ProceduralCity />} />
             <Route
               path="/meta3"
               element={
